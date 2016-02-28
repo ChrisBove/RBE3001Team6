@@ -52,10 +52,13 @@ enum FSMStates {
  * distance in mm between IR sensors
  * @def Distance_IR_To_Arm
  * distance in mm between last IR sensor and Arm
+ * @def X_IR_Offset
+ * additional distance from IR sensors to Arm frame origin
  */
-#define Distance_Threshold 110
-#define Distance_Between_IR 100
-#define Distance_IR_To_Arm 250
+#define Distance_Threshold 200
+#define Distance_Between_IR 64
+#define Distance_IR_To_Arm 114
+#define X_IR_Offset 51
 
 /**
  * @def Time_To_Move
