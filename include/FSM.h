@@ -41,9 +41,9 @@ enum FSMStates {
  * x coordinate arm will wait at once block is detected
  *
  */
-#define Waiting_Height 110
-#define Center_X 125
-#define Grab_Height 90
+#define Waiting_Height 150
+#define Center_X 196
+#define Grab_Height 120
 
 /**
  * @def Distance_Threshold
