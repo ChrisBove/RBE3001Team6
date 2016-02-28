@@ -20,6 +20,9 @@ void finiteStateMachine(){
 	static float blockStartTime = 0;
 	static int blockX = 0;
 	static float grabTime = 0;
+	//for case CalcBlockX
+	static int IRSampleCount = 0;
+	static int IRDistanceSum = 0;
 
 	static char state = Initialize;
 	switch(state){
@@ -41,20 +44,17 @@ void finiteStateMachine(){
 		break;
 
 	case CalcBlockX:
-		static int count = 0;
-		static int distanceSum = 0;
-
 		// sample the 1st sensor a few times
-		if(count < 3){
-			distanceSum += IRDist(0); // add values
-			count++;
+		if(IRSampleCount < 3){
+			IRDistanceSum += IRDist(0); // add values
+			IRSampleCount++;
 		}
 		else{
-			blockX = distanceSum/count;
+			blockX = IRDistanceSum/IRSampleCount;
 			//todo setPosition(blockX+CenterX,Waiting_Height);
 			state = CalcBlockSpeed;
-			distanceSum = 0;
-			count = 0;
+			IRDistanceSum = 0;
+			IRSampleCount = 0;
 		}
 		break;
 	case CalcBlockSpeed:
