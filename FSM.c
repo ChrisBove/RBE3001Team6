@@ -29,7 +29,7 @@ void finiteStateMachine(){
 	case Initialize:
 		startConveyor();
 		openGripper();
-		//TODO setPosition(CenterX,Waiting_Height+100);
+		setPosition(Center_X,Waiting_Height+100);
 		state = WaitForBlock;
 		break;
 
@@ -37,8 +37,8 @@ void finiteStateMachine(){
 		//check if block is sensed (below 110mm)
 		if(IRDist(IR_FRONT_PIN) <= Distance_Threshold){
 			blockStartTime = getTimeSeconds(); //save the current time
-			//TODO setPosition(CenterX,Waiting_Height);
-			setJointAngles(45,80); //start moving the arm to a nominal position
+			setPosition(Center_X,Waiting_Height);
+			//setJointAngles(45,80); //start moving the arm to a nominal position
 			state = CalcBlockX;//move to next state
 		}
 		break;
@@ -51,7 +51,7 @@ void finiteStateMachine(){
 		}
 		else{
 			blockX = IRDistanceSum/IRSampleCount;
-			//todo setPosition(blockX+CenterX,Waiting_Height);
+			setPosition(blockX+Center_X,Waiting_Height);
 			state = CalcBlockSpeed;
 			IRDistanceSum = 0;
 			IRSampleCount = 0;
@@ -72,7 +72,6 @@ void finiteStateMachine(){
 	case ExecuteGrabMotion:
 		// if we are away from grabTime by the time it takes to move, begin!
 		if ((getTimeSeconds() + Time_To_Move) >= grabTime) {
-			//todo setPosition(blockX+CenterX,Grab_Height);
 			state = GrabBlock;
 		}
 		break;
