@@ -31,6 +31,9 @@ enum FSMStates {
 	DropBlock
 };
 
+#define IR_FRONT_PIN 4
+#define IR_BACK_PIN 5
+
 /**
  * @def Waiting_Height
  * height in mm arm will wait above conveyor belt once block is detected

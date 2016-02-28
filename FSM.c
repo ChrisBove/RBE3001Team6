@@ -35,7 +35,7 @@ void finiteStateMachine(){
 
 	case WaitForBlock:
 		//check if block is sensed (below 110mm)
-		if(IRDist(0) <= Distance_Threshold){
+		if(IRDist(IR_FRONT_PIN) <= Distance_Threshold){
 			blockStartTime = getTimeSeconds(); //save the current time
 			//TODO setPosition(CenterX,Waiting_Height);
 			setJointAngles(45,80); //start moving the arm to a nominal position
@@ -46,7 +46,7 @@ void finiteStateMachine(){
 	case CalcBlockX:
 		// sample the 1st sensor a few times
 		if(IRSampleCount < 3){
-			IRDistanceSum += IRDist(0); // add values
+			IRDistanceSum += IRDist(IR_FRONT_PIN); // add values
 			IRSampleCount++;
 		}
 		else{
@@ -59,7 +59,7 @@ void finiteStateMachine(){
 		break;
 	case CalcBlockSpeed:
 		// wait until 2nd sensor is toggled
-		if(IRDist(1)<= Distance_Threshold){
+		if(IRDist(IR_BACK_PIN)<= Distance_Threshold){
 			float deltaT = getTimeSeconds() - blockStartTime;
 			float velocity = (float) Distance_Between_IR/deltaT; //mm/sec
 			grabTime = Distance_IR_To_Arm/velocity + getTimeSeconds(); // time when block goes in front of arm
