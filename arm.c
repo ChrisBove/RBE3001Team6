@@ -216,7 +216,37 @@ int getCurrent(int joint){
 	return milliamps;
 
 }
-
+/**
+ * @brief Function for managing the currents gathered and averaging them when asked
+ * @param  current Current to be added to the stored values
+ * @param  command Command of what to be done with the function, either resetCurrent,addCurrent,retrieveAverageCurrent
+ *
+ * @return current in mA
+ */
+float getAverageCurrent(int command,int current){//takes in a command and a current reading
+	static float totalCurrent = 0;//initialize total current variable
+	static int numberOfCurrents = 0;//initialize numberOfcurrents variable, its the number of readings taken
+	static float averageCurrent = 0;//Initiaize a variable for the average current reading
+	if(command == addCurrent){//adds current given to the total current readings and indexes the number of readings taken
+		totalCurrent += current;
+		numberOfCurrents ++;
+		return numberOfCurrents;
+	}
+	else if(command == resetCurrent){//resets all variables
+		totalCurrent = 0;
+		numberOfCurrents = 0;
+		averageCurrent = 0;
+		return numberOfCurrents;
+	}
+	else if(command == retrieveAverageCurrent){//Averages total current by diving by number of instances added
+		averageCurrent = totalCurrent/numberOfCurrents;
+		return averageCurrent;
+	}
+	else{
+		printf("You don messed up");
+		return -1;
+	}
+}
 /**
  * @brief converts a voltage value to a DAC value
  * @param  volts to convert to DAC -7.2 to 7.2 volts
@@ -497,4 +527,18 @@ BOOL inPosition(int theta1, int theta2){
  */
 float getGs(int axis){
 	return getAccel(axis)*0.0022;
+}
+
+/**
+ * @brief calculates IK values and sets angles
+ * @param x desired x position
+ * @param y desired y position
+ */
+void setPosition(double x, double y){
+	float a1 = 15.24;//arm length 1 is 15.24 cm
+	float a2 = 15.24;//arm length 2 to the center of the gripper is 15.24 cm
+	float theta1 = atan2((y/x))+acos((x*x+y*y+a1*a1-a2*a2)/(2*a1*(sqrt((x*x+y*y)))));//not sure if we are dealing with degrees or radians , needs testing
+	float theta2 = acos(((a1*a1)+(a2*a2)-(x*x+y*y))/(2*a1*a2))-(3.14159/2);//im not sure what acos will retun i terms of radians or degress so it may be to be modified
+	lowerAngle = theta1;
+	upperAngle = theta2;
 }
