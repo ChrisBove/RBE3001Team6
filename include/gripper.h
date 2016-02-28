@@ -12,13 +12,13 @@
 #define INCLUDE_GRIPPER_H_
 
 #define GRIPPER_PIN 1
-#define CONVEYOR_PIN 2
+#define CONVEYOR_PIN 0
 
-#define GRIPPER_CLOSE 235
+#define GRIPPER_CLOSE 175
 #define GRIPPER_OPEN 10
 
-#define CONVEYOR_FORWARD 230
-#define CONVEYOR_STOP 127
+#define CONVEYOR_FORWARD 180
+#define CONVEYOR_STOP 90
 
 /**
  * @brief Closes the gripper
