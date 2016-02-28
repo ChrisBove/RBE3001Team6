@@ -112,15 +112,14 @@ void setupTimer() {
 void serviceArm(){
 	// if servicePID flag has been set (i.e. runs at 100Hz)
 	if(servicePID){
-		controlPositionWithButtons(); // setpoint based on buttons
+		gotoAngles(lowerAngle, upperAngle); // run PID loop called in gotoAngles
+
+		//controlPositionWithButtons(); // setpoint based on buttons
 
 		// print logging data for Lab 3
-		printf("%.2f,%.1f,%ld,%.3f,%.3f,%.3f\n\r", getTimeSeconds(), //time
-				getJointAngle(1),encCount(1), // joint angle, encoder position
-				getGs(0),getGs(1),getGs(2)); // x,y,z accelerometer G's
-
-		// run PID loop called in gotoAngles
-		gotoAngles(lowerAngle, upperAngle);
+//		printf("%.2f,%.1f,%ld,%.3f,%.3f,%.3f\n\r", getTimeSeconds(), //time
+//				getJointAngle(1),encCount(1), // joint angle, encoder position
+//				getGs(0),getGs(1),getGs(2)); // x,y,z accelerometer G's
 
 	}
 

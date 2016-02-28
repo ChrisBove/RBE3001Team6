@@ -18,6 +18,7 @@
 #include "include/lab1.h" // lab1 functions
 #include "include/led.h"
 #include "include/arm.h"
+#include "include/FSM.h"
 
 /**
  * @brief main loop for AVR chip
@@ -53,6 +54,7 @@ int main(void) {
 	// ===== main loop ====
 	while (1) {
 		serviceButtons(); // service the buttons for polling
+		finiteStateMachine();
 		serviceArm(); // service the arm
 
 		//_delay_ms(20); // prevent serial spam
