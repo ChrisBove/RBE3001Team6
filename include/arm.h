@@ -180,5 +180,12 @@ BOOL inPosition(int theta1, int theta2);
  */
 float getGs(int axis);
 
+/**
+ * @brief calculates IK values and sets angles
+ * @param x desired x position
+ * @param y desired y position
+ */
+void setPosition(double x, double y);
+
 
 #endif /* INCLUDE_ARM_H_ */

@@ -529,3 +529,17 @@ BOOL inPosition(int theta1, int theta2){
 float getGs(int axis){
 	return getAccel(axis)*0.0022;
 }
+
+/**
+ * @brief calculates IK values and sets angles
+ * @param x desired x position
+ * @param y desired y position
+ */
+void setPosition(double x, double y){
+	float a1 = 15.24;//arm length 1 is 15.24 cm
+	float a2 = 15.24;//arm length 2 to the center of the gripper is 15.24 cm
+	float theta1 = atan2((y/x))+acos((x*x+y*y+a1*a1-a2*a2)/(2*a1*(sqrt((x*x+y*y)))));//not sure if we are dealing with degrees or radians , needs testing
+	float theta2 = acos(((a1*a1)+(a2*a2)-(x*x+y*y))/(2*a1*a2))-(3.14159/2);//im not sure what acos will retun i terms of radians or degress so it may be to be modified
+	lowerAngle = theta1;
+	upperAngle = theta2;
+}
