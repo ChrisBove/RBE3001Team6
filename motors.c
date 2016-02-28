@@ -89,25 +89,25 @@ void driveLink(int link, int dir){
 void homePos(){
 	// === move joint 1 ===
 	// calculate direction to 0
-	int dir = 0 - getJointAngle(2);
-	// while not within +- 2 from 0, keep moving
-	while(!betweenTwoVals(getJointAngle(2),-2,2)){
+	int dir = 90 - getJointAngle(2);
+	// while not within +- 2 from 90, keep moving
+	while(!betweenTwoVals(getJointAngle(2),88,92)){
 		// todo double check direction in case we blew past
 		if(dir > 0)
-			driveLink(3,300);
+			driveLink(3,350);
 		else
-			driveLink(3,-300);
+			driveLink(3,-350);
 	}
 	driveLink(3,0); // stop
 
 	// === move joint 2 ===
-	dir = 90 - getJointAngle(1);
-	// while not within +- 2 from 90, keep moving
-	while(!betweenTwoVals(getJointAngle(1),88,92)){
+	dir = 0 - getJointAngle(1);
+	// while not within +- 3 from 0, keep moving
+	while(!betweenTwoVals(getJointAngle(1),-3,3)){
 		if (dir > 0)
-			driveLink(2, 300);
+			driveLink(2, 350);
 		else
-			driveLink(2, -300);
+			driveLink(2, -350);
 	}
 	driveLink(2,0); // stop
 }

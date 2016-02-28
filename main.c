@@ -44,7 +44,7 @@ int main(void) {
 	// ==== end initializations ====
 
 	printf("I am alive... Press h to home.\n\r"); // we done setting up
-	//waitForChar('h');
+	waitForChar('h');
 	printf("homing...\n\r");
 	homePos(); // home to initial pose
 	//resetEncCount(1);
