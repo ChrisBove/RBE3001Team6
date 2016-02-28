@@ -18,6 +18,8 @@
 #include "include/lab1.h" // lab1 functions
 #include "include/led.h"
 #include "include/arm.h"
+#include "include/FSM.h"
+#include "include/gripper.h"
 
 /**
  * @brief main loop for AVR chip
@@ -30,13 +32,13 @@ int main(void) {
 	printf("Starting...\n\r"); // so we know if we freeze in setup
 
 	// setup buttons on port C.
-	setupButtons(&DDRCbits, &PORTCbits, &PINCbits, FALSE);
+	//setupButtons(&DDRCbits, &PORTCbits, &PINCbits, FALSE);
 
 	initSPI(); // initialize SPI communications
 	initArm(); // initialize the arm
-	encInit(1);
-	encInit(2);
-	getAccel(0); // run once to initialize Vref
+	//encInit(1);
+	//encInit(2);
+	//getAccel(0); // run once to initialize Vref
 
 
 	// ==== end initializations ====
@@ -45,17 +47,19 @@ int main(void) {
 	waitForChar('h');
 	printf("homing...\n\r");
 	homePos(); // home to initial pose
-	resetEncCount(1);
-	resetEncCount(2);
+	//resetEncCount(1);
+	//resetEncCount(2);
 	printf("Done homing. Press g to continue.\n\r");
 	waitForChar('g');
 
 	// ===== main loop ====
 	while (1) {
-		serviceButtons(); // service the buttons for polling
+		//serviceButtons(); // service the buttons for polling
+
+		finiteStateMachine();
 		serviceArm(); // service the arm
 
-		//_delay_ms(20); // prevent serial spam
+//		_delay_ms(100); // prevent serial spam
 
 	}
 	return 0;

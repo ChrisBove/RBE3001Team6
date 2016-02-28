@@ -82,7 +82,13 @@ signed int getAccel(int axis){
  * @todo Make a function that is able to get the ADC value of the IR sensor.
  */
 int IRDist(int chan){
-	return 0;
+	int IRRange = -1;
+	unsigned short sensorVal = getADC(chan);
+	if (sensorVal > 3){
+		IRRange = (67870 / (sensorVal - 3)) - 4;
+	}
+
+	return IRRange;
 }
 
 /**
