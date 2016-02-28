@@ -539,7 +539,10 @@ void finiteStateMachine(){
 	case CheckWeight:
 
 		break;
-	case GenerateTrajectoryDrop:
+	case GenerateTrajectoryDropClose:
+
+		break;
+	case GenerateTrajectoryDropFar:
 
 		break;
 	case ExecuteDropMotion:

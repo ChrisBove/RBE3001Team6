@@ -62,7 +62,8 @@ enum FSMStates {
 	ExecuteGrabMotion,
 	GrabBlock,
 	CheckWeight,
-	GenerateTrajectoryDrop,
+	GenerateTrajectoryDropFar,
+	GenerateTrajectoryDropClose,
 	ExecuteDropMotion,
 	DropBlock
 };
