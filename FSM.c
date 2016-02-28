@@ -21,8 +21,9 @@ void finiteStateMachine(){
 	static int blockX = 0;
 	static float grabTime = 0;
 	//for case CalcBlockX
-	static int IRSampleCount = 0;
-	static int IRDistanceSum = 0;
+	static int IRSampleMin = 999;
+	static int IRSamplesIncreasing = 0;
+	int reading; // temporary holder for IR reading
 
 	static char state = Initialize;
 	switch(state){
@@ -44,17 +45,26 @@ void finiteStateMachine(){
 		break;
 
 	case CalcBlockX:
-		// sample the 1st sensor a few times
-		if(IRSampleCount < 3){
-			IRDistanceSum += IRDist(IR_FRONT_PIN); // add values
-			IRSampleCount++;
+		//take the lowest reading with some filtering
+		reading = IRDist(IR_FRONT_PIN);
+		//not done sampling until values increase consecutively(reached min)
+		if(IRSamplesIncreasing < 5){
+			// if reading is new min, still decreasing in values
+			if(reading < IRSampleMin){
+				IRSampleMin = reading;
+				IRSamplesIncreasing = 0;
+			}
+			//otherwise, we have started ascending from minumum
+			else
+				IRSamplesIncreasing++;
 		}
-		else{
-			blockX = IRDistanceSum/IRSampleCount;
-			setPosition(blockX+Center_X,Waiting_Height);
+		else{ //done sampling
+			blockX = IRSampleMin + X_IR_Offset; //store block x position
+
+			setPosition(blockX,Waiting_Height);
 			state = CalcBlockSpeed;
-			IRDistanceSum = 0;
-			IRSampleCount = 0;
+			IRSamplesIncreasing = 0; //reset variables
+			IRSampleMin = 999;
 		}
 		break;
 	case CalcBlockSpeed:
