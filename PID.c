@@ -67,8 +67,8 @@ signed int calcPID(char link, int setPoint, int actPos){
 	static const int link3StaticTorque = 200;
 	// constants for gravity and link masses (arbitrary values)
 	static const int gravity = 10;
-	static const int link2Mass = 15;
-	static const int link3Mass = 3;
+	static const int link2Mass = 20;
+	static const int link3Mass = 5;
 	// ==== END declarations ====
 
 	int currentError = setPoint - actPos; // calculate the current error
