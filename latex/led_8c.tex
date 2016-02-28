@@ -1,0 +1,53 @@
+\hypertarget{led_8c}{}\section{led.\+c File Reference}
+\label{led_8c}\index{led.\+c@{led.\+c}}
+
+
+L\+ED setup functions.  
+
+
+{\ttfamily \#include \char`\"{}include/led.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{led_8c_aa83dbcba32fbd3edc7c3ccf1e3e01ac0}{setup\+L\+E\+Ds} (\+\_\+\+\_\+8bitreg\+\_\+t $\ast$D\+Dxn, \+\_\+\+\_\+8bitreg\+\_\+t $\ast$P\+O\+R\+Txn)
+\begin{DoxyCompactList}\small\item\em configures registers as outputs for the L\+E\+Ds \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\+ED setup functions. 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:cpbove@wpi.edu}{\tt cpbove@wpi.\+edu} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+28-\/\+Jan-\/2016 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\index{led.\+c@{led.\+c}!setup\+L\+E\+Ds@{setup\+L\+E\+Ds}}
+\index{setup\+L\+E\+Ds@{setup\+L\+E\+Ds}!led.\+c@{led.\+c}}
+\subsubsection[{\texorpdfstring{setup\+L\+E\+Ds(\+\_\+\+\_\+8bitreg\+\_\+t $\ast$\+D\+Dxn, \+\_\+\+\_\+8bitreg\+\_\+t $\ast$\+P\+O\+R\+Txn)}{setupLEDs(__8bitreg_t *DDxn, __8bitreg_t *PORTxn)}}]{\setlength{\rightskip}{0pt plus 5cm}void setup\+L\+E\+Ds (
+\begin{DoxyParamCaption}
+\item[{\+\_\+\+\_\+8bitreg\+\_\+t $\ast$}]{D\+Dxn, }
+\item[{\+\_\+\+\_\+8bitreg\+\_\+t $\ast$}]{P\+O\+R\+Txn}
+\end{DoxyParamCaption}
+)}\hypertarget{led_8c_aa83dbcba32fbd3edc7c3ccf1e3e01ac0}{}\label{led_8c_aa83dbcba32fbd3edc7c3ccf1e3e01ac0}
+
+
+configures registers as outputs for the L\+E\+Ds 
+
+Sets all the ports as outputs and then puts them all low to prevent them from turning on unintentionally.
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$\+D\+Dxn} & Pointer to the digital outputs (D\+Dxn) that buttons will be connected to \\
+\hline
+{\em $\ast$\+P\+O\+R\+Txn} & Pointer to the P\+O\+R\+Txn that actually writes the outputs \\
+\hline
+{\em enable\+Pull\+Up} & Set true to enable pull ups on the buttons \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,98 @@
+\hypertarget{motors_8c}{}\section{motors.\+c File Reference}
+\label{motors_8c}\index{motors.\+c@{motors.\+c}}
+
+
+Motor driving functions for the arm.  
+
+
+{\ttfamily \#include \char`\"{}R\+B\+E\+Lib/\+R\+B\+E\+Lib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/definitions.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/arm.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{motors_8c_a5260da8b51f5d97f6cf2a9ba11d1aee1}{stop\+Motors} ()\hypertarget{motors_8c_a5260da8b51f5d97f6cf2a9ba11d1aee1}{}\label{motors_8c_a5260da8b51f5d97f6cf2a9ba11d1aee1}
+
+\begin{DoxyCompactList}\small\item\em Helper function to stop the motors on the arm. \end{DoxyCompactList}\item 
+void \hyperlink{motors_8c_af29dc743a43c233ac843475727db132f}{goto\+Angles} (int lower\+Theta, int upper\+Theta)
+\begin{DoxyCompactList}\small\item\em Drive the arm to a desired angle. \end{DoxyCompactList}\item 
+void \hyperlink{motors_8c_aa294b49bfcc17cf4b490fb020e359851}{goto\+XY} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Drive the end effector of the arm to a desired X and Y position in the workspace. \end{DoxyCompactList}\item 
+void \hyperlink{motors_8c_af4a8cb121ce437984322ade3672082d2}{drive\+Link} (int link, int dir)
+\begin{DoxyCompactList}\small\item\em Drive a link (upper or lower) in a desired direction. \end{DoxyCompactList}\item 
+void \hyperlink{motors_8c_a946fb06843f118c8abacd3aef032584c}{home\+Pos} ()\hypertarget{motors_8c_a946fb06843f118c8abacd3aef032584c}{}\label{motors_8c_a946fb06843f118c8abacd3aef032584c}
+
+\begin{DoxyCompactList}\small\item\em Drive the arm to a \char`\"{}home\char`\"{} position using the potentiometers. This should be called before using the encoders and just goes to a default position. Once this has been called once, you can initialize/clear the encoders. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Motor driving functions for the arm. 
+
+\begin{DoxyAuthor}{Author}
+Chris Bove 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Feb 3, 2016 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{motors.\+c@{motors.\+c}!drive\+Link@{drive\+Link}}
+\index{drive\+Link@{drive\+Link}!motors.\+c@{motors.\+c}}
+\subsubsection[{\texorpdfstring{drive\+Link(int link, int dir)}{driveLink(int link, int dir)}}]{\setlength{\rightskip}{0pt plus 5cm}void drive\+Link (
+\begin{DoxyParamCaption}
+\item[{int}]{link, }
+\item[{int}]{dir}
+\end{DoxyParamCaption}
+)}\hypertarget{motors_8c_af4a8cb121ce437984322ade3672082d2}{}\label{motors_8c_af4a8cb121ce437984322ade3672082d2}
+
+
+Drive a link (upper or lower) in a desired direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & Which link to control. \\
+\hline
+{\em dir} & Which way to drive the link. Between -\/2048 and +2048 \\
+\hline
+\end{DoxyParams}
+\index{motors.\+c@{motors.\+c}!goto\+Angles@{goto\+Angles}}
+\index{goto\+Angles@{goto\+Angles}!motors.\+c@{motors.\+c}}
+\subsubsection[{\texorpdfstring{goto\+Angles(int lower\+Theta, int upper\+Theta)}{gotoAngles(int lowerTheta, int upperTheta)}}]{\setlength{\rightskip}{0pt plus 5cm}void goto\+Angles (
+\begin{DoxyParamCaption}
+\item[{int}]{lower\+Theta, }
+\item[{int}]{upper\+Theta}
+\end{DoxyParamCaption}
+)}\hypertarget{motors_8c_af29dc743a43c233ac843475727db132f}{}\label{motors_8c_af29dc743a43c233ac843475727db132f}
+
+
+Drive the arm to a desired angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower\+Theta} & The desired angle for the lower link. \\
+\hline
+{\em upper\+Theta} & The desired angle for the upper link. \\
+\hline
+\end{DoxyParams}
+\index{motors.\+c@{motors.\+c}!goto\+XY@{goto\+XY}}
+\index{goto\+XY@{goto\+XY}!motors.\+c@{motors.\+c}}
+\subsubsection[{\texorpdfstring{goto\+X\+Y(int x, int y)}{gotoXY(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void goto\+XY (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{motors_8c_aa294b49bfcc17cf4b490fb020e359851}{}\label{motors_8c_aa294b49bfcc17cf4b490fb020e359851}
+
+
+Drive the end effector of the arm to a desired X and Y position in the workspace. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The desired x position for the end effector. \\
+\hline
+{\em y} & The desired y position for the end effector.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000009}{Todo}]Use kinematic equations to move the end effector to the desired position. \end{DoxyRefDesc}

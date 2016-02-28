@@ -1,0 +1,152 @@
+\hypertarget{_a_d_c_8c}{}\section{A\+D\+C.\+c File Reference}
+\label{_a_d_c_8c}\index{A\+D\+C.\+c@{A\+D\+C.\+c}}
+
+
+A\+DC setup function definitions.  
+
+
+{\ttfamily \#include \char`\"{}R\+B\+E\+Lib/\+R\+B\+E\+Lib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/definitions.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_a_d_c_8c_a05c2e5b588ced1cd7312f5b0edc5b295}{I\+SR} (A\+D\+C\+\_\+vect)
+\begin{DoxyCompactList}\small\item\em I\+SR for updating A\+DC readings Runs when A\+DC reading completes based on configured A\+DC settings. \end{DoxyCompactList}\item 
+void \hyperlink{_a_d_c_8c_a1f27a9e1c089f93efc89cdce78739cba}{init\+A\+DC} (int channel)
+\begin{DoxyCompactList}\small\item\em Initializes the A\+DC and makes one channel active. \end{DoxyCompactList}\item 
+void \hyperlink{_a_d_c_8c_a3eef680fc13f11498db80fb145cab8f9}{clear\+A\+DC} (int channel)
+\begin{DoxyCompactList}\small\item\em Disables A\+DC functionality and clears any saved values (globals). \end{DoxyCompactList}\item 
+unsigned short \hyperlink{_a_d_c_8c_a9f560657fb624f98de3161651f3d4385}{get\+A\+DC} (int channel)
+\begin{DoxyCompactList}\small\item\em Get the analog value from the configured channel. \end{DoxyCompactList}\item 
+void \hyperlink{_a_d_c_8c_a8174ca24b578eaf4f82f44d6ce44edb0}{change\+A\+DC} (int channel)
+\begin{DoxyCompactList}\small\item\em Change the channel the A\+DC is sampling if using interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile unsigned short \hyperlink{_a_d_c_8c_a23fb694a88383a775d6a1b9e096dc29d}{adch}
+\item 
+volatile unsigned short \hyperlink{_a_d_c_8c_a960d62fe2bcd43b94059566c611954a2}{adcl}
+\item 
+volatile unsigned short \hyperlink{_a_d_c_8c_a096c9114e72cdccfc9b6f26d0bada56c}{read\+New\+Channel}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A\+DC setup function definitions. 
+
+This has everything needed to configure the A\+DC for 10 bit operation and reading the values.
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:cpbove@wpi.edu}{\tt cpbove@wpi.\+edu} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+28-\/\+Jan-\/2016 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\index{A\+D\+C.\+c@{A\+D\+C.\+c}!change\+A\+DC@{change\+A\+DC}}
+\index{change\+A\+DC@{change\+A\+DC}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection[{\texorpdfstring{change\+A\+D\+C(int channel)}{changeADC(int channel)}}]{\setlength{\rightskip}{0pt plus 5cm}void change\+A\+DC (
+\begin{DoxyParamCaption}
+\item[{int}]{channel}
+\end{DoxyParamCaption}
+)}\hypertarget{_a_d_c_8c_a8174ca24b578eaf4f82f44d6ce44edb0}{}\label{_a_d_c_8c_a8174ca24b578eaf4f82f44d6ce44edb0}
+
+
+Change the channel the A\+DC is sampling if using interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The A\+DC channel to switch to. \\
+\hline
+\end{DoxyParams}
+\index{A\+D\+C.\+c@{A\+D\+C.\+c}!clear\+A\+DC@{clear\+A\+DC}}
+\index{clear\+A\+DC@{clear\+A\+DC}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection[{\texorpdfstring{clear\+A\+D\+C(int channel)}{clearADC(int channel)}}]{\setlength{\rightskip}{0pt plus 5cm}void clear\+A\+DC (
+\begin{DoxyParamCaption}
+\item[{int}]{channel}
+\end{DoxyParamCaption}
+)}\hypertarget{_a_d_c_8c_a3eef680fc13f11498db80fb145cab8f9}{}\label{_a_d_c_8c_a3eef680fc13f11498db80fb145cab8f9}
+
+
+Disables A\+DC functionality and clears any saved values (globals). 
+
+This still needs to be tested.
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The A\+DC channel to disable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]Create the corresponding function to clear the last A\+DC calculation register and disconnect the input to the A\+DC if desired. \end{DoxyRefDesc}
+\index{A\+D\+C.\+c@{A\+D\+C.\+c}!get\+A\+DC@{get\+A\+DC}}
+\index{get\+A\+DC@{get\+A\+DC}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection[{\texorpdfstring{get\+A\+D\+C(int channel)}{getADC(int channel)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short get\+A\+DC (
+\begin{DoxyParamCaption}
+\item[{int}]{channel}
+\end{DoxyParamCaption}
+)}\hypertarget{_a_d_c_8c_a9f560657fb624f98de3161651f3d4385}{}\label{_a_d_c_8c_a9f560657fb624f98de3161651f3d4385}
+
+
+Get the analog value from the configured channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The A\+DC channel to run a conversion on. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+adc\+Val The 10 bit value returned by the A\+DC conversion. 
+\end{DoxyReturn}
+\index{A\+D\+C.\+c@{A\+D\+C.\+c}!init\+A\+DC@{init\+A\+DC}}
+\index{init\+A\+DC@{init\+A\+DC}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection[{\texorpdfstring{init\+A\+D\+C(int channel)}{initADC(int channel)}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+A\+DC (
+\begin{DoxyParamCaption}
+\item[{int}]{channel}
+\end{DoxyParamCaption}
+)}\hypertarget{_a_d_c_8c_a1f27a9e1c089f93efc89cdce78739cba}{}\label{_a_d_c_8c_a1f27a9e1c089f93efc89cdce78739cba}
+
+
+Initializes the A\+DC and makes one channel active. 
+
+Enables A\+DC to use interrupts
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The A\+DC channel to initialize \\
+\hline
+\end{DoxyParams}
+\index{A\+D\+C.\+c@{A\+D\+C.\+c}!I\+SR@{I\+SR}}
+\index{I\+SR@{I\+SR}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection[{\texorpdfstring{I\+S\+R(\+A\+D\+C\+\_\+vect)}{ISR(ADC_vect)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+SR (
+\begin{DoxyParamCaption}
+\item[{A\+D\+C\+\_\+vect}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_a_d_c_8c_a05c2e5b588ced1cd7312f5b0edc5b295}{}\label{_a_d_c_8c_a05c2e5b588ced1cd7312f5b0edc5b295}
+
+
+I\+SR for updating A\+DC readings Runs when A\+DC reading completes based on configured A\+DC settings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A\+D\+C\+\_\+vect} & Interrupt vector for A\+DC on chip \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\index{A\+D\+C.\+c@{A\+D\+C.\+c}!adch@{adch}}
+\index{adch@{adch}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection[{\texorpdfstring{adch}{adch}}]{\setlength{\rightskip}{0pt plus 5cm}adch}\hypertarget{_a_d_c_8c_a23fb694a88383a775d6a1b9e096dc29d}{}\label{_a_d_c_8c_a23fb694a88383a775d6a1b9e096dc29d}
+for storing the adch register value after an interrupt \index{A\+D\+C.\+c@{A\+D\+C.\+c}!adcl@{adcl}}
+\index{adcl@{adcl}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection[{\texorpdfstring{adcl}{adcl}}]{\setlength{\rightskip}{0pt plus 5cm}adcl}\hypertarget{_a_d_c_8c_a960d62fe2bcd43b94059566c611954a2}{}\label{_a_d_c_8c_a960d62fe2bcd43b94059566c611954a2}
+for storing the adch register value after an interrupt \index{A\+D\+C.\+c@{A\+D\+C.\+c}!read\+New\+Channel@{read\+New\+Channel}}
+\index{read\+New\+Channel@{read\+New\+Channel}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection[{\texorpdfstring{read\+New\+Channel}{readNewChannel}}]{\setlength{\rightskip}{0pt plus 5cm}read\+New\+Channel}\hypertarget{_a_d_c_8c_a096c9114e72cdccfc9b6f26d0bada56c}{}\label{_a_d_c_8c_a096c9114e72cdccfc9b6f26d0bada56c}
+used to make sure we read the new channel after we switch channels 

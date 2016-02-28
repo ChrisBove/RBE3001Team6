@@ -1,0 +1,266 @@
+\begin{theindex}
+
+  \item {A\+D\+C.\+c}, \hyperpage{5}
+    \subitem {adch}, \hyperpage{7}
+    \subitem {adcl}, \hyperpage{7}
+    \subitem {change\+A\+DC}, \hyperpage{6}
+    \subitem {clear\+A\+DC}, \hyperpage{6}
+    \subitem {get\+A\+DC}, \hyperpage{6}
+    \subitem {I\+SR}, \hyperpage{7}
+    \subitem {init\+A\+DC}, \hyperpage{7}
+    \subitem {read\+New\+Channel}, \hyperpage{7}
+  \item {A\+D\+C\+To\+Serial}
+    \subitem {lab1.\+c}, \hyperpage{20}
+  \item {A\+D\+C\+To\+Serial\+Part7}
+    \subitem {lab1.\+c}, \hyperpage{21}
+  \item {abs}
+    \subitem {definitions.\+c}, \hyperpage{17}
+  \item {adch}
+    \subitem {A\+D\+C.\+c}, \hyperpage{7}
+  \item {adcl}
+    \subitem {A\+D\+C.\+c}, \hyperpage{7}
+  \item {arm.\+c}, \hyperpage{8}
+    \subitem {control\+Arm\+With\+Buttons}, \hyperpage{9}
+    \subitem {control\+Joint1\+With\+Buttons}, \hyperpage{9}
+    \subitem {control\+Position\+With\+Buttons}, \hyperpage{9}
+    \subitem {convert\+Volts\+To\+D\+A\+C\+Val}, \hyperpage{9}
+    \subitem {degrees\+Per\+Joint1\+Val}, \hyperpage{13}
+    \subitem {degrees\+Per\+Joint2\+Val}, \hyperpage{13}
+    \subitem {draw\+Triangle\+With\+Buttons}, \hyperpage{10}
+    \subitem {get\+Current}, \hyperpage{10}
+    \subitem {get\+Gs}, \hyperpage{10}
+    \subitem {get\+Joint\+Angle}, \hyperpage{10}
+    \subitem {get\+Time\+Seconds}, \hyperpage{12}
+    \subitem {I\+SR}, \hyperpage{12}
+    \subitem {in\+Position}, \hyperpage{12}
+    \subitem {lower\+Angle}, \hyperpage{13}
+    \subitem {print\+Joint\+Angle}, \hyperpage{12}
+    \subitem {print\+Log\+Line\+Joint2}, \hyperpage{13}
+    \subitem {service\+P\+ID}, \hyperpage{13}
+    \subitem {set\+Joint\+Angles}, \hyperpage{13}
+    \subitem {timer\+Count}, \hyperpage{13}
+    \subitem {upper\+Angle}, \hyperpage{14}
+    \subitem {x\+\_\+coord}, \hyperpage{14}
+    \subitem {y\+\_\+coord}, \hyperpage{14}
+
+  \indexspace
+
+  \item {b4}
+    \subitem {button.\+c}, \hyperpage{15}
+  \item {b5}
+    \subitem {button.\+c}, \hyperpage{15}
+  \item {b6}
+    \subitem {button.\+c}, \hyperpage{16}
+  \item {b7}
+    \subitem {button.\+c}, \hyperpage{16}
+  \item {between\+Two\+Vals}
+    \subitem {definitions.\+c}, \hyperpage{18}
+  \item {button.\+c}, \hyperpage{14}
+    \subitem {b4}, \hyperpage{15}
+    \subitem {b5}, \hyperpage{15}
+    \subitem {b6}, \hyperpage{16}
+    \subitem {b7}, \hyperpage{16}
+    \subitem {last\+Button\+Pressed}, \hyperpage{15}
+    \subitem {P\+I\+Nybits}, \hyperpage{16}
+    \subitem {setup\+Buttons}, \hyperpage{15}
+
+  \indexspace
+
+  \item {calc\+P\+ID}
+    \subitem {P\+I\+D.\+c}, \hyperpage{28}
+  \item {change\+A\+DC}
+    \subitem {A\+D\+C.\+c}, \hyperpage{6}
+  \item {clear\+A\+DC}
+    \subitem {A\+D\+C.\+c}, \hyperpage{6}
+  \item {control\+Arm\+With\+Buttons}
+    \subitem {arm.\+c}, \hyperpage{9}
+  \item {control\+Joint1\+With\+Buttons}
+    \subitem {arm.\+c}, \hyperpage{9}
+  \item {control\+Position\+With\+Buttons}
+    \subitem {arm.\+c}, \hyperpage{9}
+  \item {convert\+Volts\+To\+D\+A\+C\+Val}
+    \subitem {arm.\+c}, \hyperpage{9}
+
+  \indexspace
+
+  \item {D\+A\+C.\+c}, \hyperpage{16}
+    \subitem {set\+D\+AC}, \hyperpage{16}
+  \item {definitions.\+c}, \hyperpage{17}
+    \subitem {abs}, \hyperpage{17}
+    \subitem {between\+Two\+Vals}, \hyperpage{18}
+  \item {degrees\+Per\+Joint1\+Val}
+    \subitem {arm.\+c}, \hyperpage{13}
+  \item {degrees\+Per\+Joint2\+Val}
+    \subitem {arm.\+c}, \hyperpage{13}
+  \item {draw\+Triangle\+With\+Buttons}
+    \subitem {arm.\+c}, \hyperpage{10}
+  \item {drive\+Link}
+    \subitem {motors.\+c}, \hyperpage{24}
+
+  \indexspace
+
+  \item {E\+N\+C\+\_\+\+C\+L\+R\+\_\+\+C\+MD}
+    \subitem {Periph.\+c}, \hyperpage{26}
+  \item {E\+N\+C\+\_\+\+C\+N\+TR}
+    \subitem {Periph.\+c}, \hyperpage{26}
+  \item {E\+N\+C\+\_\+\+R\+D\+\_\+\+C\+MD}
+    \subitem {Periph.\+c}, \hyperpage{26}
+  \item {enc\+Count}
+    \subitem {Periph.\+c}, \hyperpage{26}
+  \item {enc\+Init}
+    \subitem {Periph.\+c}, \hyperpage{26}
+  \item {encoder.\+c}, \hyperpage{18}
+    \subitem {single\+Byte\+Write}, \hyperpage{19}
+    \subitem {slave\+Deselect}, \hyperpage{19}
+    \subitem {slave\+Select}, \hyperpage{19}
+
+  \indexspace
+
+  \item {get\+A\+DC}
+    \subitem {A\+D\+C.\+c}, \hyperpage{6}
+  \item {get\+Accel}
+    \subitem {Periph.\+c}, \hyperpage{27}
+  \item {get\+Current}
+    \subitem {arm.\+c}, \hyperpage{10}
+  \item {get\+Gs}
+    \subitem {arm.\+c}, \hyperpage{10}
+  \item {get\+Joint\+Angle}
+    \subitem {arm.\+c}, \hyperpage{10}
+  \item {get\+Time\+Seconds}
+    \subitem {arm.\+c}, \hyperpage{12}
+  \item {goto\+Angles}
+    \subitem {motors.\+c}, \hyperpage{24}
+  \item {goto\+XY}
+    \subitem {motors.\+c}, \hyperpage{25}
+
+  \indexspace
+
+  \item {I\+R\+Dist}
+    \subitem {Periph.\+c}, \hyperpage{27}
+  \item {I\+SR}
+    \subitem {A\+D\+C.\+c}, \hyperpage{7}
+    \subitem {arm.\+c}, \hyperpage{12}
+  \item {in\+Position}
+    \subitem {arm.\+c}, \hyperpage{12}
+  \item {init\+A\+DC}
+    \subitem {A\+D\+C.\+c}, \hyperpage{7}
+  \item {init\+Part2and7\+Timer}
+    \subitem {lab1.\+c}, \hyperpage{21}
+
+  \indexspace
+
+  \item {lab1.\+c}, \hyperpage{19}
+    \subitem {A\+D\+C\+To\+Serial}, \hyperpage{20}
+    \subitem {A\+D\+C\+To\+Serial\+Part7}, \hyperpage{21}
+    \subitem {init\+Part2and7\+Timer}, \hyperpage{21}
+    \subitem {set\+Frequency\+For\+Post\+Scale}, \hyperpage{21}
+    \subitem {signal\+Generator\+Main}, \hyperpage{21}
+    \subitem {wait\+For\+Button7}, \hyperpage{22}
+    \subitem {wait\+For\+Char}, \hyperpage{22}
+  \item {last\+Button\+Pressed}
+    \subitem {button.\+c}, \hyperpage{15}
+  \item {led.\+c}, \hyperpage{22}
+    \subitem {setup\+L\+E\+Ds}, \hyperpage{23}
+  \item {lower\+Angle}
+    \subitem {arm.\+c}, \hyperpage{13}
+
+  \indexspace
+
+  \item {main.\+c}, \hyperpage{23}
+  \item {motors.\+c}, \hyperpage{24}
+    \subitem {drive\+Link}, \hyperpage{24}
+    \subitem {goto\+Angles}, \hyperpage{24}
+    \subitem {goto\+XY}, \hyperpage{25}
+
+  \indexspace
+
+  \item {P\+I\+D.\+c}, \hyperpage{28}
+    \subitem {calc\+P\+ID}, \hyperpage{28}
+    \subitem {set\+Const}, \hyperpage{28}
+  \item {P\+I\+Nybits}
+    \subitem {button.\+c}, \hyperpage{16}
+  \item {Periph.\+c}, \hyperpage{25}
+    \subitem {E\+N\+C\+\_\+\+C\+L\+R\+\_\+\+C\+MD}, \hyperpage{26}
+    \subitem {E\+N\+C\+\_\+\+C\+N\+TR}, \hyperpage{26}
+    \subitem {E\+N\+C\+\_\+\+R\+D\+\_\+\+C\+MD}, \hyperpage{26}
+    \subitem {enc\+Count}, \hyperpage{26}
+    \subitem {enc\+Init}, \hyperpage{26}
+    \subitem {get\+Accel}, \hyperpage{27}
+    \subitem {I\+R\+Dist}, \hyperpage{27}
+    \subitem {reset\+Enc\+Count}, \hyperpage{27}
+  \item {pot.\+c}, \hyperpage{29}
+    \subitem {pot\+Angle}, \hyperpage{29}
+    \subitem {pot\+Volts}, \hyperpage{30}
+  \item {pot\+Angle}
+    \subitem {pot.\+c}, \hyperpage{29}
+  \item {pot\+Volts}
+    \subitem {pot.\+c}, \hyperpage{30}
+  \item {print\+Joint\+Angle}
+    \subitem {arm.\+c}, \hyperpage{12}
+  \item {print\+Log\+Line\+Joint2}
+    \subitem {arm.\+c}, \hyperpage{13}
+
+  \indexspace
+
+  \item {read\+New\+Channel}
+    \subitem {A\+D\+C.\+c}, \hyperpage{7}
+  \item {reset\+Enc\+Count}
+    \subitem {Periph.\+c}, \hyperpage{27}
+
+  \indexspace
+
+  \item {S\+P\+I.\+c}, \hyperpage{30}
+    \subitem {spi\+Transceive}, \hyperpage{31}
+  \item {service\+P\+ID}
+    \subitem {arm.\+c}, \hyperpage{13}
+  \item {set\+Const}
+    \subitem {P\+I\+D.\+c}, \hyperpage{28}
+  \item {set\+D\+AC}
+    \subitem {D\+A\+C.\+c}, \hyperpage{16}
+  \item {set\+Frequency\+For\+Post\+Scale}
+    \subitem {lab1.\+c}, \hyperpage{21}
+  \item {set\+Joint\+Angles}
+    \subitem {arm.\+c}, \hyperpage{13}
+  \item {setup\+Buttons}
+    \subitem {button.\+c}, \hyperpage{15}
+  \item {setup\+L\+E\+Ds}
+    \subitem {led.\+c}, \hyperpage{23}
+  \item {signal\+Generator\+Main}
+    \subitem {lab1.\+c}, \hyperpage{21}
+  \item {single\+Byte\+Write}
+    \subitem {encoder.\+c}, \hyperpage{19}
+  \item {slave\+Deselect}
+    \subitem {encoder.\+c}, \hyperpage{19}
+  \item {slave\+Select}
+    \subitem {encoder.\+c}, \hyperpage{19}
+  \item {spi\+Transceive}
+    \subitem {S\+P\+I.\+c}, \hyperpage{31}
+
+  \indexspace
+
+  \item {timer\+Count}
+    \subitem {arm.\+c}, \hyperpage{13}
+
+  \indexspace
+
+  \item {upper\+Angle}
+    \subitem {arm.\+c}, \hyperpage{14}
+
+  \indexspace
+
+  \item {wait\+For\+Button7}
+    \subitem {lab1.\+c}, \hyperpage{22}
+  \item {wait\+For\+Char}
+    \subitem {lab1.\+c}, \hyperpage{22}
+
+  \indexspace
+
+  \item {x\+\_\+coord}
+    \subitem {arm.\+c}, \hyperpage{14}
+
+  \indexspace
+
+  \item {y\+\_\+coord}
+    \subitem {arm.\+c}, \hyperpage{14}
+
+\end{theindex}

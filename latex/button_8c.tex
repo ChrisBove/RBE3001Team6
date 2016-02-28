@@ -1,0 +1,115 @@
+\hypertarget{button_8c}{}\section{button.\+c File Reference}
+\label{button_8c}\index{button.\+c@{button.\+c}}
+
+
+button setup function  
+
+
+{\ttfamily \#include \char`\"{}R\+B\+E\+Lib/\+R\+B\+E\+Lib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/button.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{button_8c_ae7196414b879f974a2e12de95d008f98}{setup\+Buttons} (\+\_\+\+\_\+8bitreg\+\_\+t $\ast$D\+Dxn, \+\_\+\+\_\+8bitreg\+\_\+t $\ast$P\+O\+R\+Txn, \+\_\+\+\_\+8bitreg\+\_\+t $\ast$P\+I\+Nxbits, B\+O\+OL enable\+Pullup)
+\begin{DoxyCompactList}\small\item\em sets registers to configure the buttons as inputs \end{DoxyCompactList}\item 
+void \hyperlink{button_8c_aeb0098bce8de1b5c35bf98fee5e41f7f}{service\+Buttons} ()\hypertarget{button_8c_aeb0098bce8de1b5c35bf98fee5e41f7f}{}\label{button_8c_aeb0098bce8de1b5c35bf98fee5e41f7f}
+
+\begin{DoxyCompactList}\small\item\em runs functions critical to button operation. Call as often as possible. \end{DoxyCompactList}\item 
+unsigned char \hyperlink{button_8c_aa676974363a7c97a3f3db5519cfddda7}{last\+Button\+Pressed} ()
+\begin{DoxyCompactList}\small\item\em determines what button was pressed last \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+8bitreg\+\_\+t $\ast$ \hyperlink{button_8c_a79e70dfa547b57d19111b023fa80ea05}{P\+I\+Nybits}
+\item 
+unsigned char \hyperlink{button_8c_ac0f1123300203e5cee62995780e86126}{b4}
+\item 
+unsigned char \hyperlink{button_8c_a00c8be9bd9d8714890183abf93a9c0d8}{b5}
+\item 
+unsigned char \hyperlink{button_8c_a1d839ea9c9a412b62940a4dc7e406d0a}{b6}
+\item 
+unsigned char \hyperlink{button_8c_ab1786ed48313233e3df624178bd9b707}{b7}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+button setup function 
+
+To read buttons, check P\+I\+Nxbits.\+\_\+\+Py
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:cpbove@wpi.edu}{\tt cpbove@wpi.\+edu} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+28-\/\+Jan-\/2016 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\index{button.\+c@{button.\+c}!last\+Button\+Pressed@{last\+Button\+Pressed}}
+\index{last\+Button\+Pressed@{last\+Button\+Pressed}!button.\+c@{button.\+c}}
+\subsubsection[{\texorpdfstring{last\+Button\+Pressed()}{lastButtonPressed()}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char last\+Button\+Pressed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{button_8c_aa676974363a7c97a3f3db5519cfddda7}{}\label{button_8c_aa676974363a7c97a3f3db5519cfddda7}
+
+
+determines what button was pressed last 
+
+\begin{DoxyReturn}{Returns}
+number of last button pressed 
+\end{DoxyReturn}
+\index{button.\+c@{button.\+c}!setup\+Buttons@{setup\+Buttons}}
+\index{setup\+Buttons@{setup\+Buttons}!button.\+c@{button.\+c}}
+\subsubsection[{\texorpdfstring{setup\+Buttons(\+\_\+\+\_\+8bitreg\+\_\+t $\ast$\+D\+Dxn, \+\_\+\+\_\+8bitreg\+\_\+t $\ast$\+P\+O\+R\+Txn, \+\_\+\+\_\+8bitreg\+\_\+t $\ast$\+P\+I\+Nxbits, B\+O\+O\+L enable\+Pullup)}{setupButtons(__8bitreg_t *DDxn, __8bitreg_t *PORTxn, __8bitreg_t *PINxbits, BOOL enablePullup)}}]{\setlength{\rightskip}{0pt plus 5cm}void setup\+Buttons (
+\begin{DoxyParamCaption}
+\item[{\+\_\+\+\_\+8bitreg\+\_\+t $\ast$}]{D\+Dxn, }
+\item[{\+\_\+\+\_\+8bitreg\+\_\+t $\ast$}]{P\+O\+R\+Txn, }
+\item[{\+\_\+\+\_\+8bitreg\+\_\+t $\ast$}]{P\+I\+Nxbits, }
+\item[{B\+O\+OL}]{enable\+Pullup}
+\end{DoxyParamCaption}
+)}\hypertarget{button_8c_ae7196414b879f974a2e12de95d008f98}{}\label{button_8c_ae7196414b879f974a2e12de95d008f98}
+
+
+sets registers to configure the buttons as inputs 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$\+D\+Dxn} & Pointer to the digital port (D\+Dxn) that buttons are connected to \\
+\hline
+{\em $\ast$\+P\+O\+R\+Txn} & Pointer to the P\+O\+R\+Txn register for the buttons \\
+\hline
+{\em $\ast$\+P\+I\+Nxbits} & Pointer to the P\+I\+Nx register for the buttons \\
+\hline
+{\em enable\+Pull\+Up} & Set true to enable pull up resistors on the buttons \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\index{button.\+c@{button.\+c}!b4@{b4}}
+\index{b4@{b4}!button.\+c@{button.\+c}}
+\subsubsection[{\texorpdfstring{b4}{b4}}]{\setlength{\rightskip}{0pt plus 5cm}b4}\hypertarget{button_8c_ac0f1123300203e5cee62995780e86126}{}\label{button_8c_ac0f1123300203e5cee62995780e86126}
+storing last state of button 4 \index{button.\+c@{button.\+c}!b5@{b5}}
+\index{b5@{b5}!button.\+c@{button.\+c}}
+\subsubsection[{\texorpdfstring{b5}{b5}}]{\setlength{\rightskip}{0pt plus 5cm}b5}\hypertarget{button_8c_a00c8be9bd9d8714890183abf93a9c0d8}{}\label{button_8c_a00c8be9bd9d8714890183abf93a9c0d8}
+storing last state of button 5 \index{button.\+c@{button.\+c}!b6@{b6}}
+\index{b6@{b6}!button.\+c@{button.\+c}}
+\subsubsection[{\texorpdfstring{b6}{b6}}]{\setlength{\rightskip}{0pt plus 5cm}b6}\hypertarget{button_8c_a1d839ea9c9a412b62940a4dc7e406d0a}{}\label{button_8c_a1d839ea9c9a412b62940a4dc7e406d0a}
+storing last state of button 6 \index{button.\+c@{button.\+c}!b7@{b7}}
+\index{b7@{b7}!button.\+c@{button.\+c}}
+\subsubsection[{\texorpdfstring{b7}{b7}}]{\setlength{\rightskip}{0pt plus 5cm}b7}\hypertarget{button_8c_ab1786ed48313233e3df624178bd9b707}{}\label{button_8c_ab1786ed48313233e3df624178bd9b707}
+storing last state of button 7
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000006}{Todo}]make a nice array or something 
+
+make for rest of buttons \end{DoxyRefDesc}
+\index{button.\+c@{button.\+c}!P\+I\+Nybits@{P\+I\+Nybits}}
+\index{P\+I\+Nybits@{P\+I\+Nybits}!button.\+c@{button.\+c}}
+\subsubsection[{\texorpdfstring{P\+I\+Nybits}{PINybits}}]{\setlength{\rightskip}{0pt plus 5cm}$\ast$ P\+I\+Nybits}\hypertarget{button_8c_a79e70dfa547b57d19111b023fa80ea05}{}\label{button_8c_a79e70dfa547b57d19111b023fa80ea05}
+pointer to the P\+I\+Nbits the buttons are connected to 

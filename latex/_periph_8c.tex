@@ -1,0 +1,154 @@
+\hypertarget{_periph_8c}{}\section{Periph.\+c File Reference}
+\label{_periph_8c}\index{Periph.\+c@{Periph.\+c}}
+
+
+peripheral library for encoder and accel  
+
+
+{\ttfamily \#include \char`\"{}R\+B\+E\+Lib/\+R\+B\+E\+Lib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/encoder.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_periph_8c_a0a8943b890caf21733805d8914aba914}{E\+N\+C\+\_\+\+C\+N\+TR}~0x20
+\item 
+\#define \hyperlink{_periph_8c_a35702d287c9001e4a3ceacd863b964dd}{E\+N\+C\+\_\+\+C\+L\+R\+\_\+\+C\+MD}~0x00
+\item 
+\#define \hyperlink{_periph_8c_ac1c735b4f0b8a5effff432b12346805b}{E\+N\+C\+\_\+\+R\+D\+\_\+\+C\+MD}~0x40
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+signed int \hyperlink{_periph_8c_a664961c139fdb66c6fd0fb0e997df433}{get\+Accel} (int axis)
+\begin{DoxyCompactList}\small\item\em Find the acceleration in the given axis (X, Y, Z). \end{DoxyCompactList}\item 
+int \hyperlink{_periph_8c_ae0fb6b592e76f0934db14682e63982df}{I\+R\+Dist} (int chan)
+\begin{DoxyCompactList}\small\item\em Read an IR sensor and calculate the distance of the block. \end{DoxyCompactList}\item 
+void \hyperlink{_periph_8c_a15de8c2dd97f966ce278ab793669adfd}{enc\+Init} (int chan)
+\begin{DoxyCompactList}\small\item\em Initialize the encoders with the desired settings. \end{DoxyCompactList}\item 
+void \hyperlink{_periph_8c_a9b159db17b7ebf680a2bdd169e269f85}{reset\+Enc\+Count} (int chan)
+\begin{DoxyCompactList}\small\item\em Reset the current count of the encoder ticks. \end{DoxyCompactList}\item 
+signed long \hyperlink{_periph_8c_a6c804bfcd9e9943d093395f535a3b672}{enc\+Count} (int chan)
+\begin{DoxyCompactList}\small\item\em Finds the current count of one of the encoders. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+peripheral library for encoder and accel 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:cpbove@wpi.edu}{\tt cpbove@wpi.\+edu} with help from Joe St. Germain 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+15-\/02-\/2016 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Macro Definition Documentation}
+\index{Periph.\+c@{Periph.\+c}!E\+N\+C\+\_\+\+C\+L\+R\+\_\+\+C\+MD@{E\+N\+C\+\_\+\+C\+L\+R\+\_\+\+C\+MD}}
+\index{E\+N\+C\+\_\+\+C\+L\+R\+\_\+\+C\+MD@{E\+N\+C\+\_\+\+C\+L\+R\+\_\+\+C\+MD}!Periph.\+c@{Periph.\+c}}
+\subsubsection[{\texorpdfstring{E\+N\+C\+\_\+\+C\+L\+R\+\_\+\+C\+MD}{ENC_CLR_CMD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+\_\+\+C\+L\+R\+\_\+\+C\+MD~0x00}\hypertarget{_periph_8c_a35702d287c9001e4a3ceacd863b964dd}{}\label{_periph_8c_a35702d287c9001e4a3ceacd863b964dd}
+hex value for clearing the encoder count \index{Periph.\+c@{Periph.\+c}!E\+N\+C\+\_\+\+C\+N\+TR@{E\+N\+C\+\_\+\+C\+N\+TR}}
+\index{E\+N\+C\+\_\+\+C\+N\+TR@{E\+N\+C\+\_\+\+C\+N\+TR}!Periph.\+c@{Periph.\+c}}
+\subsubsection[{\texorpdfstring{E\+N\+C\+\_\+\+C\+N\+TR}{ENC_CNTR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+\_\+\+C\+N\+TR~0x20}\hypertarget{_periph_8c_a0a8943b890caf21733805d8914aba914}{}\label{_periph_8c_a0a8943b890caf21733805d8914aba914}
+hex value for addressing the C\+N\+TR register on the encoder \index{Periph.\+c@{Periph.\+c}!E\+N\+C\+\_\+\+R\+D\+\_\+\+C\+MD@{E\+N\+C\+\_\+\+R\+D\+\_\+\+C\+MD}}
+\index{E\+N\+C\+\_\+\+R\+D\+\_\+\+C\+MD@{E\+N\+C\+\_\+\+R\+D\+\_\+\+C\+MD}!Periph.\+c@{Periph.\+c}}
+\subsubsection[{\texorpdfstring{E\+N\+C\+\_\+\+R\+D\+\_\+\+C\+MD}{ENC_RD_CMD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+\_\+\+R\+D\+\_\+\+C\+MD~0x40}\hypertarget{_periph_8c_ac1c735b4f0b8a5effff432b12346805b}{}\label{_periph_8c_ac1c735b4f0b8a5effff432b12346805b}
+hex value command for reading the encoder count 
+
+\subsection{Function Documentation}
+\index{Periph.\+c@{Periph.\+c}!enc\+Count@{enc\+Count}}
+\index{enc\+Count@{enc\+Count}!Periph.\+c@{Periph.\+c}}
+\subsubsection[{\texorpdfstring{enc\+Count(int chan)}{encCount(int chan)}}]{\setlength{\rightskip}{0pt plus 5cm}signed long enc\+Count (
+\begin{DoxyParamCaption}
+\item[{int}]{chan}
+\end{DoxyParamCaption}
+)}\hypertarget{_periph_8c_a6c804bfcd9e9943d093395f535a3b672}{}\label{_periph_8c_a6c804bfcd9e9943d093395f535a3b672}
+
+
+Finds the current count of one of the encoders. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chan} & Channel of the encoder (change\+: Joint 1 or 2) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+count The current count of the encoder. 
+\end{DoxyReturn}
+\index{Periph.\+c@{Periph.\+c}!enc\+Init@{enc\+Init}}
+\index{enc\+Init@{enc\+Init}!Periph.\+c@{Periph.\+c}}
+\subsubsection[{\texorpdfstring{enc\+Init(int chan)}{encInit(int chan)}}]{\setlength{\rightskip}{0pt plus 5cm}void enc\+Init (
+\begin{DoxyParamCaption}
+\item[{int}]{chan}
+\end{DoxyParamCaption}
+)}\hypertarget{_periph_8c_a15de8c2dd97f966ce278ab793669adfd}{}\label{_periph_8c_a15de8c2dd97f966ce278ab793669adfd}
+
+
+Initialize the encoders with the desired settings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chan} & Channel to initialize (change\+: Joint 1 or 2)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+leaves the encoder in Byte 4, Quad X1 default state 
+\end{DoxyNote}
+\index{Periph.\+c@{Periph.\+c}!get\+Accel@{get\+Accel}}
+\index{get\+Accel@{get\+Accel}!Periph.\+c@{Periph.\+c}}
+\subsubsection[{\texorpdfstring{get\+Accel(int axis)}{getAccel(int axis)}}]{\setlength{\rightskip}{0pt plus 5cm}signed int get\+Accel (
+\begin{DoxyParamCaption}
+\item[{int}]{axis}
+\end{DoxyParamCaption}
+)}\hypertarget{_periph_8c_a664961c139fdb66c6fd0fb0e997df433}{}\label{_periph_8c_a664961c139fdb66c6fd0fb0e997df433}
+
+
+Find the acceleration in the given axis (X, Y, Z). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & The axis that you want to get the measurement of. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+g\+Val Value of acceleration. 
+\end{DoxyReturn}
+\index{Periph.\+c@{Periph.\+c}!I\+R\+Dist@{I\+R\+Dist}}
+\index{I\+R\+Dist@{I\+R\+Dist}!Periph.\+c@{Periph.\+c}}
+\subsubsection[{\texorpdfstring{I\+R\+Dist(int chan)}{IRDist(int chan)}}]{\setlength{\rightskip}{0pt plus 5cm}int I\+R\+Dist (
+\begin{DoxyParamCaption}
+\item[{int}]{chan}
+\end{DoxyParamCaption}
+)}\hypertarget{_periph_8c_ae0fb6b592e76f0934db14682e63982df}{}\label{_periph_8c_ae0fb6b592e76f0934db14682e63982df}
+
+
+Read an IR sensor and calculate the distance of the block. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chan} & The port that the IR sensor is on. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value The distance the block is from the sensor.
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000010}{Todo}]Make a function that is able to get the A\+DC value of the IR sensor. \end{DoxyRefDesc}
+\index{Periph.\+c@{Periph.\+c}!reset\+Enc\+Count@{reset\+Enc\+Count}}
+\index{reset\+Enc\+Count@{reset\+Enc\+Count}!Periph.\+c@{Periph.\+c}}
+\subsubsection[{\texorpdfstring{reset\+Enc\+Count(int chan)}{resetEncCount(int chan)}}]{\setlength{\rightskip}{0pt plus 5cm}void reset\+Enc\+Count (
+\begin{DoxyParamCaption}
+\item[{int}]{chan}
+\end{DoxyParamCaption}
+)}\hypertarget{_periph_8c_a9b159db17b7ebf680a2bdd169e269f85}{}\label{_periph_8c_a9b159db17b7ebf680a2bdd169e269f85}
+
+
+Reset the current count of the encoder ticks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chan} & The channel to clear. (change\+: Joint 1 or 2) \\
+\hline
+\end{DoxyParams}

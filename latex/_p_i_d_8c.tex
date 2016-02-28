@@ -1,0 +1,84 @@
+\hypertarget{_p_i_d_8c}{}\section{P\+I\+D.\+c File Reference}
+\label{_p_i_d_8c}\index{P\+I\+D.\+c@{P\+I\+D.\+c}}
+
+
+The source file for P\+ID constants and calculations.  
+
+
+{\ttfamily \#include \char`\"{}R\+B\+E\+Lib/\+R\+B\+E\+Lib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/definitions.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}math.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_p_i_d_8c_a2ffb511c1e18ce767f42422609dfa04d}{set\+Const} (char link, float Kp, float Ki, float Kd)
+\begin{DoxyCompactList}\small\item\em Sets the Kp, Ki, and Kd values for 1 link. \end{DoxyCompactList}\item 
+signed int \hyperlink{_p_i_d_8c_a0b728f39f71526d44fd7cff0ce67319e}{calc\+P\+ID} (char link, int set\+Point, int act\+Pos)
+\begin{DoxyCompactList}\small\item\em Calculate the P\+ID value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+pid\+Const \hyperlink{_p_i_d_8c_a4d2fc78b5924045bcc0e20fc95e18d97}{pid\+Consts}\hypertarget{_p_i_d_8c_a4d2fc78b5924045bcc0e20fc95e18d97}{}\label{_p_i_d_8c_a4d2fc78b5924045bcc0e20fc95e18d97}
+
+\begin{DoxyCompactList}\small\item\em Declaration for use in other files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The source file for P\+ID constants and calculations. 
+
+Sets the P\+ID constants and calculate the P\+ID value. \begin{DoxyAuthor}{Author}
+Chris Bove 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2-\/3-\/16 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{P\+I\+D.\+c@{P\+I\+D.\+c}!calc\+P\+ID@{calc\+P\+ID}}
+\index{calc\+P\+ID@{calc\+P\+ID}!P\+I\+D.\+c@{P\+I\+D.\+c}}
+\subsubsection[{\texorpdfstring{calc\+P\+I\+D(char link, int set\+Point, int act\+Pos)}{calcPID(char link, int setPoint, int actPos)}}]{\setlength{\rightskip}{0pt plus 5cm}signed int calc\+P\+ID (
+\begin{DoxyParamCaption}
+\item[{char}]{link, }
+\item[{int}]{set\+Point, }
+\item[{int}]{act\+Pos}
+\end{DoxyParamCaption}
+)}\hypertarget{_p_i_d_8c_a0b728f39f71526d44fd7cff0ce67319e}{}\label{_p_i_d_8c_a0b728f39f71526d44fd7cff0ce67319e}
+
+
+Calculate the P\+ID value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & Which link to calculate the error for (Use \textquotesingle{}U\textquotesingle{} and \textquotesingle{}L\textquotesingle{}). \\
+\hline
+{\em set\+Point} & The desired position of the link. \\
+\hline
+{\em act\+Pos} & The current position of the link. \\
+\hline
+\end{DoxyParams}
+\index{P\+I\+D.\+c@{P\+I\+D.\+c}!set\+Const@{set\+Const}}
+\index{set\+Const@{set\+Const}!P\+I\+D.\+c@{P\+I\+D.\+c}}
+\subsubsection[{\texorpdfstring{set\+Const(char link, float Kp, float Ki, float Kd)}{setConst(char link, float Kp, float Ki, float Kd)}}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Const (
+\begin{DoxyParamCaption}
+\item[{char}]{link, }
+\item[{float}]{Kp, }
+\item[{float}]{Ki, }
+\item[{float}]{Kd}
+\end{DoxyParamCaption}
+)}\hypertarget{_p_i_d_8c_a2ffb511c1e18ce767f42422609dfa04d}{}\label{_p_i_d_8c_a2ffb511c1e18ce767f42422609dfa04d}
+
+
+Sets the Kp, Ki, and Kd values for 1 link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & The link you want to set the values for (2 or 3). \\
+\hline
+{\em Kp} & Proportional value. \\
+\hline
+{\em Ki} & Integral value. \\
+\hline
+{\em Kd} & Derivative value. \\
+\hline
+\end{DoxyParams}

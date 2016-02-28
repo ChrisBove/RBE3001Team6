@@ -1,0 +1,55 @@
+\hypertarget{_s_p_i_8c}{}\section{S\+P\+I.\+c File Reference}
+\label{_s_p_i_8c}\index{S\+P\+I.\+c@{S\+P\+I.\+c}}
+
+
+arm library  
+
+
+{\ttfamily \#include \char`\"{}R\+B\+E\+Lib/\+R\+B\+E\+Lib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/definitions.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_s_p_i_8c_a070402cc6c1cae693d10f59f9c483f76}{init\+S\+PI} ()\hypertarget{_s_p_i_8c_a070402cc6c1cae693d10f59f9c483f76}{}\label{_s_p_i_8c_a070402cc6c1cae693d10f59f9c483f76}
+
+\begin{DoxyCompactList}\small\item\em Initializes the S\+PI bus for communication with all of your S\+PI devices. \end{DoxyCompactList}\item 
+unsigned char \hyperlink{_s_p_i_8c_a4d2cd713b65091a59a9a2ee50b28bdf1}{spi\+Transceive} (B\+Y\+TE data)
+\begin{DoxyCompactList}\small\item\em Send and receive a byte out of the M\+O\+SI line. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+arm library 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:cpbove@wpi.edu}{\tt cpbove@wpi.\+edu} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+30-\/\+Jan-\/2016 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\index{S\+P\+I.\+c@{S\+P\+I.\+c}!spi\+Transceive@{spi\+Transceive}}
+\index{spi\+Transceive@{spi\+Transceive}!S\+P\+I.\+c@{S\+P\+I.\+c}}
+\subsubsection[{\texorpdfstring{spi\+Transceive(\+B\+Y\+T\+E data)}{spiTransceive(BYTE data)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char spi\+Transceive (
+\begin{DoxyParamCaption}
+\item[{B\+Y\+TE}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{_s_p_i_8c_a4d2cd713b65091a59a9a2ee50b28bdf1}{}\label{_s_p_i_8c_a4d2cd713b65091a59a9a2ee50b28bdf1}
+
+
+Send and receive a byte out of the M\+O\+SI line. 
+
+Please note that even if you do not want to receive any data back from a S\+PI device, the S\+PI standard requires you still receive something back even if it is junk data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The byte to send down the S\+PI bus. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value The byte shifted in during transmit 
+\end{DoxyReturn}

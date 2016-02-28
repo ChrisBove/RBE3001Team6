@@ -1,0 +1,194 @@
+\hypertarget{lab1_8c}{}\section{lab1.\+c File Reference}
+\label{lab1_8c}\index{lab1.\+c@{lab1.\+c}}
+
+
+Lab1 functions.  
+
+
+{\ttfamily \#include \char`\"{}R\+B\+E\+Lib/\+R\+B\+E\+Lib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/definitions.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/lab1.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lab1_8c_a5a9c9df0ec7d68d5b3317201cbea4957}{init\+Part2and7\+Timer} ()
+\begin{DoxyCompactList}\small\item\em I\+SR to increment global timer0\+Count, used for timestamps on Part 2 and 7 Also toggles an L\+ED each run. \end{DoxyCompactList}\item 
+void \hyperlink{lab1_8c_a138d733c4cb50e4c15e23b2eb52b1405}{init\+Signal\+Generator\+Timer} ()\hypertarget{lab1_8c_a138d733c4cb50e4c15e23b2eb52b1405}{}\label{lab1_8c_a138d733c4cb50e4c15e23b2eb52b1405}
+
+\begin{DoxyCompactList}\small\item\em Configures Timer1 for Part 4 of lab(signal generation), prints header for logging. \end{DoxyCompactList}\item 
+void \hyperlink{lab1_8c_a9126a894a3991d911e9b23cf90812722}{output\+Setup} ()\hypertarget{lab1_8c_a9126a894a3991d911e9b23cf90812722}{}\label{lab1_8c_a9126a894a3991d911e9b23cf90812722}
+
+\begin{DoxyCompactList}\small\item\em Configures outputs for generating signals on pins. \end{DoxyCompactList}\item 
+void \hyperlink{lab1_8c_a374e2c796c7a4ffb45af9cde77c8cc14}{wait\+For\+Button7} ()
+\begin{DoxyCompactList}\small\item\em Holds processor until button 7 is pressed. \end{DoxyCompactList}\item 
+void \hyperlink{lab1_8c_addb053fa3cb303796c290e9f9a98d723}{wait\+For\+Char} (char c)
+\begin{DoxyCompactList}\small\item\em Holds the processor until the right character is received from U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{lab1_8c_abd8863de61906e138209a2fa10383a45}{A\+D\+C\+To\+Serial} (int channel)
+\begin{DoxyCompactList}\small\item\em Streams timestamp, adcval, potmv, and potangle to PC w/ U\+S\+A\+RT Transmits timestamps, A\+DC value in counts, pot output in millivolts, and pot angle in degrees over the serial port to the screen in the Terminal. \end{DoxyCompactList}\item 
+void \hyperlink{lab1_8c_a28bb1fce933726c2327e424b62557ec4}{A\+D\+C\+To\+Serial\+Part7} (int channel)
+\begin{DoxyCompactList}\small\item\em Streams timestamp and A\+DC values to the serial port for 1 second Transmits timestamps, A\+DC value in counts in degrees over the serial port to the screen in the Terminal. \end{DoxyCompactList}\item 
+void \hyperlink{lab1_8c_a2dcb6711e68dfcff6d48d6a4871589fa}{set\+Frequency\+For\+Post\+Scale} (int Frequency)
+\begin{DoxyCompactList}\small\item\em Configures postscaler in I\+SR based on inputted frequency. \end{DoxyCompactList}\item 
+void \hyperlink{lab1_8c_afa75f8a12deda641e6f5dcedc7c74d0e}{signal\+Generator\+Main} (int channel)
+\begin{DoxyCompactList}\small\item\em Generates signals w/particular duty cycles set by pot. \end{DoxyCompactList}\item 
+void {\bfseries triangle\+Signal\+Gengerator} ()\hypertarget{lab1_8c_a8537097a53fba5c66a96f3a3a64c32c5}{}\label{lab1_8c_a8537097a53fba5c66a96f3a3a64c32c5}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile unsigned long {\bfseries timer0\+Count}\hypertarget{lab1_8c_acaa646477a99ad529f93e5436d0b46a7}{}\label{lab1_8c_acaa646477a99ad529f93e5436d0b46a7}
+
+\item 
+volatile unsigned long {\bfseries timer2\+Count}\hypertarget{lab1_8c_a538b110a9fec8fae6d8a27d8d262733c}{}\label{lab1_8c_a538b110a9fec8fae6d8a27d8d262733c}
+
+\item 
+volatile unsigned {\bfseries timer2\+Count\+Sub}\hypertarget{lab1_8c_a5b705b1981b4300606e0688bdd639187}{}\label{lab1_8c_a5b705b1981b4300606e0688bdd639187}
+
+\item 
+unsigned {\bfseries post\+Scale}\hypertarget{lab1_8c_af280a7b81b430d7105644b579f89321e}{}\label{lab1_8c_af280a7b81b430d7105644b579f89321e}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Lab1 functions. 
+
+This includes all the functions needed for Lab1.
+
+\begin{DoxyAuthor}{Authors}
+\href{mailto:cpbove@wpi.edu}{\tt cpbove@wpi.\+edu} \href{mailto:jlhonicker@wpi.edu}{\tt jlhonicker@wpi.\+edu} \href{mailto:dmmurray@wpi.edu}{\tt dmmurray@wpi.\+edu} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+28-\/\+Jan-\/2016 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\index{lab1.\+c@{lab1.\+c}!A\+D\+C\+To\+Serial@{A\+D\+C\+To\+Serial}}
+\index{A\+D\+C\+To\+Serial@{A\+D\+C\+To\+Serial}!lab1.\+c@{lab1.\+c}}
+\subsubsection[{\texorpdfstring{A\+D\+C\+To\+Serial(int channel)}{ADCToSerial(int channel)}}]{\setlength{\rightskip}{0pt plus 5cm}void A\+D\+C\+To\+Serial (
+\begin{DoxyParamCaption}
+\item[{int}]{channel}
+\end{DoxyParamCaption}
+)}\hypertarget{lab1_8c_abd8863de61906e138209a2fa10383a45}{}\label{lab1_8c_abd8863de61906e138209a2fa10383a45}
+
+
+Streams timestamp, adcval, potmv, and potangle to PC w/ U\+S\+A\+RT Transmits timestamps, A\+DC value in counts, pot output in millivolts, and pot angle in degrees over the serial port to the screen in the Terminal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The A\+DC channel to read from \\
+\hline
+\end{DoxyParams}
+\index{lab1.\+c@{lab1.\+c}!A\+D\+C\+To\+Serial\+Part7@{A\+D\+C\+To\+Serial\+Part7}}
+\index{A\+D\+C\+To\+Serial\+Part7@{A\+D\+C\+To\+Serial\+Part7}!lab1.\+c@{lab1.\+c}}
+\subsubsection[{\texorpdfstring{A\+D\+C\+To\+Serial\+Part7(int channel)}{ADCToSerialPart7(int channel)}}]{\setlength{\rightskip}{0pt plus 5cm}void A\+D\+C\+To\+Serial\+Part7 (
+\begin{DoxyParamCaption}
+\item[{int}]{channel}
+\end{DoxyParamCaption}
+)}\hypertarget{lab1_8c_a28bb1fce933726c2327e424b62557ec4}{}\label{lab1_8c_a28bb1fce933726c2327e424b62557ec4}
+
+
+Streams timestamp and A\+DC values to the serial port for 1 second Transmits timestamps, A\+DC value in counts in degrees over the serial port to the screen in the Terminal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The A\+DC channel to read \\
+\hline
+\end{DoxyParams}
+\index{lab1.\+c@{lab1.\+c}!init\+Part2and7\+Timer@{init\+Part2and7\+Timer}}
+\index{init\+Part2and7\+Timer@{init\+Part2and7\+Timer}!lab1.\+c@{lab1.\+c}}
+\subsubsection[{\texorpdfstring{init\+Part2and7\+Timer()}{initPart2and7Timer()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Part2and7\+Timer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{lab1_8c_a5a9c9df0ec7d68d5b3317201cbea4957}{}\label{lab1_8c_a5a9c9df0ec7d68d5b3317201cbea4957}
+
+
+I\+SR to increment global timer0\+Count, used for timestamps on Part 2 and 7 Also toggles an L\+ED each run. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+P\+A\+\_\+vect} & Vector for Timer0 I\+SR I\+SR to increment global timer2\+Count, used for signal generation\\
+\hline
+\end{DoxyParams}
+Uses a sub counter to get a slower rate for some of the signal generations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em T\+I\+M\+E\+R2\+\_\+\+C\+O\+M\+P\+A\+\_\+vect} & Vector for Timer2 I\+SR Configures Timer0 for Parts 2 and 7 of lab, prints header for logging \\
+\hline
+\end{DoxyParams}
+\index{lab1.\+c@{lab1.\+c}!set\+Frequency\+For\+Post\+Scale@{set\+Frequency\+For\+Post\+Scale}}
+\index{set\+Frequency\+For\+Post\+Scale@{set\+Frequency\+For\+Post\+Scale}!lab1.\+c@{lab1.\+c}}
+\subsubsection[{\texorpdfstring{set\+Frequency\+For\+Post\+Scale(int Frequency)}{setFrequencyForPostScale(int Frequency)}}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Frequency\+For\+Post\+Scale (
+\begin{DoxyParamCaption}
+\item[{int}]{Frequency}
+\end{DoxyParamCaption}
+)}\hypertarget{lab1_8c_a2dcb6711e68dfcff6d48d6a4871589fa}{}\label{lab1_8c_a2dcb6711e68dfcff6d48d6a4871589fa}
+
+
+Configures postscaler in I\+SR based on inputted frequency. 
+
+Only handles a few frequencies\+: 1,20,100
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000008}{Todo}]make more generic\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em frequency} & The frequency to change to (1, 20, or 100) \\
+\hline
+\end{DoxyParams}
+\index{lab1.\+c@{lab1.\+c}!signal\+Generator\+Main@{signal\+Generator\+Main}}
+\index{signal\+Generator\+Main@{signal\+Generator\+Main}!lab1.\+c@{lab1.\+c}}
+\subsubsection[{\texorpdfstring{signal\+Generator\+Main(int channel)}{signalGeneratorMain(int channel)}}]{\setlength{\rightskip}{0pt plus 5cm}void signal\+Generator\+Main (
+\begin{DoxyParamCaption}
+\item[{int}]{channel}
+\end{DoxyParamCaption}
+)}\hypertarget{lab1_8c_afa75f8a12deda641e6f5dcedc7c74d0e}{}\label{lab1_8c_afa75f8a12deda641e6f5dcedc7c74d0e}
+
+
+Generates signals w/particular duty cycles set by pot. 
+
+Also reads buttons 5-\/7 to determine which frequency to output
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The A\+DC channel to read the pot from \\
+\hline
+\end{DoxyParams}
+\index{lab1.\+c@{lab1.\+c}!wait\+For\+Button7@{wait\+For\+Button7}}
+\index{wait\+For\+Button7@{wait\+For\+Button7}!lab1.\+c@{lab1.\+c}}
+\subsubsection[{\texorpdfstring{wait\+For\+Button7()}{waitForButton7()}}]{\setlength{\rightskip}{0pt plus 5cm}void wait\+For\+Button7 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{lab1_8c_a374e2c796c7a4ffb45af9cde77c8cc14}{}\label{lab1_8c_a374e2c796c7a4ffb45af9cde77c8cc14}
+
+
+Holds processor until button 7 is pressed. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000007}{Todo}]make more generic \end{DoxyRefDesc}
+\index{lab1.\+c@{lab1.\+c}!wait\+For\+Char@{wait\+For\+Char}}
+\index{wait\+For\+Char@{wait\+For\+Char}!lab1.\+c@{lab1.\+c}}
+\subsubsection[{\texorpdfstring{wait\+For\+Char(char c)}{waitForChar(char c)}}]{\setlength{\rightskip}{0pt plus 5cm}void wait\+For\+Char (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{lab1_8c_addb053fa3cb303796c290e9f9a98d723}{}\label{lab1_8c_addb053fa3cb303796c290e9f9a98d723}
+
+
+Holds the processor until the right character is received from U\+S\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The character to wait for. \\
+\hline
+\end{DoxyParams}

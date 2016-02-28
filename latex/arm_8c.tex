@@ -1,0 +1,374 @@
+\hypertarget{arm_8c}{}\section{arm.\+c File Reference}
+\label{arm_8c}\index{arm.\+c@{arm.\+c}}
+
+
+arm library  
+
+
+{\ttfamily \#include \char`\"{}include/arm.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/definitions.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/button.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}math.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{arm_8c_aec43762dc86e029b395d4e5819192c2d}{I\+SR} (T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+P\+A\+\_\+vect)
+\begin{DoxyCompactList}\small\item\em Timer I\+SR that runs at 100\+Hz. \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_aafced3304763025ad0de267efe8e6852}{init\+Arm} ()\hypertarget{arm_8c_aafced3304763025ad0de267efe8e6852}{}\label{arm_8c_aafced3304763025ad0de267efe8e6852}
+
+\begin{DoxyCompactList}\small\item\em initialize the arm variables \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_a9745f35ca229658cc342286ea75c0b77}{setup\+Timer} ()\hypertarget{arm_8c_a9745f35ca229658cc342286ea75c0b77}{}\label{arm_8c_a9745f35ca229658cc342286ea75c0b77}
+
+\begin{DoxyCompactList}\small\item\em sets a 100\+Hz timer up on Timer 0 \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_af2524895ed2fd62a1deddec06a271c73}{service\+Arm} ()\hypertarget{arm_8c_af2524895ed2fd62a1deddec06a271c73}{}\label{arm_8c_af2524895ed2fd62a1deddec06a271c73}
+
+\begin{DoxyCompactList}\small\item\em runs functions critical to arm operation. Call as often as possible. \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_aa43659f1c30dfd7d064296754a6b807b}{print\+Header\+For\+Joint\+Angle} ()\hypertarget{arm_8c_aa43659f1c30dfd7d064296754a6b807b}{}\label{arm_8c_aa43659f1c30dfd7d064296754a6b807b}
+
+\begin{DoxyCompactList}\small\item\em prints the header for streaming joint angles \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_a7d69aa5ae8ac661f25b63f765f1c021e}{print\+Header\+For\+Logging} ()\hypertarget{arm_8c_a7d69aa5ae8ac661f25b63f765f1c021e}{}\label{arm_8c_a7d69aa5ae8ac661f25b63f765f1c021e}
+
+\begin{DoxyCompactList}\small\item\em prints the header for the main logging of step responses \end{DoxyCompactList}\item 
+float \hyperlink{arm_8c_ad6888ae9e61522b34a617403a8e4519b}{get\+Joint\+Angle} (int joint)
+\begin{DoxyCompactList}\small\item\em gets the current, calibrated joint angle of the passed joint number \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_a6b675f984d018637e27207198700d67a}{print\+Joint\+Angle} (int joint)
+\begin{DoxyCompactList}\small\item\em prints adcval,pot mV, and joint angle of the passed joint number \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_a26e0485a681535871194aa660f249566}{print\+Log\+Line\+Joint2} (int set\+Point)
+\begin{DoxyCompactList}\small\item\em prints time, setpoint, joint\+Angle, P\+ID output, and motor current \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_a9b8592c4ca8d010060ba0eba48ee271b}{print\+Joint\+Angles\+And\+Pos} ()\hypertarget{arm_8c_a9b8592c4ca8d010060ba0eba48ee271b}{}\label{arm_8c_a9b8592c4ca8d010060ba0eba48ee271b}
+
+\begin{DoxyCompactList}\small\item\em streams joint angles in degrees and (x,y) tip positions in mm \end{DoxyCompactList}\item 
+int \hyperlink{arm_8c_a70b9182627cf76216575f38320be752f}{get\+Current} (int joint)
+\begin{DoxyCompactList}\small\item\em gets motor current of specified joint \end{DoxyCompactList}\item 
+int \hyperlink{arm_8c_a7cb1fda465b1c9252f9a9950d55056eb}{convert\+Volts\+To\+D\+A\+C\+Val} (float volts)
+\begin{DoxyCompactList}\small\item\em converts a voltage value to a D\+AC value \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_ae3ec65c5c46c10e2f3a1415558a3b01e}{set\+Joint\+Angles} (int lower\+Joint, int upper\+Joint)
+\begin{DoxyCompactList}\small\item\em updates globals with new desired ones \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_a281ce09c22242390324d771e37f8a59c}{control\+Arm\+With\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em changes desired joint angle of arm based on button presses for testing \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_a13a06dd269ca914555e0ea20e10209d2}{control\+Position\+With\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em changes desired joint angles of arm based on button presses \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_a2e543d56951209b54d4c8daa5980cca2}{control\+Joint1\+With\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em Lab3 -\/ control motor drive voltages with buttons. \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_a993c1c9b0ca552bfb30e0733a6d1f72a}{draw\+Triangle\+With\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em state machine for drawing triangles. \end{DoxyCompactList}\item 
+float \hyperlink{arm_8c_ab2cee43f1fce1131e584096fc342b0d9}{get\+Time\+Seconds} ()
+\begin{DoxyCompactList}\small\item\em gets the time in seconds \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_a2802c150f10b92c1b7a57da6720510db}{calc\+XY} ()\hypertarget{arm_8c_a2802c150f10b92c1b7a57da6720510db}{}\label{arm_8c_a2802c150f10b92c1b7a57da6720510db}
+
+\begin{DoxyCompactList}\small\item\em updates 2 globals with the current xy in mm of the end effector \end{DoxyCompactList}\item 
+B\+O\+OL \hyperlink{arm_8c_a39c5ec2326206bfdd7d3c68693cf8143}{in\+Position} (int theta1, int theta2)
+\begin{DoxyCompactList}\small\item\em check if the arm is in the angle position specified \end{DoxyCompactList}\item 
+float \hyperlink{arm_8c_aa4490a12eff09b6cac2aeeecd24d23ca}{get\+Gs} (int axis)
+\begin{DoxyCompactList}\small\item\em runs get\+Accel and converts to G\textquotesingle{}s \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{arm_8c_a43c5fa5a02f5e9f3faf0468011ca2ec2}{degrees\+Per\+Joint1\+Val}
+\item 
+float \hyperlink{arm_8c_ab1df5f43b22723b086d287834af86099}{degrees\+Per\+Joint2\+Val}
+\item 
+float \hyperlink{arm_8c_ac9567e94c04c0a6b45f86ad912eb211c}{x\+\_\+coord}
+\item 
+float \hyperlink{arm_8c_adec4b270699e4ef43679cf77763c719a}{y\+\_\+coord}
+\item 
+int \hyperlink{arm_8c_aea49cfec201b381550034ecd0110a85f}{lower\+Angle}
+\item 
+int \hyperlink{arm_8c_a6768686fa1db632b8d252e73b43633d5}{upper\+Angle}
+\item 
+volatile B\+O\+OL \hyperlink{arm_8c_a923be170e1f5d0b2ddf9fc64d04cdfe2}{service\+P\+ID}
+\item 
+volatile unsigned long \hyperlink{arm_8c_a85fd9b6a089055602b3c72e135b6a809}{timer\+Count}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+arm library 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:cpbove@wpi.edu}{\tt cpbove@wpi.\+edu} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+30-\/\+Jan-\/2016 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\index{arm.\+c@{arm.\+c}!control\+Arm\+With\+Buttons@{control\+Arm\+With\+Buttons}}
+\index{control\+Arm\+With\+Buttons@{control\+Arm\+With\+Buttons}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{control\+Arm\+With\+Buttons()}{controlArmWithButtons()}}]{\setlength{\rightskip}{0pt plus 5cm}void control\+Arm\+With\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_a281ce09c22242390324d771e37f8a59c}{}\label{arm_8c_a281ce09c22242390324d771e37f8a59c}
+
+
+changes desired joint angle of arm based on button presses for testing 
+
+\begin{DoxyNote}{Note}
+This does not run the P\+ID control, just sets setpoint 
+\end{DoxyNote}
+\index{arm.\+c@{arm.\+c}!control\+Joint1\+With\+Buttons@{control\+Joint1\+With\+Buttons}}
+\index{control\+Joint1\+With\+Buttons@{control\+Joint1\+With\+Buttons}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{control\+Joint1\+With\+Buttons()}{controlJoint1WithButtons()}}]{\setlength{\rightskip}{0pt plus 5cm}void control\+Joint1\+With\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_a2e543d56951209b54d4c8daa5980cca2}{}\label{arm_8c_a2e543d56951209b54d4c8daa5980cca2}
+
+
+Lab3 -\/ control motor drive voltages with buttons. 
+
+Sets first link to 0, -\/3, +3, or plus 6 Volts button 4 sets voltage to 0 button 5 sets voltage to -\/3 button 6 sets voltage to +3 button 7 sets voltage to +6 \index{arm.\+c@{arm.\+c}!control\+Position\+With\+Buttons@{control\+Position\+With\+Buttons}}
+\index{control\+Position\+With\+Buttons@{control\+Position\+With\+Buttons}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{control\+Position\+With\+Buttons()}{controlPositionWithButtons()}}]{\setlength{\rightskip}{0pt plus 5cm}void control\+Position\+With\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_a13a06dd269ca914555e0ea20e10209d2}{}\label{arm_8c_a13a06dd269ca914555e0ea20e10209d2}
+
+
+changes desired joint angles of arm based on button presses 
+
+\begin{DoxyNote}{Note}
+This does not run the P\+ID control, just sets setpoint 
+\end{DoxyNote}
+\index{arm.\+c@{arm.\+c}!convert\+Volts\+To\+D\+A\+C\+Val@{convert\+Volts\+To\+D\+A\+C\+Val}}
+\index{convert\+Volts\+To\+D\+A\+C\+Val@{convert\+Volts\+To\+D\+A\+C\+Val}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{convert\+Volts\+To\+D\+A\+C\+Val(float volts)}{convertVoltsToDACVal(float volts)}}]{\setlength{\rightskip}{0pt plus 5cm}int convert\+Volts\+To\+D\+A\+C\+Val (
+\begin{DoxyParamCaption}
+\item[{float}]{volts}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_a7cb1fda465b1c9252f9a9950d55056eb}{}\label{arm_8c_a7cb1fda465b1c9252f9a9950d55056eb}
+
+
+converts a voltage value to a D\+AC value 
+
+
+\begin{DoxyParams}{Parameters}
+{\em volts} & to convert to D\+AC -\/7.\+2 to 7.\+2 volts\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+D\+AC value 0-\/4095 
+\end{DoxyReturn}
+\index{arm.\+c@{arm.\+c}!draw\+Triangle\+With\+Buttons@{draw\+Triangle\+With\+Buttons}}
+\index{draw\+Triangle\+With\+Buttons@{draw\+Triangle\+With\+Buttons}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{draw\+Triangle\+With\+Buttons()}{drawTriangleWithButtons()}}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Triangle\+With\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_a993c1c9b0ca552bfb30e0733a6d1f72a}{}\label{arm_8c_a993c1c9b0ca552bfb30e0733a6d1f72a}
+
+
+state machine for drawing triangles. 
+
+button 4 draws a prescripted triangle button 5 just moves to a pose button 6 records a motion button 7 plays back the motion \begin{DoxyNote}{Note}
+This does not run the P\+ID control, just sets setpoint 
+\end{DoxyNote}
+\index{arm.\+c@{arm.\+c}!get\+Current@{get\+Current}}
+\index{get\+Current@{get\+Current}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{get\+Current(int joint)}{getCurrent(int joint)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Current (
+\begin{DoxyParamCaption}
+\item[{int}]{joint}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_a70b9182627cf76216575f38320be752f}{}\label{arm_8c_a70b9182627cf76216575f38320be752f}
+
+
+gets motor current of specified joint 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint} & The joint to get the current for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current in mA 
+\end{DoxyReturn}
+\index{arm.\+c@{arm.\+c}!get\+Gs@{get\+Gs}}
+\index{get\+Gs@{get\+Gs}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{get\+Gs(int axis)}{getGs(int axis)}}]{\setlength{\rightskip}{0pt plus 5cm}float get\+Gs (
+\begin{DoxyParamCaption}
+\item[{int}]{axis}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_aa4490a12eff09b6cac2aeeecd24d23ca}{}\label{arm_8c_aa4490a12eff09b6cac2aeeecd24d23ca}
+
+
+runs get\+Accel and converts to G\textquotesingle{}s 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & 0-\/2 for x,y,z axis to get g\textquotesingle{}s on\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/3.\+0 to 3.\+0 g\textquotesingle{}s of force 
+\end{DoxyReturn}
+\index{arm.\+c@{arm.\+c}!get\+Joint\+Angle@{get\+Joint\+Angle}}
+\index{get\+Joint\+Angle@{get\+Joint\+Angle}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{get\+Joint\+Angle(int joint)}{getJointAngle(int joint)}}]{\setlength{\rightskip}{0pt plus 5cm}float get\+Joint\+Angle (
+\begin{DoxyParamCaption}
+\item[{int}]{joint}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_ad6888ae9e61522b34a617403a8e4519b}{}\label{arm_8c_ad6888ae9e61522b34a617403a8e4519b}
+
+
+gets the current, calibrated joint angle of the passed joint number 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint} & 1 or 2 of the joint to get the angle for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+angle of joint in degrees (generally 0 to 180) 
+\end{DoxyReturn}
+\index{arm.\+c@{arm.\+c}!get\+Time\+Seconds@{get\+Time\+Seconds}}
+\index{get\+Time\+Seconds@{get\+Time\+Seconds}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{get\+Time\+Seconds()}{getTimeSeconds()}}]{\setlength{\rightskip}{0pt plus 5cm}float get\+Time\+Seconds (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_ab2cee43f1fce1131e584096fc342b0d9}{}\label{arm_8c_ab2cee43f1fce1131e584096fc342b0d9}
+
+
+gets the time in seconds 
+
+\begin{DoxyReturn}{Returns}
+time in seconds 
+\end{DoxyReturn}
+\index{arm.\+c@{arm.\+c}!in\+Position@{in\+Position}}
+\index{in\+Position@{in\+Position}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{in\+Position(int theta1, int theta2)}{inPosition(int theta1, int theta2)}}]{\setlength{\rightskip}{0pt plus 5cm}B\+O\+OL in\+Position (
+\begin{DoxyParamCaption}
+\item[{int}]{theta1, }
+\item[{int}]{theta2}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_a39c5ec2326206bfdd7d3c68693cf8143}{}\label{arm_8c_a39c5ec2326206bfdd7d3c68693cf8143}
+
+
+check if the arm is in the angle position specified 
+
+
+\begin{DoxyParams}{Parameters}
+{\em theta1} & angle of first joint \\
+\hline
+{\em theta2} & angle of second joint\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if arm is between 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000005}{Todo}]pass in the threshold to use \end{DoxyRefDesc}
+\index{arm.\+c@{arm.\+c}!I\+SR@{I\+SR}}
+\index{I\+SR@{I\+SR}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{I\+S\+R(\+T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+P\+A\+\_\+vect)}{ISR(TIMER0_COMPA_vect)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+SR (
+\begin{DoxyParamCaption}
+\item[{T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+P\+A\+\_\+vect}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_aec43762dc86e029b395d4e5819192c2d}{}\label{arm_8c_aec43762dc86e029b395d4e5819192c2d}
+
+
+Timer I\+SR that runs at 100\+Hz. 
+
+set flags for servicing at fixed intervals.
+
+
+\begin{DoxyParams}{Parameters}
+{\em T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+P\+A\+\_\+vect} & Interrupt vector for timer0 vector on A\+VR \\
+\hline
+\end{DoxyParams}
+\index{arm.\+c@{arm.\+c}!print\+Joint\+Angle@{print\+Joint\+Angle}}
+\index{print\+Joint\+Angle@{print\+Joint\+Angle}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{print\+Joint\+Angle(int joint)}{printJointAngle(int joint)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Joint\+Angle (
+\begin{DoxyParamCaption}
+\item[{int}]{joint}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_a6b675f984d018637e27207198700d67a}{}\label{arm_8c_a6b675f984d018637e27207198700d67a}
+
+
+prints adcval,pot mV, and joint angle of the passed joint number 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint} & 1 or 2 of the joint to print data for \\
+\hline
+\end{DoxyParams}
+\index{arm.\+c@{arm.\+c}!print\+Log\+Line\+Joint2@{print\+Log\+Line\+Joint2}}
+\index{print\+Log\+Line\+Joint2@{print\+Log\+Line\+Joint2}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{print\+Log\+Line\+Joint2(int set\+Point)}{printLogLineJoint2(int setPoint)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Log\+Line\+Joint2 (
+\begin{DoxyParamCaption}
+\item[{int}]{set\+Point}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_a26e0485a681535871194aa660f249566}{}\label{arm_8c_a26e0485a681535871194aa660f249566}
+
+
+prints time, setpoint, joint\+Angle, P\+ID output, and motor current 
+
+
+\begin{DoxyParams}{Parameters}
+{\em set\+Point} & the current command to the controller \\
+\hline
+\end{DoxyParams}
+\index{arm.\+c@{arm.\+c}!set\+Joint\+Angles@{set\+Joint\+Angles}}
+\index{set\+Joint\+Angles@{set\+Joint\+Angles}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{set\+Joint\+Angles(int lower\+Joint, int upper\+Joint)}{setJointAngles(int lowerJoint, int upperJoint)}}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Joint\+Angles (
+\begin{DoxyParamCaption}
+\item[{int}]{lower\+Joint, }
+\item[{int}]{upper\+Joint}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_ae3ec65c5c46c10e2f3a1415558a3b01e}{}\label{arm_8c_ae3ec65c5c46c10e2f3a1415558a3b01e}
+
+
+updates globals with new desired ones 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower\+Joint} & position for the lower joint 1 \\
+\hline
+{\em upper\+Joint} & position for the upper joint 2 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\index{arm.\+c@{arm.\+c}!degrees\+Per\+Joint1\+Val@{degrees\+Per\+Joint1\+Val}}
+\index{degrees\+Per\+Joint1\+Val@{degrees\+Per\+Joint1\+Val}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{degrees\+Per\+Joint1\+Val}{degreesPerJoint1Val}}]{\setlength{\rightskip}{0pt plus 5cm}degrees\+Per\+Joint1\+Val}\hypertarget{arm_8c_a43c5fa5a02f5e9f3faf0468011ca2ec2}{}\label{arm_8c_a43c5fa5a02f5e9f3faf0468011ca2ec2}
+for storing the degrees per adc value for joint 1 \index{arm.\+c@{arm.\+c}!degrees\+Per\+Joint2\+Val@{degrees\+Per\+Joint2\+Val}}
+\index{degrees\+Per\+Joint2\+Val@{degrees\+Per\+Joint2\+Val}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{degrees\+Per\+Joint2\+Val}{degreesPerJoint2Val}}]{\setlength{\rightskip}{0pt plus 5cm}degrees\+Per\+Joint2\+Val}\hypertarget{arm_8c_ab1df5f43b22723b086d287834af86099}{}\label{arm_8c_ab1df5f43b22723b086d287834af86099}
+for storing the degrees per adc value for joint 2
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]change these to constants \end{DoxyRefDesc}
+\index{arm.\+c@{arm.\+c}!lower\+Angle@{lower\+Angle}}
+\index{lower\+Angle@{lower\+Angle}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{lower\+Angle}{lowerAngle}}]{\setlength{\rightskip}{0pt plus 5cm}lower\+Angle}\hypertarget{arm_8c_aea49cfec201b381550034ecd0110a85f}{}\label{arm_8c_aea49cfec201b381550034ecd0110a85f}
+for storing the current lower\+Angle of the arm \index{arm.\+c@{arm.\+c}!service\+P\+ID@{service\+P\+ID}}
+\index{service\+P\+ID@{service\+P\+ID}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{service\+P\+ID}{servicePID}}]{\setlength{\rightskip}{0pt plus 5cm}service\+P\+ID}\hypertarget{arm_8c_a923be170e1f5d0b2ddf9fc64d04cdfe2}{}\label{arm_8c_a923be170e1f5d0b2ddf9fc64d04cdfe2}
+flag -\/ T\+R\+UE if P\+ID controller needs to be serviced, F\+A\+L\+SE otherwise \index{arm.\+c@{arm.\+c}!timer\+Count@{timer\+Count}}
+\index{timer\+Count@{timer\+Count}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{timer\+Count}{timerCount}}]{\setlength{\rightskip}{0pt plus 5cm}timer\+Count}\hypertarget{arm_8c_a85fd9b6a089055602b3c72e135b6a809}{}\label{arm_8c_a85fd9b6a089055602b3c72e135b6a809}
+for keeping time. increments in 0.\+01 seconds \index{arm.\+c@{arm.\+c}!upper\+Angle@{upper\+Angle}}
+\index{upper\+Angle@{upper\+Angle}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{upper\+Angle}{upperAngle}}]{\setlength{\rightskip}{0pt plus 5cm}upper\+Angle}\hypertarget{arm_8c_a6768686fa1db632b8d252e73b43633d5}{}\label{arm_8c_a6768686fa1db632b8d252e73b43633d5}
+for storing the current upper\+Angle of the arm
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000004}{Todo}]get rid of these globals \end{DoxyRefDesc}
+\index{arm.\+c@{arm.\+c}!x\+\_\+coord@{x\+\_\+coord}}
+\index{x\+\_\+coord@{x\+\_\+coord}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{x\+\_\+coord}{x_coord}}]{\setlength{\rightskip}{0pt plus 5cm}x\+\_\+coord}\hypertarget{arm_8c_ac9567e94c04c0a6b45f86ad912eb211c}{}\label{arm_8c_ac9567e94c04c0a6b45f86ad912eb211c}
+for storing the current x coordinate of the arm \index{arm.\+c@{arm.\+c}!y\+\_\+coord@{y\+\_\+coord}}
+\index{y\+\_\+coord@{y\+\_\+coord}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{y\+\_\+coord}{y_coord}}]{\setlength{\rightskip}{0pt plus 5cm}y\+\_\+coord}\hypertarget{arm_8c_adec4b270699e4ef43679cf77763c719a}{}\label{arm_8c_adec4b270699e4ef43679cf77763c719a}
+for storing the current y coordinate of the arm
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]get rid of these globals \end{DoxyRefDesc}

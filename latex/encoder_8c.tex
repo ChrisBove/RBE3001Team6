@@ -1,0 +1,92 @@
+\hypertarget{encoder_8c}{}\section{encoder.\+c File Reference}
+\label{encoder_8c}\index{encoder.\+c@{encoder.\+c}}
+
+
+encoder library  
+
+
+{\ttfamily \#include \char`\"{}include/encoder.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/definitions.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{encoder_8c_a2d734de15a9deff32c54eb88069a5621}{single\+Byte\+Write} (unsigned char op\+\_\+code, unsigned char data, int joint)
+\begin{DoxyCompactList}\small\item\em write a single byte to encoder \end{DoxyCompactList}\item 
+void \hyperlink{encoder_8c_ae65faa2bf505efde099ec54c39b22012}{slave\+Select} (int joint)
+\begin{DoxyCompactList}\small\item\em sets the chip select low for the passed joint \end{DoxyCompactList}\item 
+void \hyperlink{encoder_8c_a3d86dc0c613fddccd0ca6abc19d4ca37}{slave\+Deselect} (int joint)
+\begin{DoxyCompactList}\small\item\em sets the chip select high for the passed joint \end{DoxyCompactList}\item 
+void \hyperlink{encoder_8c_a0a09977ba0837e7fde8d4816e181b34a}{wait\+For\+Transmission\+End} ()\hypertarget{encoder_8c_a0a09977ba0837e7fde8d4816e181b34a}{}\label{encoder_8c_a0a09977ba0837e7fde8d4816e181b34a}
+
+\begin{DoxyCompactList}\small\item\em holds processor until transmission has finished \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+encoder library 
+
+\begin{DoxyAuthor}{Author}
+L\+SI Computer Systems, modified by \href{mailto:cpbove@wpi.edu}{\tt cpbove@wpi.\+edu} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+16-\/\+Feb-\/2016 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\index{encoder.\+c@{encoder.\+c}!single\+Byte\+Write@{single\+Byte\+Write}}
+\index{single\+Byte\+Write@{single\+Byte\+Write}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{\texorpdfstring{single\+Byte\+Write(unsigned char op\+\_\+code, unsigned char data, int joint)}{singleByteWrite(unsigned char op_code, unsigned char data, int joint)}}]{\setlength{\rightskip}{0pt plus 5cm}void single\+Byte\+Write (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{op\+\_\+code, }
+\item[{unsigned char}]{data, }
+\item[{int}]{joint}
+\end{DoxyParamCaption}
+)}\hypertarget{encoder_8c_a2d734de15a9deff32c54eb88069a5621}{}\label{encoder_8c_a2d734de15a9deff32c54eb88069a5621}
+
+
+write a single byte to encoder 
+
+
+\begin{DoxyParams}{Parameters}
+{\em op\+\_\+code} & one of the defined operation codes \\
+\hline
+{\em data} & data to write to the encoder \\
+\hline
+{\em joint} & 1 or 2 for the encoder joint to read \\
+\hline
+\end{DoxyParams}
+\index{encoder.\+c@{encoder.\+c}!slave\+Deselect@{slave\+Deselect}}
+\index{slave\+Deselect@{slave\+Deselect}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{\texorpdfstring{slave\+Deselect(int joint)}{slaveDeselect(int joint)}}]{\setlength{\rightskip}{0pt plus 5cm}void slave\+Deselect (
+\begin{DoxyParamCaption}
+\item[{int}]{joint}
+\end{DoxyParamCaption}
+)}\hypertarget{encoder_8c_a3d86dc0c613fddccd0ca6abc19d4ca37}{}\label{encoder_8c_a3d86dc0c613fddccd0ca6abc19d4ca37}
+
+
+sets the chip select high for the passed joint 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint} & 1 or 2 to deselect \\
+\hline
+\end{DoxyParams}
+\index{encoder.\+c@{encoder.\+c}!slave\+Select@{slave\+Select}}
+\index{slave\+Select@{slave\+Select}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{\texorpdfstring{slave\+Select(int joint)}{slaveSelect(int joint)}}]{\setlength{\rightskip}{0pt plus 5cm}void slave\+Select (
+\begin{DoxyParamCaption}
+\item[{int}]{joint}
+\end{DoxyParamCaption}
+)}\hypertarget{encoder_8c_ae65faa2bf505efde099ec54c39b22012}{}\label{encoder_8c_ae65faa2bf505efde099ec54c39b22012}
+
+
+sets the chip select low for the passed joint 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint} & 1 or 2 to select \\
+\hline
+\end{DoxyParams}
