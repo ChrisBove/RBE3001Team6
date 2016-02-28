@@ -217,7 +217,14 @@ int getCurrent(int joint){
 	return milliamps;
 
 }
-float getAverageCurrent(command,current){//takes in a command and a current reading
+/**
+ * @brief Function for managing the currents gathered and averaging them when asked
+ * @param  current Current to be added to the stored values
+ * @param  command Command of what to be done with the function, either resetCurrent,addCurrent,retrieveAverageCurrent
+ *
+ * @return current in mA
+ */
+float getAverageCurrent(int command,int current){//takes in a command and a current reading
 	static float totalCurrent = 0;//initialize total current variable
 	static int numberOfCurrents = 0;//initialize numberOfcurrents variable, its the number of readings taken
 	static float averageCurrent = 0;//Initiaize a variable for the average current reading
@@ -226,13 +233,13 @@ float getAverageCurrent(command,current){//takes in a command and a current read
 		numberOfCurrents ++;
 		return numberOfCurrents;
 	}
-	else if(command == resetCurrent){
+	else if(command == resetCurrent){//resets all variables
 		totalCurrent = 0;
 		numberOfCurrents = 0;
 		averageCurrent = 0;
 		return numberOfCurrents;
 	}
-	else if(command == retrieveAverageCurrent){
+	else if(command == retrieveAverageCurrent){//Averages total current by diving by number of instances added
 		averageCurrent = totalCurrent/numberOfCurrents;
 		return averageCurrent;
 	}

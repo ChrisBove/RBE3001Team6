@@ -150,7 +150,7 @@ int getCurrent(int joint);
  *
  * @return DAC value 0-4095
  */
-float getAverageCurrent(command,current);
+float getAverageCurrent(int command, int current);
 
 int convertVoltsToDACVal(float volts);
 /**
