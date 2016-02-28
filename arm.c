@@ -499,3 +499,57 @@ BOOL inPosition(int theta1, int theta2){
 float getGs(int axis){
 	return getAccel(axis)*0.0022;
 }
+
+/**
+ * @brief runs FSM for the final project
+ * Initialize,
+	WaitForBlock,
+	CalcBlockStatus,
+	GenerateTrajectoryGrab,
+	ExecuteGrabMotion,
+	GrabBlock,
+	CheckWeight,
+	GenerateTrajectoryDrop,
+	ExecuteDropMotion,
+	DropBlock
+ */
+void finiteStateMachine(){
+	static char state = Initialize;
+	switch(state){
+	case Initialize:
+
+		break;
+
+	case WaitForBlock:
+
+		break;
+
+	case CalcBlockStatus:
+
+		break;
+	case GenerateTrajectoryGrab:
+
+		break;
+	case ExecuteGrabMotion:
+
+		break;
+	case GrabBlock:
+
+		break;
+	case CheckWeight:
+
+		break;
+	case GenerateTrajectoryDrop:
+
+		break;
+	case ExecuteDropMotion:
+
+		break;
+	case DropBlock:
+
+		break;
+	default:
+		printf("Unknown FSM State!!\n\r");
+		break;
+	}
+}

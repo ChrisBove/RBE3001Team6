@@ -51,6 +51,23 @@
 #define LINK_3_Length	136.52
 
 /**
+ * @enum FSMStates
+ * For tracking states of the FSM
+ */
+enum FSMStates {
+	Initialize,
+	WaitForBlock,
+	CalcBlockStatus,
+	GenerateTrajectoryGrab,
+	ExecuteGrabMotion,
+	GrabBlock,
+	CheckWeight,
+	GenerateTrajectoryDrop,
+	ExecuteDropMotion,
+	DropBlock
+};
+
+/**
  * @brief initialize the arm variables
  */
 void initArm();
@@ -171,5 +188,11 @@ BOOL inPosition(int theta1, int theta2);
  */
 float getGs(int axis);
 
+
+/// **** Final Project Additions *****
+/**
+ * @brief runs FSM for the final project
+ */
+void finiteStateMachine();
 
 #endif /* INCLUDE_ARM_H_ */
