@@ -101,9 +101,9 @@ void homePos(){
 	driveLink(3,0); // stop
 
 	// === move joint 2 ===
-	dir = 0 - getJointAngle(1);
-	// while not within +- 2 from 0, keep moving
-	while(!betweenTwoVals(getJointAngle(1),-2,2)){
+	dir = 90 - getJointAngle(1);
+	// while not within +- 2 from 90, keep moving
+	while(!betweenTwoVals(getJointAngle(1),88,92)){
 		if (dir > 0)
 			driveLink(2, 300);
 		else
