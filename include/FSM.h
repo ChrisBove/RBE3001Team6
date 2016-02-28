@@ -23,6 +23,7 @@ enum FSMStates {
 	GenerateTrajectoryGrab,
 	ExecuteGrabMotion,
 	GrabBlock,
+	WaitForGripper,
 	CheckWeight,
 	GenerateTrajectoryDropFar,
 	GenerateTrajectoryDropClose,
@@ -35,9 +36,11 @@ enum FSMStates {
  * height in mm arm will wait above conveyor belt once block is detected
  * @def Center_X
  * x coordinate arm will wait at once block is detected
+ *
  */
 #define Waiting_Height 110
 #define Center_X 125
+#define Grab_Height 90
 
 /**
  * @def Distance_Threshold
@@ -59,6 +62,7 @@ enum FSMStates {
  */
 #define Time_To_Move 1.0
 #define Time_To_Grab 0.4
+#define Time_To_Close 0.7
 
 /**
  * @brief runs FSM for the final project
