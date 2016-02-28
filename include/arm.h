@@ -50,6 +50,13 @@
 #define LINK_2_Length	152.4
 #define LINK_3_Length	136.52
 
+enum currentCommands {
+	addCurrent,
+	resetCurrent,
+	retrieveAverageCurrent
+};
+
+
 /**
  * @brief initialize the arm variables
  */
@@ -143,6 +150,8 @@ int getCurrent(int joint);
  *
  * @return DAC value 0-4095
  */
+float getAverageCurrent(command,current);
+
 int convertVoltsToDACVal(float volts);
 /**
  * @brief gets the time in seconds

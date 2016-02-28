@@ -217,7 +217,30 @@ int getCurrent(int joint){
 	return milliamps;
 
 }
-
+float getAverageCurrent(command,current){//takes in a command and a current reading
+	static float totalCurrent = 0;//initialize total current variable
+	static int numberOfCurrents = 0;//initialize numberOfcurrents variable, its the number of readings taken
+	static float averageCurrent = 0;//Initiaize a variable for the average current reading
+	if(command == addCurrent){//adds current given to the total current readings and indexes the number of readings taken
+		totalCurrent += current;
+		numberOfCurrents ++;
+		return numberOfCurrents;
+	}
+	else if(command == resetCurrent){
+		totalCurrent = 0;
+		numberOfCurrents = 0;
+		averageCurrent = 0;
+		return numberOfCurrents;
+	}
+	else if(command == retrieveAverageCurrent){
+		averageCurrent = totalCurrent/numberOfCurrents;
+		return averageCurrent;
+	}
+	else{
+		printf("You don messed up");
+		return -1;
+	}
+}
 /**
  * @brief converts a voltage value to a DAC value
  * @param  volts to convert to DAC -7.2 to 7.2 volts
