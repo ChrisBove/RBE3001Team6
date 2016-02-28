@@ -185,7 +185,7 @@ float getGs(int axis);
  * @param x desired x position
  * @param y desired y position
  */
-void setPosition(double x, double y);
+void setPosition(float x, float y);
 
 
 #endif /* INCLUDE_ARM_H_ */
