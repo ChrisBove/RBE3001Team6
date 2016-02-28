@@ -20,7 +20,9 @@ void finiteStateMachine(){
 	static char state = Initialize;
 	switch(state){
 	case Initialize:
-
+		startConveyor();
+		openGripper();
+		state = WaitForBlock;
 		break;
 
 	case WaitForBlock:
