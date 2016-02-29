@@ -39,6 +39,15 @@ float x_coord;
 float y_coord;
 
 /**
+ * @var L2L2
+ * constant for optimizing Link 2 Length ^2
+ * @var L3L3
+ * constant for optimizing Link 3 Length ^2
+ */
+float L2L2;
+float L3L3;
+
+/**
  * @var lowerAngle
  * for storing the current lowerAngle of the arm
  *
@@ -80,6 +89,10 @@ void initArm() {
 	// calculate conversions from adc values to degrees for each joint
 	degreesPerJoint1Val = 90.0/(JOINT_1_VAL_AT_90 - JOINT_1_VAL_AT_0);
 	degreesPerJoint2Val = 90.0/(JOINT_2_VAL_AT_90 - JOINT_2_VAL_AT_0);
+
+	//calculate some squares up front
+	L2L2 = pow(LINK_2_Length,2);
+	L3L3 = pow(LINK_3_Length,2);
 
 	// intialize devices and set constants for PID controllers
 	initADC(ADC3D); // init ADC
@@ -535,10 +548,12 @@ float getGs(int axis){
  * @param y desired y position
  */
 void setPosition(float x, float y){
-	float a1 = 152.4;//arm length 1 is 152.4 mm
-	float a2 = 152.4;//arm length 2 to the center of the gripper is 152.4 mm
-	float theta1 = atan2f(y,x)+acos((x*x+y*y+a1*a1-a2*a2)/(2*a1*(sqrt((x*x+y*y)))));//not sure if we are dealing with degrees or radians , needs testing
-	float theta2 = acos(((a1*a1)+(a2*a2)-(x*x+y*y))/(2*a1*a2))-(3.14159/2);//im not sure what acos will retun i terms of radians or degress so it may be to be modified
-	lowerAngle = theta1;//sets results to the global variable lowerAngle
-	upperAngle = theta2;//sets results to the global variable upperAngle
+	// optimization - cache these calculations
+	float xx = pow(x,2);
+	float yy = pow(y,2);
+
+	float theta1 = atan2f(y,x)+acos((xx+yy+L2L2-L3L3)/(2*LINK_2_Length*(sqrt((xx+yy)))));
+	float theta2 = acos(((L2L2)+(L3L3)-(xx+yy))/(2*LINK_2_Length*LINK_3_Length))-(3.14159/2);
+	lowerAngle = theta1*DEGREES_TO_RADIANS;//sets results to the global variable lowerAngle
+	upperAngle = theta2*DEGREES_TO_RADIANS;//sets results to the global variable upperAngle
 }
