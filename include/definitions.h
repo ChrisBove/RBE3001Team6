@@ -72,6 +72,7 @@ BOOL betweenTwoVals(int value, int lower, int upper);
  * number of radians per degree for conversions
  */
 #define RADS_PER_DEGREE	0.01745
+#define DEGREES_TO_RADIANS 57.2958
 
 /**
  * @def X_AXIS
