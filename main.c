@@ -48,7 +48,7 @@ int main(void) {
 	printf("I am alive... Press h to home.\n\r"); // we done setting up
 	waitForChar('h');
 	printf("homing...\n\r");
-	homePos(); // home to initial pose
+	//homePos(); // home to initial pose
 	//resetEncCount(1);
 	//resetEncCount(2);
 	printf("Done homing. Press g to continue.\n\r");

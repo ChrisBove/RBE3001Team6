@@ -28,6 +28,7 @@ void finiteStateMachine(){
 	static char state = Initialize;
 	switch(state){
 	case Initialize:
+		printf("init\n\r");
 		startConveyor();
 		openGripper();
 		setPosition(Center_X,Waiting_Height+100);
@@ -35,6 +36,8 @@ void finiteStateMachine(){
 		break;
 
 	case WaitForBlock:
+		printf("wait\n\r");
+		openGripper();
 		//check if block is sensed (below 110mm)
 		if(IRDist(IR_FRONT_PIN) <= Distance_Threshold){
 			blockStartTime = getTimeSeconds(); //save the current time
@@ -45,12 +48,13 @@ void finiteStateMachine(){
 		break;
 
 	case CalcBlockX:
+		printf("calcBlock\n\r");
 		//take the lowest reading with some filtering
 		reading = IRDist(IR_FRONT_PIN);
 		//not done sampling until values increase consecutively(reached min)
-		if(IRSamplesIncreasing < 5){
+		if(IRSamplesIncreasing < 50){
 			// if reading is new min, still decreasing in values
-			if(reading < IRSampleMin){
+			if(reading <= IRSampleMin){
 				IRSampleMin = reading;
 				IRSamplesIncreasing = 0;
 			}
@@ -68,6 +72,7 @@ void finiteStateMachine(){
 		}
 		break;
 	case CalcBlockSpeed:
+		printf("calcSpeed\n\r");
 		// wait until 2nd sensor is toggled
 		if(IRDist(IR_BACK_PIN)<= Distance_Threshold){
 			float deltaT = getTimeSeconds() - blockStartTime;
@@ -80,24 +85,28 @@ void finiteStateMachine(){
 
 		break;
 	case ExecuteGrabMotion:
+		printf("grabmove\n\r");
 		// if we are away from grabTime by the time it takes to move, begin!
 		if ((getTimeSeconds() + Time_To_Move) >= grabTime) {
+			setPosition(blockX,Grab_Height);
 			state = GrabBlock;
 		}
 		break;
 	case GrabBlock:
+		printf("grip\n\r");
 		if ((getTimeSeconds() + Time_To_Grab) >= grabTime) {
 			closeGripper();
 			state = WaitForGripper;
 		}
 		break;
 	case WaitForGripper:
+		printf("wait\n\r");
 		if(getTimeSeconds() >= grabTime + Time_To_Close) {
 			state = CheckWeight;
 		}
 		break;
 	case CheckWeight:
-
+		printf("check\n\r");
 		break;
 	case GenerateTrajectoryDropClose:
 

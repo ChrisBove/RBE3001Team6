@@ -41,9 +41,9 @@ enum FSMStates {
  * x coordinate arm will wait at once block is detected
  *
  */
-#define Waiting_Height 150
+#define Waiting_Height 145
 #define Center_X 196
-#define Grab_Height 120
+#define Grab_Height 115
 
 /**
  * @def Distance_Threshold
@@ -57,7 +57,7 @@ enum FSMStates {
  */
 #define Distance_Threshold 200
 #define Distance_Between_IR 64
-#define Distance_IR_To_Arm 114
+#define Distance_IR_To_Arm 130
 #define X_IR_Offset 51
 
 /**
@@ -66,8 +66,8 @@ enum FSMStates {
  * @def Time_To_Grab
  * The time before the block grab time to request a gripper close
  */
-#define Time_To_Move 1.0
-#define Time_To_Grab 0.4
+#define Time_To_Move 0.4
+#define Time_To_Grab 0.1
 #define Time_To_Close 0.7
 
 /**

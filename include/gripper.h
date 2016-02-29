@@ -17,7 +17,7 @@
 #define GRIPPER_CLOSE 170
 #define GRIPPER_OPEN 20
 
-#define CONVEYOR_FORWARD 20
+#define CONVEYOR_FORWARD 0
 #define CONVEYOR_STOP 90
 
 /**
