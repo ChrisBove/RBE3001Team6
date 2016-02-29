@@ -12,6 +12,7 @@
 #include "include/arm.h"
 #include "RBELib/RBELib.h"
 #include "include/gripper.h"
+#include "math.h"
 
 /**
  * @brief runs FSM for the final project
@@ -31,6 +32,7 @@ void finiteStateMachine(){
 		printf("init\n\r");
 		startConveyor();
 		openGripper();
+		getAverageCurrent(resetCurrent,0);
 		setPosition(Center_X,Waiting_Height+100);
 		state = WaitForBlock;
 		break;
@@ -102,23 +104,47 @@ void finiteStateMachine(){
 	case WaitForGripper:
 		printf("wait\n\r");
 		if(getTimeSeconds() >= grabTime + Time_To_Close) {
-			state = CheckWeight;
+
+			state = MoveBlockUp;
 		}
+		break;
+	case MoveBlockUp:
+		setPosition(Center_X+50,Waiting_Height+100);
+		state = CheckWeight;
 		break;
 	case CheckWeight:
 		printf("check\n\r");
+		getAverageCurrent(addCurrent,getCurrent(2));
+		//sample until reaching position
+		if(doneMoving()){
+			//if a heavy block
+			printf("val: %f",fabs(getAverageCurrent(retrieveAverageCurrent,0)));
+			if(fabs(getAverageCurrent(retrieveAverageCurrent,0)) >= Heavy_Current_Threshold){
+				state = GenerateTrajectoryDropClose;
+			}
+			else {
+				state = GenerateTrajectoryDropFar;
+			}
+		}
 		break;
 	case GenerateTrajectoryDropClose:
-
+		printf("dropclose\n\r");
+		setPosition(Drop_Close_X,Waiting_Height+100);
+		state = ExecuteDropMotion;
 		break;
 	case GenerateTrajectoryDropFar:
-
+		printf("dropfar\n\r");
+		setPosition(Drop_Far_X,Waiting_Height+50);
+		state = ExecuteDropMotion;
 		break;
 	case ExecuteDropMotion:
-
+		if(doneMoving()){
+			state = DropBlock;
+		}
 		break;
 	case DropBlock:
-
+		openGripper();
+		state = Initialize;
 		break;
 	default:
 		printf("Unknown FSM State!!\n\r");

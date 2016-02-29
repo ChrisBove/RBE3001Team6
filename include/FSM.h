@@ -24,6 +24,7 @@ enum FSMStates {
 	ExecuteGrabMotion,
 	GrabBlock,
 	WaitForGripper,
+	MoveBlockUp,
 	CheckWeight,
 	GenerateTrajectoryDropFar,
 	GenerateTrajectoryDropClose,
@@ -44,6 +45,8 @@ enum FSMStates {
 #define Waiting_Height 145
 #define Center_X 196
 #define Grab_Height 115
+#define Drop_Far_X 300
+#define Drop_Close_X 110
 
 /**
  * @def Distance_Threshold
@@ -66,9 +69,15 @@ enum FSMStates {
  * @def Time_To_Grab
  * The time before the block grab time to request a gripper close
  */
-#define Time_To_Move 0.4
+#define Time_To_Move 0.25
 #define Time_To_Grab 0.1
 #define Time_To_Close 0.7
+
+/**
+ * @def Heavy_Current_Threshold
+ * currents higher than this mean we lifted a heavy block
+ */
+#define Heavy_Current_Threshold 550
 
 /**
  * @brief runs FSM for the final project
