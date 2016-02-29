@@ -192,6 +192,12 @@ float getGs(int axis);
  * @param y desired y position
  */
 void setPosition(float x, float y);
-
+/**
+ * @brief uses a polynomial to calibrate the IR distance readings
+ * @param IR distance reading in mm
+ *
+ * @return calibrated IR distance in mm
+ */
+int calibratedIRVal(int IRDist);
 
 #endif /* INCLUDE_ARM_H_ */

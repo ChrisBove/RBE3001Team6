@@ -52,7 +52,7 @@ void finiteStateMachine(){
 	case CalcBlockX:
 //		printf("calcBlock\n\r");
 		//take the lowest reading with some filtering
-		reading = IRDist(IR_FRONT_PIN);
+		reading = calibratedIRVal(IRDist(IR_FRONT_PIN));
 		//not done sampling until values increase consecutively(reached min)
 		if(IRSamplesIncreasing < 50){
 			// if reading is new min, still decreasing in values

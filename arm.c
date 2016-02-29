@@ -567,3 +567,13 @@ void setPosition(float x, float y){
 	lowerAngle = theta1*DEGREES_TO_RADIANS;//sets results to the global variable lowerAngle
 	upperAngle = theta2*DEGREES_TO_RADIANS;//sets results to the global variable upperAngle
 }
+
+/**
+ * @brief uses a polynomial to calibrate the IR distance readings
+ * @param IR distance reading in mm
+ *
+ * @return calibrated IR distance in mm
+ */
+int calibratedIRVal(int IRDist){
+	return (-0.0048*pow(IRDist,2)) + 2.2013*IRDist - 88.556;
+}
