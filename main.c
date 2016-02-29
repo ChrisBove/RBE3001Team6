@@ -36,6 +36,8 @@ int main(void) {
 
 	initSPI(); // initialize SPI communications
 	initArm(); // initialize the arm
+	stopConveyor();
+	openGripper();
 	//encInit(1);
 	//encInit(2);
 	//getAccel(0); // run once to initialize Vref
@@ -46,7 +48,7 @@ int main(void) {
 	printf("I am alive... Press h to home.\n\r"); // we done setting up
 	waitForChar('h');
 	printf("homing...\n\r");
-	homePos(); // home to initial pose
+	//homePos(); // home to initial pose
 	//resetEncCount(1);
 	//resetEncCount(2);
 	printf("Done homing. Press g to continue.\n\r");
@@ -55,7 +57,7 @@ int main(void) {
 	// ===== main loop ====
 	while (1) {
 		//serviceButtons(); // service the buttons for polling
-
+		//printf("IR: %i %i\n\r",IRDist(4),IRDist(5));
 		finiteStateMachine();
 		serviceArm(); // service the arm
 

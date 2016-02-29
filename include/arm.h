@@ -48,7 +48,7 @@
  */
 #define LINK_1_Length	142.87
 #define LINK_2_Length	152.4
-#define LINK_3_Length	136.52
+#define LINK_3_Length	152.4
 
 enum currentCommands {
 	addCurrent,
@@ -172,6 +172,12 @@ void calcXY();
  * @todo pass in the threshold to use
  */
 BOOL inPosition(int theta1, int theta2);
+/**
+ * @brief checks if the arm is in desired position
+ *
+ * @return true if in desired position
+ */
+BOOL doneMoving();
 /**
  * @brief runs getAccel and converts to G's
  * @param axis 0-2 for x,y,z axis to get g's on

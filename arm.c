@@ -39,6 +39,15 @@ float x_coord;
 float y_coord;
 
 /**
+ * @var L2L2
+ * constant for optimizing Link 2 Length ^2
+ * @var L3L3
+ * constant for optimizing Link 3 Length ^2
+ */
+float L2L2;
+float L3L3;
+
+/**
  * @var lowerAngle
  * for storing the current lowerAngle of the arm
  *
@@ -81,13 +90,17 @@ void initArm() {
 	degreesPerJoint1Val = 90.0/(JOINT_1_VAL_AT_90 - JOINT_1_VAL_AT_0);
 	degreesPerJoint2Val = 90.0/(JOINT_2_VAL_AT_90 - JOINT_2_VAL_AT_0);
 
+	//calculate some squares up front
+	L2L2 = pow(LINK_2_Length,2);
+	L3L3 = pow(LINK_3_Length,2);
+
 	// intialize devices and set constants for PID controllers
 	initADC(ADC3D); // init ADC
 	stopMotors();
 	setConst(2,20,0.1,4); // joint 2 - Kp, Ki, Kd
 	setConst(3,20,0.1,4); // joint 3 - Kp, Ki, Kd
 	setupTimer();
-	setJointAngles(0,0); // set desired joint angles to 0
+	setJointAngles(0,90); // set desired joint angles to 0
 }
 
 /**
@@ -518,6 +531,14 @@ BOOL inPosition(int theta1, int theta2){
 	return( (betweenTwoVals(theta1-getJointAngle(1),-2,2))
 			&& (betweenTwoVals(theta2-getJointAngle(2),-2,2)) );
 }
+/**
+ * @brief checks if the arm is in desired position
+ *
+ * @return true if in desired position
+ */
+BOOL doneMoving(){
+	return inPosition(lowerAngle,upperAngle);
+}
 
 /**
  * @brief runs getAccel and converts to G's
@@ -535,10 +556,14 @@ float getGs(int axis){
  * @param y desired y position
  */
 void setPosition(float x, float y){
-	float a1 = 152.4;//arm length 1 is 152.4 mm
-	float a2 = 152.4;//arm length 2 to the center of the gripper is 152.4 mm
-	float theta1 = atan2f(y,x)+acos((x*x+y*y+a1*a1-a2*a2)/(2*a1*(sqrt((x*x+y*y)))));//not sure if we are dealing with degrees or radians , needs testing
-	float theta2 = acos(((a1*a1)+(a2*a2)-(x*x+y*y))/(2*a1*a2))-(3.14159/2);//im not sure what acos will retun i terms of radians or degress so it may be to be modified
-	lowerAngle = theta1;//sets results to the global variable lowerAngle
-	upperAngle = theta2;//sets results to the global variable upperAngle
+	// subtract Link1 (vertical) length from requested y value
+	float _y = y - LINK_1_Length;
+	// optimization - cache these calculations
+	float xx = pow(x,2);
+	float yy = pow(_y,2);
+
+	float theta1 = atan2f(_y,x)+acos((xx+yy+L2L2-L3L3)/(2*LINK_2_Length*(sqrt((xx+yy)))));
+	float theta2 = acos(((L2L2)+(L3L3)-(xx+yy))/(2*LINK_2_Length*LINK_3_Length))-(3.14159/2);
+	lowerAngle = theta1*DEGREES_TO_RADIANS;//sets results to the global variable lowerAngle
+	upperAngle = theta2*DEGREES_TO_RADIANS;//sets results to the global variable upperAngle
 }
