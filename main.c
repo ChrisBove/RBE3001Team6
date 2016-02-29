@@ -37,6 +37,7 @@ int main(void) {
 	initSPI(); // initialize SPI communications
 	initArm(); // initialize the arm
 	stopConveyor();
+	openGripper();
 	//encInit(1);
 	//encInit(2);
 	//getAccel(0); // run once to initialize Vref
