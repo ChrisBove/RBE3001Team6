@@ -61,7 +61,7 @@ enum FSMStates {
 #define Distance_Threshold 200
 #define Distance_Between_IR 64.7
 #define Distance_IR_To_Arm 130
-#define X_IR_Offset 68
+#define X_IR_Offset 76.81
 
 /**
  * @def Time_To_Move
