@@ -48,7 +48,7 @@
  */
 #define LINK_1_Length	142.87
 #define LINK_2_Length	152.4
-#define LINK_3_Length	136.52
+#define LINK_3_Length	152.4
 
 enum currentCommands {
 	addCurrent,
