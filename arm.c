@@ -548,11 +548,13 @@ float getGs(int axis){
  * @param y desired y position
  */
 void setPosition(float x, float y){
+	// subtract Link1 (vertical) length from requested y value
+	float _y = y - LINK_1_Length;
 	// optimization - cache these calculations
 	float xx = pow(x,2);
-	float yy = pow(y,2);
+	float yy = pow(_y,2);
 
-	float theta1 = atan2f(y,x)+acos((xx+yy+L2L2-L3L3)/(2*LINK_2_Length*(sqrt((xx+yy)))));
+	float theta1 = atan2f(_y,x)+acos((xx+yy+L2L2-L3L3)/(2*LINK_2_Length*(sqrt((xx+yy)))));
 	float theta2 = acos(((L2L2)+(L3L3)-(xx+yy))/(2*LINK_2_Length*LINK_3_Length))-(3.14159/2);
 	lowerAngle = theta1*DEGREES_TO_RADIANS;//sets results to the global variable lowerAngle
 	upperAngle = theta2*DEGREES_TO_RADIANS;//sets results to the global variable upperAngle
