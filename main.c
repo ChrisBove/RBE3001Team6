@@ -36,6 +36,7 @@ int main(void) {
 
 	initSPI(); // initialize SPI communications
 	initArm(); // initialize the arm
+	stopConveyor();
 	//encInit(1);
 	//encInit(2);
 	//getAccel(0); // run once to initialize Vref
@@ -55,7 +56,7 @@ int main(void) {
 	// ===== main loop ====
 	while (1) {
 		//serviceButtons(); // service the buttons for polling
-
+		//printf("IR: %i %i\n\r",IRDist(4),IRDist(5));
 		finiteStateMachine();
 		serviceArm(); // service the arm
 
