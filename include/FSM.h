@@ -61,7 +61,7 @@ enum FSMStates {
 #define Distance_Threshold 200
 #define Distance_Between_IR 64
 #define Distance_IR_To_Arm 130
-#define X_IR_Offset 51
+#define X_IR_Offset 64
 
 /**
  * @def Time_To_Move
@@ -69,15 +69,15 @@ enum FSMStates {
  * @def Time_To_Grab
  * The time before the block grab time to request a gripper close
  */
-#define Time_To_Move 0.25
-#define Time_To_Grab 0.1
-#define Time_To_Close 0.7
+#define Time_To_Move 0.05
+#define Time_To_Grab -0.25
+#define Time_To_Close 0.6
 
 /**
  * @def Heavy_Current_Threshold
  * currents higher than this mean we lifted a heavy block
  */
-#define Heavy_Current_Threshold 550
+#define Heavy_Current_Threshold 570
 
 /**
  * @brief runs FSM for the final project
