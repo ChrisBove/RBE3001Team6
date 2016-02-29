@@ -29,7 +29,7 @@ void finiteStateMachine(){
 	static char state = Initialize;
 	switch(state){
 	case Initialize:
-		printf("init\n\r");
+//		printf("init\n\r");
 		startConveyor();
 		openGripper();
 		getAverageCurrent(resetCurrent,0);
@@ -38,7 +38,7 @@ void finiteStateMachine(){
 		break;
 
 	case WaitForBlock:
-		printf("wait\n\r");
+//		printf("wait\n\r");
 		openGripper();
 		//check if block is sensed (below 110mm)
 		if(IRDist(IR_FRONT_PIN) <= Distance_Threshold){
@@ -50,7 +50,7 @@ void finiteStateMachine(){
 		break;
 
 	case CalcBlockX:
-		printf("calcBlock\n\r");
+//		printf("calcBlock\n\r");
 		//take the lowest reading with some filtering
 		reading = IRDist(IR_FRONT_PIN);
 		//not done sampling until values increase consecutively(reached min)
@@ -74,7 +74,7 @@ void finiteStateMachine(){
 		}
 		break;
 	case CalcBlockSpeed:
-		printf("calcSpeed\n\r");
+//		printf("calcSpeed\n\r");
 		// wait until 2nd sensor is toggled
 		if(IRDist(IR_BACK_PIN)<= Distance_Threshold){
 			float deltaT = getTimeSeconds() - blockStartTime;
@@ -87,7 +87,7 @@ void finiteStateMachine(){
 
 		break;
 	case ExecuteGrabMotion:
-		printf("grabmove\n\r");
+//		printf("grabmove\n\r");
 		// if we are away from grabTime by the time it takes to move, begin!
 		if ((getTimeSeconds() + Time_To_Move) >= grabTime) {
 			setPosition(blockX,Grab_Height);
@@ -95,14 +95,14 @@ void finiteStateMachine(){
 		}
 		break;
 	case GrabBlock:
-		printf("grip\n\r");
+//		printf("grip\n\r");
 		if ((getTimeSeconds() + Time_To_Grab) >= grabTime) {
 			closeGripper();
 			state = WaitForGripper;
 		}
 		break;
 	case WaitForGripper:
-		printf("wait\n\r");
+//		printf("wait\n\r");
 		if(getTimeSeconds() >= grabTime + Time_To_Close) {
 
 			state = MoveBlockUp;
@@ -113,7 +113,7 @@ void finiteStateMachine(){
 		state = CheckWeight;
 		break;
 	case CheckWeight:
-		printf("check\n\r");
+//		printf("check\n\r");
 		getAverageCurrent(addCurrent,getCurrent(2));
 		//sample until reaching position
 		if(doneMoving()){
@@ -128,12 +128,12 @@ void finiteStateMachine(){
 		}
 		break;
 	case GenerateTrajectoryDropClose:
-		printf("dropclose\n\r");
+//		printf("dropclose\n\r");
 		setPosition(Drop_Close_X,Waiting_Height+100);
 		state = ExecuteDropMotion;
 		break;
 	case GenerateTrajectoryDropFar:
-		printf("dropfar\n\r");
+//		printf("dropfar\n\r");
 		setPosition(Drop_Far_X,Waiting_Height+50);
 		state = ExecuteDropMotion;
 		break;
