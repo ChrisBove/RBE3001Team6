@@ -11,7 +11,7 @@
 #ifndef INCLUDE_GRIPPER_H_
 #define INCLUDE_GRIPPER_H_
 
-#define GRIPPER_PIN 1
+#define GRIPPER_PIN 2
 #define CONVEYOR_PIN 0
 
 #define GRIPPER_CLOSE 170
