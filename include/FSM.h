@@ -44,7 +44,7 @@ enum FSMStates {
  */
 #define Waiting_Height 145
 #define Center_X 196
-#define Grab_Height 115
+#define Grab_Height 123
 #define Drop_Far_X 300
 #define Drop_Close_X 110
 
@@ -59,9 +59,9 @@ enum FSMStates {
  * additional distance from IR sensors to Arm frame origin
  */
 #define Distance_Threshold 200
-#define Distance_Between_IR 64
+#define Distance_Between_IR 64.7
 #define Distance_IR_To_Arm 130
-#define X_IR_Offset 64
+#define X_IR_Offset 68
 
 /**
  * @def Time_To_Move
