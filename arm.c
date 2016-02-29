@@ -100,7 +100,7 @@ void initArm() {
 	setConst(2,20,0.1,4); // joint 2 - Kp, Ki, Kd
 	setConst(3,20,0.1,4); // joint 3 - Kp, Ki, Kd
 	setupTimer();
-	setJointAngles(0,0); // set desired joint angles to 0
+	setJointAngles(0,90); // set desired joint angles to 0
 }
 
 /**
