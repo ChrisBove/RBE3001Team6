@@ -173,6 +173,12 @@ void calcXY();
  */
 BOOL inPosition(int theta1, int theta2);
 /**
+ * @brief checks if the arm is in desired position
+ *
+ * @return true if in desired position
+ */
+BOOL doneMoving();
+/**
  * @brief runs getAccel and converts to G's
  * @param axis 0-2 for x,y,z axis to get g's on
  *

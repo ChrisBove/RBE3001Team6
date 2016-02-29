@@ -531,6 +531,14 @@ BOOL inPosition(int theta1, int theta2){
 	return( (betweenTwoVals(theta1-getJointAngle(1),-2,2))
 			&& (betweenTwoVals(theta2-getJointAngle(2),-2,2)) );
 }
+/**
+ * @brief checks if the arm is in desired position
+ *
+ * @return true if in desired position
+ */
+BOOL doneMoving(){
+	return inPosition(lowerAngle,upperAngle);
+}
 
 /**
  * @brief runs getAccel and converts to G's
