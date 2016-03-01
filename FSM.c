@@ -109,7 +109,7 @@ void finiteStateMachine(){
 		}
 		break;
 	case MoveBlockUp:
-		setPosition(Center_X+50,Waiting_Height+100);
+		setPosition(Center_X + 50,Waiting_Height+150);
 		state = CheckWeight;
 		break;
 	case CheckWeight:
@@ -118,8 +118,8 @@ void finiteStateMachine(){
 		//sample until reaching position
 		if(doneMoving()){
 			//if a heavy block
-			printf("val: %f",fabs(getAverageCurrent(retrieveAverageCurrent,0)));
-			if(fabs(getAverageCurrent(retrieveAverageCurrent,0)) >= Heavy_Current_Threshold){
+			printf("val: %f",fabs(getAverageCurrent(retrieveAverageCurrent,2)));
+			if(fabs(getAverageCurrent(retrieveAverageCurrent,2)) >= Heavy_Current_Threshold){
 				state = GenerateTrajectoryDropClose;
 			}
 			else {
