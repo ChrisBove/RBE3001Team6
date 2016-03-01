@@ -42,11 +42,12 @@ enum FSMStates {
  * x coordinate arm will wait at once block is detected
  *
  */
-#define Waiting_Height 145
+#define X_Spacer 31.43
+#define Waiting_Height 151
 #define Center_X 196
-#define Grab_Height 115
+#define Grab_Height 120
 #define Drop_Far_X 300
-#define Drop_Close_X 110
+#define Drop_Close_X 120
 
 /**
  * @def Distance_Threshold
@@ -59,9 +60,9 @@ enum FSMStates {
  * additional distance from IR sensors to Arm frame origin
  */
 #define Distance_Threshold 200
-#define Distance_Between_IR 64
+#define Distance_Between_IR 64.7
 #define Distance_IR_To_Arm 130
-#define X_IR_Offset 64
+#define X_IR_Offset 76.81 + X_Spacer
 
 /**
  * @def Time_To_Move
@@ -69,15 +70,15 @@ enum FSMStates {
  * @def Time_To_Grab
  * The time before the block grab time to request a gripper close
  */
-#define Time_To_Move 0.05
-#define Time_To_Grab -0.25
-#define Time_To_Close 0.6
+#define Time_To_Move -0.3
+#define Time_To_Grab -0.55
+#define Time_To_Close 0.9
 
 /**
  * @def Heavy_Current_Threshold
  * currents higher than this mean we lifted a heavy block
  */
-#define Heavy_Current_Threshold 570
+#define Heavy_Current_Threshold 550
 
 /**
  * @brief runs FSM for the final project

@@ -46,9 +46,9 @@
  * @def LINK_3_Length
  * length of Link 3 in mm
  */
-#define LINK_1_Length	142.87
-#define LINK_2_Length	152.4
-#define LINK_3_Length	152.4
+#define LINK_1_Length	144.10
+#define LINK_2_Length	151.13
+#define LINK_3_Length	154.75
 
 enum currentCommands {
 	addCurrent,
@@ -192,6 +192,12 @@ float getGs(int axis);
  * @param y desired y position
  */
 void setPosition(float x, float y);
-
+/**
+ * @brief uses a polynomial to calibrate the IR distance readings
+ * @param IR distance reading in mm
+ *
+ * @return calibrated IR distance in mm
+ */
+int calibratedIRVal(int IRDist);
 
 #endif /* INCLUDE_ARM_H_ */

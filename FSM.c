@@ -52,11 +52,11 @@ void finiteStateMachine(){
 	case CalcBlockX:
 //		printf("calcBlock\n\r");
 		//take the lowest reading with some filtering
-		reading = IRDist(IR_FRONT_PIN);
+		reading = calibratedIRVal(IRDist(IR_FRONT_PIN));
 		//not done sampling until values increase consecutively(reached min)
-		if(IRSamplesIncreasing < 50){
+		if(IRSamplesIncreasing < 40){
 			// if reading is new min, still decreasing in values
-			if(reading <= IRSampleMin){
+			if((reading <= IRSampleMin) && (reading >= 85)){
 				IRSampleMin = reading;
 				IRSamplesIncreasing = 0;
 			}
@@ -65,7 +65,7 @@ void finiteStateMachine(){
 				IRSamplesIncreasing++;
 		}
 		else{ //done sampling
-			blockX = IRSampleMin + X_IR_Offset; //store block x position
+			blockX = IRSampleMin + X_IR_Offset + 13; //store block x position
 
 			setPosition(blockX,Waiting_Height);
 			state = CalcBlockSpeed;
@@ -109,7 +109,7 @@ void finiteStateMachine(){
 		}
 		break;
 	case MoveBlockUp:
-		setPosition(Center_X+50,Waiting_Height+100);
+		setPosition(Center_X + 50,Waiting_Height+150);
 		state = CheckWeight;
 		break;
 	case CheckWeight:
@@ -118,8 +118,8 @@ void finiteStateMachine(){
 		//sample until reaching position
 		if(doneMoving()){
 			//if a heavy block
-			printf("val: %f",fabs(getAverageCurrent(retrieveAverageCurrent,0)));
-			if(fabs(getAverageCurrent(retrieveAverageCurrent,0)) >= Heavy_Current_Threshold){
+//			printf("val: %f",fabs(getAverageCurrent(retrieveAverageCurrent,2)));
+			if(fabs(getAverageCurrent(retrieveAverageCurrent,2)) >= Heavy_Current_Threshold){
 				state = GenerateTrajectoryDropClose;
 			}
 			else {

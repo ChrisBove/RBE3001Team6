@@ -24,8 +24,8 @@ void initSPI(){
 	DDRDbits._P7 = OUTPUT; // chip select for accel
 
 	PRR &= ~BIT(PRSPI); // enable SPI module by writing 0 to Power Reduction Reg
-	SPCR =  BIT(SPE) | BIT(MSTR) | BIT(1); //set enable and master bits fclk/8
-	//SPSR = BIT(SPI2X); //clock rate fck/2
+	SPCR =  BIT(SPE) | BIT(MSTR); //set enable and master bits
+	SPSR = BIT(SPI2X); //clock rate fck/2
 	PORTDbits._P4 = HIGH; // disable chip select
 	PORTDbits._P7 = HIGH; // disable accel chip select
 
