@@ -46,18 +46,25 @@ int main(void) {
 	// ==== end initializations ====
 
 	printf("I am alive... Press h to home.\n\r"); // we done setting up
-	waitForChar('h');
-	printf("homing...\n\r");
+//	waitForChar('h');
+//	printf("homing...\n\r");
 	//homePos(); // home to initial pose
 	//resetEncCount(1);
 	//resetEncCount(2);
-	printf("Done homing. Press g to continue.\n\r");
-	waitForChar('g');
+//	printf("Done homing. Press g to continue.\n\r");
+//	waitForChar('g');
 
 	// ===== main loop ====
 	while (1) {
 		//serviceButtons(); // service the buttons for polling
 //		printf("IR: %i %i\n\r",IRDist(4),IRDist(5));
+//		static int count = 0;
+//		if (count > 200){
+//			printf("%.1f,%.1f\n\r",getJointAngle(1),getJointAngle(2));
+//			count = 0;
+//		}
+//		else
+//			count++;
 		finiteStateMachine();
 		serviceArm(); // service the arm
 
