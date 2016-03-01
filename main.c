@@ -57,7 +57,7 @@ int main(void) {
 	// ===== main loop ====
 	while (1) {
 		//serviceButtons(); // service the buttons for polling
-		//printf("IR: %i %i\n\r",IRDist(4),IRDist(5));
+//		printf("IR: %i %i\n\r",IRDist(4),IRDist(5));
 		finiteStateMachine();
 		serviceArm(); // service the arm
 

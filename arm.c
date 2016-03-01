@@ -575,5 +575,5 @@ void setPosition(float x, float y){
  * @return calibrated IR distance in mm
  */
 int calibratedIRVal(int IRDist){
-	return (-0.0048*pow(IRDist,2)) + 2.2013*IRDist - 88.556;
+	return (-0.0081*pow(IRDist,2)) + 3.3029*IRDist - 171.62;
 }

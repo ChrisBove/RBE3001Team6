@@ -54,9 +54,9 @@ void finiteStateMachine(){
 		//take the lowest reading with some filtering
 		reading = calibratedIRVal(IRDist(IR_FRONT_PIN));
 		//not done sampling until values increase consecutively(reached min)
-		if(IRSamplesIncreasing < 50){
+		if(IRSamplesIncreasing < 40){
 			// if reading is new min, still decreasing in values
-			if(reading <= IRSampleMin){
+			if((reading <= IRSampleMin) && (reading >= 85)){
 				IRSampleMin = reading;
 				IRSamplesIncreasing = 0;
 			}
@@ -65,7 +65,7 @@ void finiteStateMachine(){
 				IRSamplesIncreasing++;
 		}
 		else{ //done sampling
-			blockX = IRSampleMin + X_IR_Offset; //store block x position
+			blockX = IRSampleMin + X_IR_Offset + 13; //store block x position
 
 			setPosition(blockX,Waiting_Height);
 			state = CalcBlockSpeed;
