@@ -42,7 +42,8 @@ enum FSMStates {
  * x coordinate arm will wait at once block is detected
  *
  */
-#define Waiting_Height 145
+#define X_Spacer 31.43
+#define Waiting_Height 151
 #define Center_X 196
 #define Grab_Height 120
 #define Drop_Far_X 300
@@ -61,7 +62,7 @@ enum FSMStates {
 #define Distance_Threshold 200
 #define Distance_Between_IR 64.7
 #define Distance_IR_To_Arm 130
-#define X_IR_Offset 76.81
+#define X_IR_Offset 76.81 + X_Spacer
 
 /**
  * @def Time_To_Move
