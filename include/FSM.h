@@ -78,7 +78,7 @@ enum FSMStates {
  * @def Heavy_Current_Threshold
  * currents higher than this mean we lifted a heavy block
  */
-#define Heavy_Current_Threshold 550
+#define Heavy_Current_Threshold 645
 
 /**
  * @brief runs FSM for the final project

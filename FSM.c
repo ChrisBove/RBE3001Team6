@@ -118,7 +118,7 @@ void finiteStateMachine(){
 		//sample until reaching position
 		if(doneMoving()){
 			//if a heavy block
-//			printf("val: %f",fabs(getAverageCurrent(retrieveAverageCurrent,2)));
+			printf("val: %f",fabs(getAverageCurrent(retrieveAverageCurrent,2)));
 			if(fabs(getAverageCurrent(retrieveAverageCurrent,2)) >= Heavy_Current_Threshold){
 				state = GenerateTrajectoryDropClose;
 			}
