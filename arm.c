@@ -501,7 +501,7 @@ float getTimeSeconds(){
 }
 
 /**
- * @brief updates 2 globals with the current xy in mm of the end effector
+ * @brief calculates forward kinematics for arm and updates global position
  */
 void calcXY(){
 	// calc joint angles

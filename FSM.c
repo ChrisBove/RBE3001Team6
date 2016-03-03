@@ -2,6 +2,11 @@
  *
  * @file FSM.c
  *
+ *@details computes motions for the arm and monitors the conveyor belt to
+ * complete the final project. It detects when a block is placed on the belt,
+ * determines its X position and velocity, calculates the time the arm needs to
+ * grab the block,grabs the block, determines whether the block is light or
+ * heavy, then places the block accordingly and gets ready for another block.
  *
  * @author cpbove@wpi.edu
  * @date 27-Feb-2016
@@ -18,64 +23,63 @@
  * @brief runs FSM for the final project
  */
 void finiteStateMachine(){
-	static float blockStartTime = 0;
-	static int blockX = 0;
-	static float grabTime = 0;
+	static float blockStartTime = 0; // time block was first detected
+	static int blockX = 0; // storing block x coordinate
+	static float grabTime = 0; //time that block needs to be grabbed
 	//for case CalcBlockX
-	static int IRSampleMin = 999;
-	static int IRSamplesIncreasing = 0;
+	static int IRSampleMin = 999; // storing minumum distance detected by IR
+	static int IRSamplesIncreasing = 0; //for counting times the distances increase
 	int reading; // temporary holder for IR reading
 
-	static char state = Initialize;
+	static char state = Initialize; // storing the state of the FSM
 	switch(state){
 	case Initialize:
-//		printf("init\n\r");
+		//reset servo positions
 		startConveyor();
 		openGripper();
+		//reset current averages
 		getAverageCurrent(resetCurrent,0);
-		setPosition(Center_X,Waiting_Height+100);
+		//place arm in high waiting position
+		setPosition(Center_X,Starting_Height);
 		state = WaitForBlock;
 		break;
 
 	case WaitForBlock:
-//		printf("wait\n\r");
 		openGripper();
-		//check if block is sensed (below 110mm)
+		//check if block is sensed on first sensor, if so, move arm to waiting
 		if(IRDist(IR_FRONT_PIN) <= Distance_Threshold){
 			blockStartTime = getTimeSeconds(); //save the current time
 			setPosition(Center_X,Waiting_Height);
-			//setJointAngles(45,80); //start moving the arm to a nominal position
 			state = CalcBlockX;//move to next state
 		}
 		break;
 
 	case CalcBlockX:
-//		printf("calcBlock\n\r");
-		//take the lowest reading with some filtering
-		reading = calibratedIRVal(IRDist(IR_FRONT_PIN));
+		//take the lowest reading of X values with some filtering
+		reading = calibratedIRVal(IRDist(IR_FRONT_PIN)); //calibrated distance
 		//not done sampling until values increase consecutively(reached min)
 		if(IRSamplesIncreasing < 40){
 			// if reading is new min, still decreasing in values
+			// note - make sure we don't get values outside of conveyor range
 			if((reading <= IRSampleMin) && (reading >= 85)){
-				IRSampleMin = reading;
-				IRSamplesIncreasing = 0;
+				IRSampleMin = reading; // set reading as new min
+				IRSamplesIncreasing = 0; // we are not increasing
 			}
 			//otherwise, we have started ascending from minumum
 			else
 				IRSamplesIncreasing++;
 		}
 		else{ //done sampling
-			blockX = IRSampleMin + X_IR_Offset + 13; //store block x position
+			blockX = IRSampleMin + X_IR_Offset + Fudged_X; //store block x position
 
-			setPosition(blockX,Waiting_Height);
+			setPosition(blockX,Waiting_Height); // adjust arm towards block
 			state = CalcBlockSpeed;
 			IRSamplesIncreasing = 0; //reset variables
 			IRSampleMin = 999;
 		}
 		break;
 	case CalcBlockSpeed:
-//		printf("calcSpeed\n\r");
-		// wait until 2nd sensor is toggled
+		// wait until 2nd sensor is toggled, calculate velocity and grab time
 		if(IRDist(IR_BACK_PIN)<= Distance_Threshold){
 			float deltaT = getTimeSeconds() - blockStartTime;
 			float velocity = (float) Distance_Between_IR/deltaT; //mm/sec
@@ -83,42 +87,37 @@ void finiteStateMachine(){
 			state = ExecuteGrabMotion;
 		}
 		break;
-	case GenerateTrajectoryGrab:
-
-		break;
 	case ExecuteGrabMotion:
-//		printf("grabmove\n\r");
 		// if we are away from grabTime by the time it takes to move, begin!
 		if ((getTimeSeconds() + Time_To_Move) >= grabTime) {
-			setPosition(blockX,Grab_Height);
+			setPosition(blockX,Grab_Height); // set arm position
 			state = GrabBlock;
 		}
 		break;
 	case GrabBlock:
-//		printf("grip\n\r");
+		// if we are away from the grab time by gripper grab time, start close!
 		if ((getTimeSeconds() + Time_To_Grab) >= grabTime) {
 			closeGripper();
 			state = WaitForGripper;
 		}
 		break;
 	case WaitForGripper:
-//		printf("wait\n\r");
+		// wait until the gripper is done closing
 		if(getTimeSeconds() >= grabTime + Time_To_Close) {
-
 			state = MoveBlockUp;
 		}
 		break;
 	case MoveBlockUp:
+		// move the block upward away from conveyor
 		setPosition(Center_X + 50,Waiting_Height+150);
 		state = CheckWeight;
 		break;
 	case CheckWeight:
-//		printf("check\n\r");
+		//during the movment, average the currents seen on joint 2
 		getAverageCurrent(addCurrent,getCurrent(2));
 		//sample until reaching position
 		if(doneMoving()){
-			//if a heavy block
-			printf("val: %f",fabs(getAverageCurrent(retrieveAverageCurrent,2)));
+			//if a heavy block, drop close, else drop far
 			if(fabs(getAverageCurrent(retrieveAverageCurrent,2)) >= Heavy_Current_Threshold){
 				state = GenerateTrajectoryDropClose;
 			}
@@ -128,21 +127,23 @@ void finiteStateMachine(){
 		}
 		break;
 	case GenerateTrajectoryDropClose:
-//		printf("dropclose\n\r");
-		setPosition(Drop_Close_X,Waiting_Height+100);
+		// move the arm to a close drop position
+		setPosition(Drop_Close_X,Drop_Close_Y);
 		state = ExecuteDropMotion;
 		break;
 	case GenerateTrajectoryDropFar:
-//		printf("dropfar\n\r");
-		setPosition(Drop_Far_X,Waiting_Height+50);
+		// move arm to a far drop position
+		setPosition(Drop_Far_X,Drop_Far_Y);
 		state = ExecuteDropMotion;
 		break;
 	case ExecuteDropMotion:
+		//wait until the drop motion completes
 		if(doneMoving()){
 			state = DropBlock;
 		}
 		break;
 	case DropBlock:
+		// open the gripper to drop the block
 		openGripper();
 		state = Initialize;
 		break;

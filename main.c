@@ -2,13 +2,13 @@
  *
  * @file main.c
  *
- * This code runs a collection of Lab 1 functions to complete the lab.
- * Some functions need to be uncommented or commented depending on which
- * section they complete. This should be more streamlined in the future.
+ * This code runs initialization routines and then loops the finite state
+ * machine and arm service routines forever to complete the final project for
+ * RBE 3001.
  *
  * @author cpbove@wpi.edu
- * @date 28-Jan-2016
- * @version 1.0
+ * @date 3-Mar-2016
+ * @version 1.5
  */
 
 // includes
@@ -40,12 +40,12 @@ int main(void) {
 
 	// ==== end initializations ====
 
-	printf("I am alive... You're about to see some serious !@#$!\n\r");
+	printf("I am alive... Looking for blocks to pickup.\n\r");
 
 	// ===== main loop ====
 	while (1) {
-		finiteStateMachine();
-		serviceArm();
+		finiteStateMachine(); // run FSM to determine what arm needs to do
+		serviceArm(); // allow arm to react to changes and service PID if needed
 	}
 	return 0;
 }

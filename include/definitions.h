@@ -70,6 +70,8 @@ BOOL betweenTwoVals(int value, int lower, int upper);
 /**
  * @def RADS_PER_DEGREE
  * number of radians per degree for conversions
+ * @def DEGREES_TO_RADIANS
+ * number of degrees in 1 radian
  */
 #define RADS_PER_DEGREE	0.01745
 #define DEGREES_TO_RADIANS 57.2958

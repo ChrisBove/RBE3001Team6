@@ -49,7 +49,10 @@
 #define LINK_1_Length	144.10
 #define LINK_2_Length	151.13
 #define LINK_3_Length	154.75
-
+/**
+ * @enum currentCommands
+ * For specifying commands for the current averaging function
+ */
 enum currentCommands {
 	addCurrent,
 	resetCurrent,
@@ -136,7 +139,13 @@ void printJointAngle(int joint);
  *
  */
 void printLogLineJoint2(int setPoint);
-
+/**
+ * @brief allows adding to cumulative average, getting the average, and reseting
+ * @param command using currentCommand enum for determining action to take
+ *
+ * @return average current value in mA
+ */
+float getAverageCurrent(int command, int current);
 /**
  * @brief gets motor current of specified joint
  * @param  joint The joint to get the current for
@@ -150,8 +159,6 @@ int getCurrent(int joint);
  *
  * @return DAC value 0-4095
  */
-float getAverageCurrent(int command, int current);
-
 int convertVoltsToDACVal(float volts);
 /**
  * @brief gets the time in seconds
@@ -160,7 +167,7 @@ int convertVoltsToDACVal(float volts);
  */
 float getTimeSeconds();
 /**
- * @brief updates 2 globals with the current xy in mm of the end effector
+ * @brief calculates forward kinematics for arm and updates global position
  */
 void calcXY();
 /**
