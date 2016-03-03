@@ -40,6 +40,8 @@ void \hyperlink{arm_8c_a9b8592c4ca8d010060ba0eba48ee271b}{print\+Joint\+Angles\+
 \begin{DoxyCompactList}\small\item\em streams joint angles in degrees and (x,y) tip positions in mm \end{DoxyCompactList}\item 
 int \hyperlink{arm_8c_a70b9182627cf76216575f38320be752f}{get\+Current} (int joint)
 \begin{DoxyCompactList}\small\item\em gets motor current of specified joint \end{DoxyCompactList}\item 
+float \hyperlink{arm_8c_aff4f4ed0f1b0d910cb5212bbbb6cb945}{get\+Average\+Current} (int command, int current)
+\begin{DoxyCompactList}\small\item\em Function for managing the currents gathered and averaging them when asked. \end{DoxyCompactList}\item 
 int \hyperlink{arm_8c_a7cb1fda465b1c9252f9a9950d55056eb}{convert\+Volts\+To\+D\+A\+C\+Val} (float volts)
 \begin{DoxyCompactList}\small\item\em converts a voltage value to a D\+AC value \end{DoxyCompactList}\item 
 void \hyperlink{arm_8c_ae3ec65c5c46c10e2f3a1415558a3b01e}{set\+Joint\+Angles} (int lower\+Joint, int upper\+Joint)
@@ -56,11 +58,17 @@ float \hyperlink{arm_8c_ab2cee43f1fce1131e584096fc342b0d9}{get\+Time\+Seconds} (
 \begin{DoxyCompactList}\small\item\em gets the time in seconds \end{DoxyCompactList}\item 
 void \hyperlink{arm_8c_a2802c150f10b92c1b7a57da6720510db}{calc\+XY} ()\hypertarget{arm_8c_a2802c150f10b92c1b7a57da6720510db}{}\label{arm_8c_a2802c150f10b92c1b7a57da6720510db}
 
-\begin{DoxyCompactList}\small\item\em updates 2 globals with the current xy in mm of the end effector \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em calculates forward kinematics for arm and updates global position \end{DoxyCompactList}\item 
 B\+O\+OL \hyperlink{arm_8c_a39c5ec2326206bfdd7d3c68693cf8143}{in\+Position} (int theta1, int theta2)
 \begin{DoxyCompactList}\small\item\em check if the arm is in the angle position specified \end{DoxyCompactList}\item 
+B\+O\+OL \hyperlink{arm_8c_ab347f20ca0db3f1946386b19805bab10}{done\+Moving} ()
+\begin{DoxyCompactList}\small\item\em checks if the arm is in desired position \end{DoxyCompactList}\item 
 float \hyperlink{arm_8c_aa4490a12eff09b6cac2aeeecd24d23ca}{get\+Gs} (int axis)
-\begin{DoxyCompactList}\small\item\em runs get\+Accel and converts to G\textquotesingle{}s \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em runs get\+Accel and converts to G\textquotesingle{}s \end{DoxyCompactList}\item 
+void \hyperlink{arm_8c_ab01fb4092c206e17432172dc4b973dd2}{set\+Position} (float x, float y)
+\begin{DoxyCompactList}\small\item\em calculates IK values and sets angles \end{DoxyCompactList}\item 
+int \hyperlink{arm_8c_a32998a695799dfc3a7c4b31b4da7de9d}{calibrated\+I\+R\+Val} (int \hyperlink{_periph_8c_ae0fb6b592e76f0934db14682e63982df}{I\+R\+Dist})
+\begin{DoxyCompactList}\small\item\em uses a polynomial to calibrate the IR distance readings \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -71,6 +79,10 @@ float \hyperlink{arm_8c_ab1df5f43b22723b086d287834af86099}{degrees\+Per\+Joint2\
 float \hyperlink{arm_8c_ac9567e94c04c0a6b45f86ad912eb211c}{x\+\_\+coord}
 \item 
 float \hyperlink{arm_8c_adec4b270699e4ef43679cf77763c719a}{y\+\_\+coord}
+\item 
+float \hyperlink{arm_8c_a29c7979fe9a7b4caa38b09f6fd00df36}{L2\+L2}
+\item 
+float \hyperlink{arm_8c_a87f182902295d8bfa7b986823375075a}{L3\+L3}
 \item 
 int \hyperlink{arm_8c_aea49cfec201b381550034ecd0110a85f}{lower\+Angle}
 \item 
@@ -97,6 +109,25 @@ arm library
 
 
 \subsection{Function Documentation}
+\index{arm.\+c@{arm.\+c}!calibrated\+I\+R\+Val@{calibrated\+I\+R\+Val}}
+\index{calibrated\+I\+R\+Val@{calibrated\+I\+R\+Val}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{calibrated\+I\+R\+Val(int I\+R\+Dist)}{calibratedIRVal(int IRDist)}}]{\setlength{\rightskip}{0pt plus 5cm}int calibrated\+I\+R\+Val (
+\begin{DoxyParamCaption}
+\item[{int}]{I\+R\+Dist}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_a32998a695799dfc3a7c4b31b4da7de9d}{}\label{arm_8c_a32998a695799dfc3a7c4b31b4da7de9d}
+
+
+uses a polynomial to calibrate the IR distance readings 
+
+
+\begin{DoxyParams}{Parameters}
+{\em I\+R\+Dist} & distance reading in mm\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+calibrated IR distance in mm 
+\end{DoxyReturn}
 \index{arm.\+c@{arm.\+c}!control\+Arm\+With\+Buttons@{control\+Arm\+With\+Buttons}}
 \index{control\+Arm\+With\+Buttons@{control\+Arm\+With\+Buttons}!arm.\+c@{arm.\+c}}
 \subsubsection[{\texorpdfstring{control\+Arm\+With\+Buttons()}{controlArmWithButtons()}}]{\setlength{\rightskip}{0pt plus 5cm}void control\+Arm\+With\+Buttons (
@@ -155,6 +186,20 @@ converts a voltage value to a D\+AC value
 \begin{DoxyReturn}{Returns}
 D\+AC value 0-\/4095 
 \end{DoxyReturn}
+\index{arm.\+c@{arm.\+c}!done\+Moving@{done\+Moving}}
+\index{done\+Moving@{done\+Moving}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{done\+Moving()}{doneMoving()}}]{\setlength{\rightskip}{0pt plus 5cm}B\+O\+OL done\+Moving (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_ab347f20ca0db3f1946386b19805bab10}{}\label{arm_8c_ab347f20ca0db3f1946386b19805bab10}
+
+
+checks if the arm is in desired position 
+
+\begin{DoxyReturn}{Returns}
+true if in desired position 
+\end{DoxyReturn}
 \index{arm.\+c@{arm.\+c}!draw\+Triangle\+With\+Buttons@{draw\+Triangle\+With\+Buttons}}
 \index{draw\+Triangle\+With\+Buttons@{draw\+Triangle\+With\+Buttons}!arm.\+c@{arm.\+c}}
 \subsubsection[{\texorpdfstring{draw\+Triangle\+With\+Buttons()}{drawTriangleWithButtons()}}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Triangle\+With\+Buttons (
@@ -169,6 +214,28 @@ state machine for drawing triangles.
 button 4 draws a prescripted triangle button 5 just moves to a pose button 6 records a motion button 7 plays back the motion \begin{DoxyNote}{Note}
 This does not run the P\+ID control, just sets setpoint 
 \end{DoxyNote}
+\index{arm.\+c@{arm.\+c}!get\+Average\+Current@{get\+Average\+Current}}
+\index{get\+Average\+Current@{get\+Average\+Current}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{get\+Average\+Current(int command, int current)}{getAverageCurrent(int command, int current)}}]{\setlength{\rightskip}{0pt plus 5cm}float get\+Average\+Current (
+\begin{DoxyParamCaption}
+\item[{int}]{command, }
+\item[{int}]{current}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_aff4f4ed0f1b0d910cb5212bbbb6cb945}{}\label{arm_8c_aff4f4ed0f1b0d910cb5212bbbb6cb945}
+
+
+Function for managing the currents gathered and averaging them when asked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & Current to be added to the stored values \\
+\hline
+{\em command} & Command of what to be done with the function, either reset\+Current,add\+Current,retrieve\+Average\+Current\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current in mA 
+\end{DoxyReturn}
 \index{arm.\+c@{arm.\+c}!get\+Current@{get\+Current}}
 \index{get\+Current@{get\+Current}!arm.\+c@{arm.\+c}}
 \subsubsection[{\texorpdfstring{get\+Current(int joint)}{getCurrent(int joint)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Current (
@@ -333,6 +400,25 @@ updates globals with new desired ones
 {\em upper\+Joint} & position for the upper joint 2 \\
 \hline
 \end{DoxyParams}
+\index{arm.\+c@{arm.\+c}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{set\+Position(float x, float y)}{setPosition(float x, float y)}}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Position (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{arm_8c_ab01fb4092c206e17432172dc4b973dd2}{}\label{arm_8c_ab01fb4092c206e17432172dc4b973dd2}
+
+
+calculates IK values and sets angles 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & desired x position \\
+\hline
+{\em y} & desired y position \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Variable Documentation}
@@ -346,7 +432,13 @@ for storing the degrees per adc value for joint 2
 
 \begin{DoxyRefDesc}{Todo}
 \item[\hyperlink{todo__todo000002}{Todo}]change these to constants \end{DoxyRefDesc}
-\index{arm.\+c@{arm.\+c}!lower\+Angle@{lower\+Angle}}
+\index{arm.\+c@{arm.\+c}!L2\+L2@{L2\+L2}}
+\index{L2\+L2@{L2\+L2}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{L2\+L2}{L2L2}}]{\setlength{\rightskip}{0pt plus 5cm}L2\+L2}\hypertarget{arm_8c_a29c7979fe9a7b4caa38b09f6fd00df36}{}\label{arm_8c_a29c7979fe9a7b4caa38b09f6fd00df36}
+constant for optimizing Link 2 Length $^\wedge$2 \index{arm.\+c@{arm.\+c}!L3\+L3@{L3\+L3}}
+\index{L3\+L3@{L3\+L3}!arm.\+c@{arm.\+c}}
+\subsubsection[{\texorpdfstring{L3\+L3}{L3L3}}]{\setlength{\rightskip}{0pt plus 5cm}L3\+L3}\hypertarget{arm_8c_a87f182902295d8bfa7b986823375075a}{}\label{arm_8c_a87f182902295d8bfa7b986823375075a}
+constant for optimizing Link 3 Length $^\wedge$2 \index{arm.\+c@{arm.\+c}!lower\+Angle@{lower\+Angle}}
 \index{lower\+Angle@{lower\+Angle}!arm.\+c@{arm.\+c}}
 \subsubsection[{\texorpdfstring{lower\+Angle}{lowerAngle}}]{\setlength{\rightskip}{0pt plus 5cm}lower\+Angle}\hypertarget{arm_8c_aea49cfec201b381550034ecd0110a85f}{}\label{arm_8c_aea49cfec201b381550034ecd0110a85f}
 for storing the current lower\+Angle of the arm \index{arm.\+c@{arm.\+c}!service\+P\+ID@{service\+P\+ID}}

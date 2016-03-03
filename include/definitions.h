@@ -10,8 +10,14 @@
  * @version 1.0
  */
 
-int PID; // for grabbing the last PID value calculated for logging
-int lastJoint1Angle; // for getting bottom joint for calculating grav comp for top link
+/**
+ * @var PID
+ * for grabbing the last PID value calculated for logging
+ * @var lastJoint1Angle
+ * for getting bottom joint for calculating grav comp for top link
+ */
+int PID;
+int lastJoint1Angle;
 
 /**
  * @brief take absolute value of passed integer

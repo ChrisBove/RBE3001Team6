@@ -136,6 +136,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_
 <tr class="memitem:a70b9182627cf76216575f38320be752f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#a70b9182627cf76216575f38320be752f">getCurrent</a> (int joint)</td></tr>
 <tr class="memdesc:a70b9182627cf76216575f38320be752f"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets motor current of specified joint  <a href="#a70b9182627cf76216575f38320be752f">More...</a><br /></td></tr>
 <tr class="separator:a70b9182627cf76216575f38320be752f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff4f4ed0f1b0d910cb5212bbbb6cb945"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#aff4f4ed0f1b0d910cb5212bbbb6cb945">getAverageCurrent</a> (int command, int current)</td></tr>
+<tr class="memdesc:aff4f4ed0f1b0d910cb5212bbbb6cb945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for managing the currents gathered and averaging them when asked.  <a href="#aff4f4ed0f1b0d910cb5212bbbb6cb945">More...</a><br /></td></tr>
+<tr class="separator:aff4f4ed0f1b0d910cb5212bbbb6cb945"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cb1fda465b1c9252f9a9950d55056eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#a7cb1fda465b1c9252f9a9950d55056eb">convertVoltsToDACVal</a> (float volts)</td></tr>
 <tr class="memdesc:a7cb1fda465b1c9252f9a9950d55056eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a voltage value to a DAC value  <a href="#a7cb1fda465b1c9252f9a9950d55056eb">More...</a><br /></td></tr>
 <tr class="separator:a7cb1fda465b1c9252f9a9950d55056eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,14 +162,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_
 <tr class="separator:ab2cee43f1fce1131e584096fc342b0d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2802c150f10b92c1b7a57da6720510db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2802c150f10b92c1b7a57da6720510db"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#a2802c150f10b92c1b7a57da6720510db">calcXY</a> ()</td></tr>
-<tr class="memdesc:a2802c150f10b92c1b7a57da6720510db"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates 2 globals with the current xy in mm of the end effector <br /></td></tr>
+<tr class="memdesc:a2802c150f10b92c1b7a57da6720510db"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates forward kinematics for arm and updates global position <br /></td></tr>
 <tr class="separator:a2802c150f10b92c1b7a57da6720510db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39c5ec2326206bfdd7d3c68693cf8143"><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#a39c5ec2326206bfdd7d3c68693cf8143">inPosition</a> (int theta1, int theta2)</td></tr>
 <tr class="memdesc:a39c5ec2326206bfdd7d3c68693cf8143"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the arm is in the angle position specified  <a href="#a39c5ec2326206bfdd7d3c68693cf8143">More...</a><br /></td></tr>
 <tr class="separator:a39c5ec2326206bfdd7d3c68693cf8143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab347f20ca0db3f1946386b19805bab10"><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#ab347f20ca0db3f1946386b19805bab10">doneMoving</a> ()</td></tr>
+<tr class="memdesc:ab347f20ca0db3f1946386b19805bab10"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if the arm is in desired position  <a href="#ab347f20ca0db3f1946386b19805bab10">More...</a><br /></td></tr>
+<tr class="separator:ab347f20ca0db3f1946386b19805bab10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4490a12eff09b6cac2aeeecd24d23ca"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#aa4490a12eff09b6cac2aeeecd24d23ca">getGs</a> (int axis)</td></tr>
 <tr class="memdesc:aa4490a12eff09b6cac2aeeecd24d23ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">runs getAccel and converts to G's  <a href="#aa4490a12eff09b6cac2aeeecd24d23ca">More...</a><br /></td></tr>
 <tr class="separator:aa4490a12eff09b6cac2aeeecd24d23ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab01fb4092c206e17432172dc4b973dd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#ab01fb4092c206e17432172dc4b973dd2">setPosition</a> (float x, float y)</td></tr>
+<tr class="memdesc:ab01fb4092c206e17432172dc4b973dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates IK values and sets angles  <a href="#ab01fb4092c206e17432172dc4b973dd2">More...</a><br /></td></tr>
+<tr class="separator:ab01fb4092c206e17432172dc4b973dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32998a695799dfc3a7c4b31b4da7de9d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#a32998a695799dfc3a7c4b31b4da7de9d">calibratedIRVal</a> (int <a class="el" href="_periph_8c.html#ae0fb6b592e76f0934db14682e63982df">IRDist</a>)</td></tr>
+<tr class="memdesc:a32998a695799dfc3a7c4b31b4da7de9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">uses a polynomial to calibrate the IR distance readings  <a href="#a32998a695799dfc3a7c4b31b4da7de9d">More...</a><br /></td></tr>
+<tr class="separator:a32998a695799dfc3a7c4b31b4da7de9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -178,6 +190,10 @@ Variables</h2></td></tr>
 <tr class="separator:ac9567e94c04c0a6b45f86ad912eb211c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adec4b270699e4ef43679cf77763c719a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#adec4b270699e4ef43679cf77763c719a">y_coord</a></td></tr>
 <tr class="separator:adec4b270699e4ef43679cf77763c719a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29c7979fe9a7b4caa38b09f6fd00df36"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#a29c7979fe9a7b4caa38b09f6fd00df36">L2L2</a></td></tr>
+<tr class="separator:a29c7979fe9a7b4caa38b09f6fd00df36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87f182902295d8bfa7b986823375075a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#a87f182902295d8bfa7b986823375075a">L3L3</a></td></tr>
+<tr class="separator:a87f182902295d8bfa7b986823375075a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea49cfec201b381550034ecd0110a85f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#aea49cfec201b381550034ecd0110a85f">lowerAngle</a></td></tr>
 <tr class="separator:aea49cfec201b381550034ecd0110a85f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6768686fa1db632b8d252e73b43633d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8c.html#a6768686fa1db632b8d252e73b43633d5">upperAngle</a></td></tr>
@@ -193,6 +209,31 @@ Variables</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>30-Jan-2016 </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a32998a695799dfc3a7c4b31b4da7de9d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int calibratedIRVal </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>IRDist</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>uses a polynomial to calibrate the IR distance readings </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">IRDist</td><td>distance reading in mm</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>calibrated IR distance in mm </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a281ce09c22242390324d771e37f8a59c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -272,6 +313,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab347f20ca0db3f1946386b19805bab10"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL doneMoving </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>checks if the arm is in desired position </p>
+<dl class="section return"><dt>Returns</dt><dd>true if in desired position </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a993c1c9b0ca552bfb30e0733a6d1f72a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -287,6 +346,42 @@ Variables</h2></td></tr>
 
 <p>state machine for drawing triangles. </p>
 <p>button 4 draws a prescripted triangle button 5 just moves to a pose button 6 records a motion button 7 plays back the motion </p><dl class="section note"><dt>Note</dt><dd>This does not run the PID control, just sets setpoint </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aff4f4ed0f1b0d910cb5212bbbb6cb945"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float getAverageCurrent </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>current</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function for managing the currents gathered and averaging them when asked. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">current</td><td>Current to be added to the stored values </td></tr>
+    <tr><td class="paramname">command</td><td>Command of what to be done with the function, either resetCurrent,addCurrent,retrieveAverageCurrent</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>current in mA </dd></dl>
 
 </div>
 </div>
@@ -528,6 +623,41 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab01fb4092c206e17432172dc4b973dd2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setPosition </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>calculates IK values and sets angles </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>desired x position </td></tr>
+    <tr><td class="paramname">y</td><td>desired y position </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a class="anchor" id="a43c5fa5a02f5e9f3faf0468011ca2ec2"></a>
 <div class="memitem">
@@ -553,6 +683,32 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>for storing the degrees per adc value for joint 2</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>change these to constants </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a29c7979fe9a7b4caa38b09f6fd00df36"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">L2L2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>constant for optimizing Link 2 Length ^2 </p>
+
+</div>
+</div>
+<a class="anchor" id="a87f182902295d8bfa7b986823375075a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">L3L3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>constant for optimizing Link 3 Length ^2 </p>
 
 </div>
 </div>

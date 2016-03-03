@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outputsetup',['outputSetup',['../lab1_8c.html#a9126a894a3991d911e9b23cf90812722',1,'lab1.c']]]
+  ['main',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]]
 ];

@@ -73,6 +73,10 @@ void setFrequencyForPostScale(int frequency);
  * @param channel The ADC channel to read the pot from
  */
 void signalGeneratorMain(int channel);
+/**
+ * @brief generates triangle waves through DAC
+ */
+void triangleSignalGengerator();
 
 
 #endif /* LAB1_H_ */

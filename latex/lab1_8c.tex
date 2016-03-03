@@ -11,8 +11,9 @@ Lab1 functions.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{lab1_8c_a5a9c9df0ec7d68d5b3317201cbea4957}{init\+Part2and7\+Timer} ()
-\begin{DoxyCompactList}\small\item\em I\+SR to increment global timer0\+Count, used for timestamps on Part 2 and 7 Also toggles an L\+ED each run. \end{DoxyCompactList}\item 
+void \hyperlink{lab1_8c_a5a9c9df0ec7d68d5b3317201cbea4957}{init\+Part2and7\+Timer} ()\hypertarget{lab1_8c_a5a9c9df0ec7d68d5b3317201cbea4957}{}\label{lab1_8c_a5a9c9df0ec7d68d5b3317201cbea4957}
+
+\begin{DoxyCompactList}\small\item\em Configures Timer0 for Parts 2 and 7 of lab, prints header for logging. \end{DoxyCompactList}\item 
 void \hyperlink{lab1_8c_a138d733c4cb50e4c15e23b2eb52b1405}{init\+Signal\+Generator\+Timer} ()\hypertarget{lab1_8c_a138d733c4cb50e4c15e23b2eb52b1405}{}\label{lab1_8c_a138d733c4cb50e4c15e23b2eb52b1405}
 
 \begin{DoxyCompactList}\small\item\em Configures Timer1 for Part 4 of lab(signal generation), prints header for logging. \end{DoxyCompactList}\item 
@@ -31,23 +32,19 @@ void \hyperlink{lab1_8c_a2dcb6711e68dfcff6d48d6a4871589fa}{set\+Frequency\+For\+
 \begin{DoxyCompactList}\small\item\em Configures postscaler in I\+SR based on inputted frequency. \end{DoxyCompactList}\item 
 void \hyperlink{lab1_8c_afa75f8a12deda641e6f5dcedc7c74d0e}{signal\+Generator\+Main} (int channel)
 \begin{DoxyCompactList}\small\item\em Generates signals w/particular duty cycles set by pot. \end{DoxyCompactList}\item 
-void {\bfseries triangle\+Signal\+Gengerator} ()\hypertarget{lab1_8c_a8537097a53fba5c66a96f3a3a64c32c5}{}\label{lab1_8c_a8537097a53fba5c66a96f3a3a64c32c5}
+void \hyperlink{lab1_8c_a8537097a53fba5c66a96f3a3a64c32c5}{triangle\+Signal\+Gengerator} ()\hypertarget{lab1_8c_a8537097a53fba5c66a96f3a3a64c32c5}{}\label{lab1_8c_a8537097a53fba5c66a96f3a3a64c32c5}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em generates triangle waves through D\+AC \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-volatile unsigned long {\bfseries timer0\+Count}\hypertarget{lab1_8c_acaa646477a99ad529f93e5436d0b46a7}{}\label{lab1_8c_acaa646477a99ad529f93e5436d0b46a7}
-
+volatile unsigned long \hyperlink{lab1_8c_a1a55eecc45df26fa3433431206058dfa}{timer0\+Count}
 \item 
-volatile unsigned long {\bfseries timer2\+Count}\hypertarget{lab1_8c_a538b110a9fec8fae6d8a27d8d262733c}{}\label{lab1_8c_a538b110a9fec8fae6d8a27d8d262733c}
-
+volatile unsigned long \hyperlink{lab1_8c_ac7207a479c6fc0cc98924db42f5a2e78}{timer2\+Count}
 \item 
-volatile unsigned {\bfseries timer2\+Count\+Sub}\hypertarget{lab1_8c_a5b705b1981b4300606e0688bdd639187}{}\label{lab1_8c_a5b705b1981b4300606e0688bdd639187}
-
+volatile unsigned \hyperlink{lab1_8c_a701f448832bffe427f070842d5b9bf48}{timer2\+Count\+Sub}
 \item 
-unsigned {\bfseries post\+Scale}\hypertarget{lab1_8c_af280a7b81b430d7105644b579f89321e}{}\label{lab1_8c_af280a7b81b430d7105644b579f89321e}
-
+unsigned \hyperlink{lab1_8c_afef98fabb8198a8091504646fc737b98}{post\+Scale}
 \end{DoxyCompactItemize}
 
 
@@ -100,29 +97,6 @@ Streams timestamp and A\+DC values to the serial port for 1 second Transmits tim
 {\em channel} & The A\+DC channel to read \\
 \hline
 \end{DoxyParams}
-\index{lab1.\+c@{lab1.\+c}!init\+Part2and7\+Timer@{init\+Part2and7\+Timer}}
-\index{init\+Part2and7\+Timer@{init\+Part2and7\+Timer}!lab1.\+c@{lab1.\+c}}
-\subsubsection[{\texorpdfstring{init\+Part2and7\+Timer()}{initPart2and7Timer()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Part2and7\+Timer (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{lab1_8c_a5a9c9df0ec7d68d5b3317201cbea4957}{}\label{lab1_8c_a5a9c9df0ec7d68d5b3317201cbea4957}
-
-
-I\+SR to increment global timer0\+Count, used for timestamps on Part 2 and 7 Also toggles an L\+ED each run. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+P\+A\+\_\+vect} & Vector for Timer0 I\+SR I\+SR to increment global timer2\+Count, used for signal generation\\
-\hline
-\end{DoxyParams}
-Uses a sub counter to get a slower rate for some of the signal generations.
-
-
-\begin{DoxyParams}{Parameters}
-{\em T\+I\+M\+E\+R2\+\_\+\+C\+O\+M\+P\+A\+\_\+vect} & Vector for Timer2 I\+SR Configures Timer0 for Parts 2 and 7 of lab, prints header for logging \\
-\hline
-\end{DoxyParams}
 \index{lab1.\+c@{lab1.\+c}!set\+Frequency\+For\+Post\+Scale@{set\+Frequency\+For\+Post\+Scale}}
 \index{set\+Frequency\+For\+Post\+Scale@{set\+Frequency\+For\+Post\+Scale}!lab1.\+c@{lab1.\+c}}
 \subsubsection[{\texorpdfstring{set\+Frequency\+For\+Post\+Scale(int Frequency)}{setFrequencyForPostScale(int Frequency)}}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Frequency\+For\+Post\+Scale (
@@ -142,7 +116,7 @@ Only handles a few frequencies\+: 1,20,100
 
 
 \begin{DoxyParams}{Parameters}
-{\em frequency} & The frequency to change to (1, 20, or 100) \\
+{\em Frequency} & The frequency to change to (1, 20, or 100) \\
 \hline
 \end{DoxyParams}
 \index{lab1.\+c@{lab1.\+c}!signal\+Generator\+Main@{signal\+Generator\+Main}}
@@ -192,3 +166,19 @@ Holds the processor until the right character is received from U\+S\+A\+RT.
 {\em c} & The character to wait for. \\
 \hline
 \end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\index{lab1.\+c@{lab1.\+c}!post\+Scale@{post\+Scale}}
+\index{post\+Scale@{post\+Scale}!lab1.\+c@{lab1.\+c}}
+\subsubsection[{\texorpdfstring{post\+Scale}{postScale}}]{\setlength{\rightskip}{0pt plus 5cm}post\+Scale}\hypertarget{lab1_8c_afef98fabb8198a8091504646fc737b98}{}\label{lab1_8c_afef98fabb8198a8091504646fc737b98}
+for dividing the I\+SR output more \index{lab1.\+c@{lab1.\+c}!timer0\+Count@{timer0\+Count}}
+\index{timer0\+Count@{timer0\+Count}!lab1.\+c@{lab1.\+c}}
+\subsubsection[{\texorpdfstring{timer0\+Count}{timer0Count}}]{\setlength{\rightskip}{0pt plus 5cm}timer0\+Count}\hypertarget{lab1_8c_a1a55eecc45df26fa3433431206058dfa}{}\label{lab1_8c_a1a55eecc45df26fa3433431206058dfa}
+counts time in 0.\+01s or 1/225 seconds (depends on active lab part) \index{lab1.\+c@{lab1.\+c}!timer2\+Count@{timer2\+Count}}
+\index{timer2\+Count@{timer2\+Count}!lab1.\+c@{lab1.\+c}}
+\subsubsection[{\texorpdfstring{timer2\+Count}{timer2Count}}]{\setlength{\rightskip}{0pt plus 5cm}timer2\+Count}\hypertarget{lab1_8c_ac7207a479c6fc0cc98924db42f5a2e78}{}\label{lab1_8c_ac7207a479c6fc0cc98924db42f5a2e78}
+counts time for outputting signals \index{lab1.\+c@{lab1.\+c}!timer2\+Count\+Sub@{timer2\+Count\+Sub}}
+\index{timer2\+Count\+Sub@{timer2\+Count\+Sub}!lab1.\+c@{lab1.\+c}}
+\subsubsection[{\texorpdfstring{timer2\+Count\+Sub}{timer2CountSub}}]{\setlength{\rightskip}{0pt plus 5cm}timer2\+Count\+Sub}\hypertarget{lab1_8c_a701f448832bffe427f070842d5b9bf48}{}\label{lab1_8c_a701f448832bffe427f070842d5b9bf48}
+another counter within the Timer2 I\+SR 
