@@ -570,7 +570,7 @@ void setPosition(float x, float y){
 
 /**
  * @brief uses a polynomial to calibrate the IR distance readings
- * @param IR distance reading in mm
+ * @param IRDist distance reading in mm
  *
  * @return calibrated IR distance in mm
  */
