@@ -20,6 +20,8 @@
 #include "include/arm.h"
 #include "include/FSM.h"
 #include "include/gripper.h"
+#include "string.h"
+#include "stdlib.h"
 
 /**
  * @brief main loop for AVR chip
@@ -65,8 +67,43 @@ int main(void) {
 //		}
 //		else
 //			count++;
-		finiteStateMachine();
-		serviceArm(); // service the arm
+//		finiteStateMachine();
+		int i = 0;
+		char input[10];
+		// wait until getting an a
+		waitForChar('a');
+//		waitForChar(' ');
+
+		// read until receiving a ,
+		input[i] = getCharDebug();
+		while (input[i] != ',') {
+			i++;
+			input[i] = getCharDebug();
+		}
+		input[i] = 0; // overright comma to 0
+		// convert string to number
+		float joint1 = atof(input);
+
+		int i2 = 0;
+		char input2[10];
+		//wait until getting a b
+		waitForChar('b');
+//		waitForChar(' ');
+		input2[i2] = getCharDebug();
+		while (input2[i2] != ',') {
+			i2++;
+			input2[i2] = getCharDebug();
+		}
+		input2[i2] = 0; // overright comma to 0
+		// convert string to number
+		float joint2 = atof(input2);
+		// set number to arm angle
+		setJointAngles(joint1,joint2);
+		serviceArm();
+//		while(!doneMoving()){
+//			serviceArm(); // service the arm
+//		}
+//		stopMotors();
 
 //		_delay_ms(100); // prevent serial spam
 
