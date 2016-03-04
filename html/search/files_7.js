@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['spi_2ec',['SPI.c',['../_s_p_i_8c.html',1,'']]]
+  ['main_2ec',['main.c',['../main_8c.html',1,'']]],
+  ['motors_2ec',['motors.c',['../motors_8c.html',1,'']]]
 ];

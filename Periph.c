@@ -77,15 +77,15 @@ signed int getAccel(int axis){
 /**
  * @brief Read an IR sensor and calculate the distance of the block.
  * @param  chan The port that the IR sensor is on.
- * @return value The distance the block is from the sensor.
+ * @return value The distance in mm the block is from the sensor.
  *
- * @todo Make a function that is able to get the ADC value of the IR sensor.
  */
 int IRDist(int chan){
 	int IRRange = -1;
 	unsigned short sensorVal = getADC(chan);
+	// sensor values above 3 are valid for linearization
 	if (sensorVal > 3){
-		IRRange = (67870 / (sensorVal - 3)) - 4;
+		IRRange = (67870 / (sensorVal - 3)) - 4; // do linearization equation
 	}
 
 	return IRRange;

@@ -16,41 +16,20 @@
 
 
 //globals
-volatile unsigned long timer0Count; // counts time in 0.01s or 1/225 seconds (depends on active lab part)
-volatile unsigned long timer2Count; // counts time for outputting signals
-volatile unsigned timer2CountSub; // another counter within the Timer2 ISR
-unsigned postScale; // for dividing the ISR output more
-
-// === ISRS ===
 /**
- * @brief ISR to increment global timer0Count, used for timestamps on Part 2 and 7
- * Also toggles an LED each run
- *
- * @param TIMER0_COMPA_vect Vector for Timer0 ISR
+ * @var timer0Count
+ * counts time in 0.01s or 1/225 seconds (depends on active lab part)
+ * @var timer2Count
+ * counts time for outputting signals
+ * @var timer2CountSub
+ * another counter within the Timer2 ISR
+ * @var postScale
+ * for dividing the ISR output more
  */
-//ISR(TIMER0_COMPA_vect) {
-//	PINBbits._P2 = 1; // toggle this pin
-//	timer0Count++;
-//}
-/**
- * @brief ISR to increment global timer2Count, used for signal generation
- *
- * Uses a sub counter to get a slower rate for some of the signal generations.
- *
- * @param TIMER2_COMPA_vect Vector for Timer2 ISR
- */
-//ISR(TIMER2_COMPA_vect){
-//	// tick up the sub counter until getting to the postScale value
-//	//if(timer2CountSub < postScale){
-//		//timer2CountSub++;
-//	//}
-//	//else{
-//		//now, increase the main counter and reset our subcounter
-//		timer2Count++;
-//		//timer2CountSub = 0;
-//	}
-
-
+volatile unsigned long timer0Count;
+volatile unsigned long timer2Count;
+volatile unsigned timer2CountSub;
+unsigned postScale;
 
 // ===== SETUPS =====
 /**
@@ -170,7 +149,7 @@ void ADCToSerialPart7(int channel) {
  *
  * @todo make more generic
  *
- * @param frequency The frequency to change to (1, 20, or 100)
+ * @param Frequency The frequency to change to (1, 20, or 100)
  */
 void setFrequencyForPostScale(int Frequency){
 	cli(); //stop interrupts
@@ -253,7 +232,9 @@ void signalGeneratorMain(int channel) {
 	}
 
 }
-
+/**
+ * @brief generates triangle waves through DAC
+ */
 void triangleSignalGengerator(){
 	int x=0;
 	while(timer2Count<4095){

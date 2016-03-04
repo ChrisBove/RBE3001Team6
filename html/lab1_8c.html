@@ -96,8 +96,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5a9c9df0ec7d68d5b3317201cbea4957"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lab1_8c.html#a5a9c9df0ec7d68d5b3317201cbea4957">initPart2and7Timer</a> ()</td></tr>
-<tr class="memdesc:a5a9c9df0ec7d68d5b3317201cbea4957"><td class="mdescLeft">&#160;</td><td class="mdescRight">ISR to increment global timer0Count, used for timestamps on Part 2 and 7 Also toggles an LED each run.  <a href="#a5a9c9df0ec7d68d5b3317201cbea4957">More...</a><br /></td></tr>
+<tr class="memitem:a5a9c9df0ec7d68d5b3317201cbea4957"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a9c9df0ec7d68d5b3317201cbea4957"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lab1_8c.html#a5a9c9df0ec7d68d5b3317201cbea4957">initPart2and7Timer</a> ()</td></tr>
+<tr class="memdesc:a5a9c9df0ec7d68d5b3317201cbea4957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures Timer0 for Parts 2 and 7 of lab, prints header for logging. <br /></td></tr>
 <tr class="separator:a5a9c9df0ec7d68d5b3317201cbea4957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a138d733c4cb50e4c15e23b2eb52b1405"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a138d733c4cb50e4c15e23b2eb52b1405"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lab1_8c.html#a138d733c4cb50e4c15e23b2eb52b1405">initSignalGeneratorTimer</a> ()</td></tr>
@@ -126,23 +127,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lab1
 <tr class="memdesc:afa75f8a12deda641e6f5dcedc7c74d0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates signals w/particular duty cycles set by pot.  <a href="#afa75f8a12deda641e6f5dcedc7c74d0e">More...</a><br /></td></tr>
 <tr class="separator:afa75f8a12deda641e6f5dcedc7c74d0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8537097a53fba5c66a96f3a3a64c32c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8537097a53fba5c66a96f3a3a64c32c5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>triangleSignalGengerator</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lab1_8c.html#a8537097a53fba5c66a96f3a3a64c32c5">triangleSignalGengerator</a> ()</td></tr>
+<tr class="memdesc:a8537097a53fba5c66a96f3a3a64c32c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">generates triangle waves through DAC <br /></td></tr>
 <tr class="separator:a8537097a53fba5c66a96f3a3a64c32c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:acaa646477a99ad529f93e5436d0b46a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acaa646477a99ad529f93e5436d0b46a7"></a>
-volatile unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>timer0Count</b></td></tr>
-<tr class="separator:acaa646477a99ad529f93e5436d0b46a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a538b110a9fec8fae6d8a27d8d262733c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a538b110a9fec8fae6d8a27d8d262733c"></a>
-volatile unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>timer2Count</b></td></tr>
-<tr class="separator:a538b110a9fec8fae6d8a27d8d262733c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b705b1981b4300606e0688bdd639187"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b705b1981b4300606e0688bdd639187"></a>
-volatile unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>timer2CountSub</b></td></tr>
-<tr class="separator:a5b705b1981b4300606e0688bdd639187"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af280a7b81b430d7105644b579f89321e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af280a7b81b430d7105644b579f89321e"></a>
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>postScale</b></td></tr>
-<tr class="separator:af280a7b81b430d7105644b579f89321e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a55eecc45df26fa3433431206058dfa"><td class="memItemLeft" align="right" valign="top">volatile unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lab1_8c.html#a1a55eecc45df26fa3433431206058dfa">timer0Count</a></td></tr>
+<tr class="separator:a1a55eecc45df26fa3433431206058dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7207a479c6fc0cc98924db42f5a2e78"><td class="memItemLeft" align="right" valign="top">volatile unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lab1_8c.html#ac7207a479c6fc0cc98924db42f5a2e78">timer2Count</a></td></tr>
+<tr class="separator:ac7207a479c6fc0cc98924db42f5a2e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a701f448832bffe427f070842d5b9bf48"><td class="memItemLeft" align="right" valign="top">volatile unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lab1_8c.html#a701f448832bffe427f070842d5b9bf48">timer2CountSub</a></td></tr>
+<tr class="separator:a701f448832bffe427f070842d5b9bf48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afef98fabb8198a8091504646fc737b98"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lab1_8c.html#afef98fabb8198a8091504646fc737b98">postScale</a></td></tr>
+<tr class="separator:afef98fabb8198a8091504646fc737b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Lab1 functions. </p>
@@ -199,36 +197,6 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>postScale</b></td
 
 </div>
 </div>
-<a class="anchor" id="a5a9c9df0ec7d68d5b3317201cbea4957"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void initPart2and7Timer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>ISR to increment global timer0Count, used for timestamps on Part 2 and 7 Also toggles an LED each run. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">TIMER0_COMPA_vect</td><td>Vector for Timer0 ISR ISR to increment global timer2Count, used for signal generation</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Uses a sub counter to get a slower rate for some of the signal generations.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">TIMER2_COMPA_vect</td><td>Vector for Timer2 ISR Configures Timer0 for Parts 2 and 7 of lab, prints header for logging </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="a2dcb6711e68dfcff6d48d6a4871589fa"></a>
 <div class="memitem">
 <div class="memproto">
@@ -248,7 +216,7 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>postScale</b></td
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>make more generic</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frequency</td><td>The frequency to change to (1, 20, or 100) </td></tr>
+    <tr><td class="paramname">Frequency</td><td>The frequency to change to (1, 20, or 100) </td></tr>
   </table>
   </dd>
 </dl>
@@ -319,6 +287,59 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>postScale</b></td
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="afef98fabb8198a8091504646fc737b98"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">postScale</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>for dividing the ISR output more </p>
+
+</div>
+</div>
+<a class="anchor" id="a1a55eecc45df26fa3433431206058dfa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">timer0Count</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>counts time in 0.01s or 1/225 seconds (depends on active lab part) </p>
+
+</div>
+</div>
+<a class="anchor" id="ac7207a479c6fc0cc98924db42f5a2e78"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">timer2Count</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>counts time for outputting signals </p>
+
+</div>
+</div>
+<a class="anchor" id="a701f448832bffe427f070842d5b9bf48"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">timer2CountSub</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>another counter within the Timer2 ISR </p>
 
 </div>
 </div>

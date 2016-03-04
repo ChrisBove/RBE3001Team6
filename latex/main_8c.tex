@@ -11,6 +11,9 @@ Main loop running on board. Runs Lab1 functions.
 {\ttfamily \#include \char`\"{}include/lab1.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}include/led.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}include/arm.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/\+F\+S\+M.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/gripper.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/\+P\+C\+\_\+\+Interface.\+h\char`\"{}}\\*
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,14 +25,14 @@ int \hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)\hypertarg
 \subsection{Detailed Description}
 Main loop running on board. Runs Lab1 functions. 
 
-This code runs a collection of Lab 1 functions to complete the lab. Some functions need to be uncommented or commented depending on which section they complete. This should be more streamlined in the future.
+This code runs initialization routines and then loops the finite state machine and arm service routines forever to complete the final project for R\+BE 3001.
 
 \begin{DoxyAuthor}{Author}
 \href{mailto:cpbove@wpi.edu}{\tt cpbove@wpi.\+edu} 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-28-\/\+Jan-\/2016 
+3-\/\+Mar-\/2016 
 \end{DoxyDate}
 \begin{DoxyVersion}{Version}
-1.\+0 
+1.\+5 
 \end{DoxyVersion}

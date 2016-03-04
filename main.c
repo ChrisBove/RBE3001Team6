@@ -2,13 +2,13 @@
  *
  * @file main.c
  *
- * This code runs a collection of Lab 1 functions to complete the lab.
- * Some functions need to be uncommented or commented depending on which
- * section they complete. This should be more streamlined in the future.
+ * This code runs initialization routines and then loops the finite state
+ * machine and arm service routines forever to complete the final project for
+ * RBE 3001.
  *
  * @author cpbove@wpi.edu
- * @date 28-Jan-2016
- * @version 1.0
+ * @date 3-Mar-2016
+ * @version 1.5
  */
 
 // includes
@@ -20,6 +20,7 @@
 #include "include/arm.h"
 #include "include/FSM.h"
 #include "include/gripper.h"
+#include "include/PC_Interface.h"
 
 /**
  * @brief main loop for AVR chip
@@ -31,45 +32,20 @@ int main(void) {
 	debugUSARTInit(OUR_BAUD_RATE); // intialize USART communications
 	printf("Starting...\n\r"); // so we know if we freeze in setup
 
-	// setup buttons on port C.
-	//setupButtons(&DDRCbits, &PORTCbits, &PINCbits, FALSE);
-
 	initSPI(); // initialize SPI communications
-	initArm(); // initialize the arm
-	stopConveyor();
-	openGripper();
-	//encInit(1);
-	//encInit(2);
-	//getAccel(0); // run once to initialize Vref
+	initArm(); // initialize the arm'
 
+	stopConveyor(); // initialize servo positions
+	openGripper();
 
 	// ==== end initializations ====
 
-	printf("I am alive... Press h to home.\n\r"); // we done setting up
-//	waitForChar('h');
-//	printf("homing...\n\r");
-	//homePos(); // home to initial pose
-	//resetEncCount(1);
-	//resetEncCount(2);
-//	printf("Done homing. Press g to continue.\n\r");
-//	waitForChar('g');
+	printf("I am alive... Looking for blocks to pickup.\n\r");
 
 	// ===== main loop ====
 	while (1) {
-		//serviceButtons(); // service the buttons for polling
-//		printf("IR: %i %i\n\r",IRDist(4),IRDist(5));
-//		static int count = 0;
-//		if (count > 200){
-//			printf("%.1f,%.1f\n\r",getJointAngle(1),getJointAngle(2));
-//			count = 0;
-//		}
-//		else
-//			count++;
-		finiteStateMachine();
-		serviceArm(); // service the arm
-
-//		_delay_ms(100); // prevent serial spam
-
+		finiteStateMachine(); // run FSM to determine what arm needs to do
+		serviceArm(); // allow arm to react to changes and service PID if needed
 	}
 	return 0;
 }

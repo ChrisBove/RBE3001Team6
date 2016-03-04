@@ -10,8 +10,14 @@
  * @version 1.0
  */
 
-int PID; // for grabbing the last PID value calculated for logging
-int lastJoint1Angle; // for getting bottom joint for calculating grav comp for top link
+/**
+ * @var PID
+ * for grabbing the last PID value calculated for logging
+ * @var lastJoint1Angle
+ * for getting bottom joint for calculating grav comp for top link
+ */
+int PID;
+int lastJoint1Angle;
 
 /**
  * @brief take absolute value of passed integer
@@ -70,6 +76,8 @@ BOOL betweenTwoVals(int value, int lower, int upper);
 /**
  * @def RADS_PER_DEGREE
  * number of radians per degree for conversions
+ * @def DEGREES_TO_RADIANS
+ * number of degrees in 1 radian
  */
 #define RADS_PER_DEGREE	0.01745
 #define DEGREES_TO_RADIANS 57.2958

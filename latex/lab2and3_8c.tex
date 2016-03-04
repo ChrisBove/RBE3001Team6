@@ -1,0 +1,180 @@
+\hypertarget{lab2and3_8c}{}\section{lab2and3.\+c File Reference}
+\label{lab2and3_8c}\index{lab2and3.\+c@{lab2and3.\+c}}
+
+
+Graveyard for old Lab 2 and 3 functions.  
+
+
+{\ttfamily \#include \char`\"{}include/lab2and3.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}R\+B\+E\+Lib/\+R\+B\+E\+Lib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/definitions.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/arm.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/button.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lab2and3_8c_aa43659f1c30dfd7d064296754a6b807b}{print\+Header\+For\+Joint\+Angle} ()\hypertarget{lab2and3_8c_aa43659f1c30dfd7d064296754a6b807b}{}\label{lab2and3_8c_aa43659f1c30dfd7d064296754a6b807b}
+
+\begin{DoxyCompactList}\small\item\em prints the header for streaming joint angles \end{DoxyCompactList}\item 
+void \hyperlink{lab2and3_8c_a7d69aa5ae8ac661f25b63f765f1c021e}{print\+Header\+For\+Logging} ()\hypertarget{lab2and3_8c_a7d69aa5ae8ac661f25b63f765f1c021e}{}\label{lab2and3_8c_a7d69aa5ae8ac661f25b63f765f1c021e}
+
+\begin{DoxyCompactList}\small\item\em prints the header for the main logging of step responses \end{DoxyCompactList}\item 
+void \hyperlink{lab2and3_8c_a6b675f984d018637e27207198700d67a}{print\+Joint\+Angle} (int joint)
+\begin{DoxyCompactList}\small\item\em prints adcval,pot mV, and joint angle of the passed joint number \end{DoxyCompactList}\item 
+void \hyperlink{lab2and3_8c_a26e0485a681535871194aa660f249566}{print\+Log\+Line\+Joint2} (int set\+Point)
+\begin{DoxyCompactList}\small\item\em prints time, setpoint, joint\+Angle, P\+ID output, and motor current \end{DoxyCompactList}\item 
+void \hyperlink{lab2and3_8c_a9b8592c4ca8d010060ba0eba48ee271b}{print\+Joint\+Angles\+And\+Pos} ()\hypertarget{lab2and3_8c_a9b8592c4ca8d010060ba0eba48ee271b}{}\label{lab2and3_8c_a9b8592c4ca8d010060ba0eba48ee271b}
+
+\begin{DoxyCompactList}\small\item\em streams joint angles in degrees and (x,y) tip positions in mm \end{DoxyCompactList}\item 
+int \hyperlink{lab2and3_8c_a7cb1fda465b1c9252f9a9950d55056eb}{convert\+Volts\+To\+D\+A\+C\+Val} (float volts)
+\begin{DoxyCompactList}\small\item\em converts a voltage value to a D\+AC value \end{DoxyCompactList}\item 
+void \hyperlink{lab2and3_8c_a281ce09c22242390324d771e37f8a59c}{control\+Arm\+With\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em changes desired joint angle of arm based on button presses for testing \end{DoxyCompactList}\item 
+void \hyperlink{lab2and3_8c_a13a06dd269ca914555e0ea20e10209d2}{control\+Position\+With\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em changes desired joint angles of arm based on button presses \end{DoxyCompactList}\item 
+void \hyperlink{lab2and3_8c_a2e543d56951209b54d4c8daa5980cca2}{control\+Joint1\+With\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em Lab3 -\/ control motor drive voltages with buttons. \end{DoxyCompactList}\item 
+void \hyperlink{lab2and3_8c_a993c1c9b0ca552bfb30e0733a6d1f72a}{draw\+Triangle\+With\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em state machine for drawing triangles. \end{DoxyCompactList}\item 
+float \hyperlink{lab2and3_8c_aa4490a12eff09b6cac2aeeecd24d23ca}{get\+Gs} (int axis)
+\begin{DoxyCompactList}\small\item\em runs get\+Accel and converts to G\textquotesingle{}s \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Graveyard for old Lab 2 and 3 functions. 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:cpbove@wpi.edu}{\tt cpbove@wpi.\+edu} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+3-\/\+Mar-\/2016 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\index{lab2and3.\+c@{lab2and3.\+c}!control\+Arm\+With\+Buttons@{control\+Arm\+With\+Buttons}}
+\index{control\+Arm\+With\+Buttons@{control\+Arm\+With\+Buttons}!lab2and3.\+c@{lab2and3.\+c}}
+\subsubsection[{\texorpdfstring{control\+Arm\+With\+Buttons()}{controlArmWithButtons()}}]{\setlength{\rightskip}{0pt plus 5cm}void control\+Arm\+With\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{lab2and3_8c_a281ce09c22242390324d771e37f8a59c}{}\label{lab2and3_8c_a281ce09c22242390324d771e37f8a59c}
+
+
+changes desired joint angle of arm based on button presses for testing 
+
+\begin{DoxyNote}{Note}
+This does not run the P\+ID control, just sets setpoint 
+\end{DoxyNote}
+\index{lab2and3.\+c@{lab2and3.\+c}!control\+Joint1\+With\+Buttons@{control\+Joint1\+With\+Buttons}}
+\index{control\+Joint1\+With\+Buttons@{control\+Joint1\+With\+Buttons}!lab2and3.\+c@{lab2and3.\+c}}
+\subsubsection[{\texorpdfstring{control\+Joint1\+With\+Buttons()}{controlJoint1WithButtons()}}]{\setlength{\rightskip}{0pt plus 5cm}void control\+Joint1\+With\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{lab2and3_8c_a2e543d56951209b54d4c8daa5980cca2}{}\label{lab2and3_8c_a2e543d56951209b54d4c8daa5980cca2}
+
+
+Lab3 -\/ control motor drive voltages with buttons. 
+
+Sets first link to 0, -\/3, +3, or plus 6 Volts button 4 sets voltage to 0 button 5 sets voltage to -\/3 button 6 sets voltage to +3 button 7 sets voltage to +6 \index{lab2and3.\+c@{lab2and3.\+c}!control\+Position\+With\+Buttons@{control\+Position\+With\+Buttons}}
+\index{control\+Position\+With\+Buttons@{control\+Position\+With\+Buttons}!lab2and3.\+c@{lab2and3.\+c}}
+\subsubsection[{\texorpdfstring{control\+Position\+With\+Buttons()}{controlPositionWithButtons()}}]{\setlength{\rightskip}{0pt plus 5cm}void control\+Position\+With\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{lab2and3_8c_a13a06dd269ca914555e0ea20e10209d2}{}\label{lab2and3_8c_a13a06dd269ca914555e0ea20e10209d2}
+
+
+changes desired joint angles of arm based on button presses 
+
+\begin{DoxyNote}{Note}
+This does not run the P\+ID control, just sets setpoint 
+\end{DoxyNote}
+\index{lab2and3.\+c@{lab2and3.\+c}!convert\+Volts\+To\+D\+A\+C\+Val@{convert\+Volts\+To\+D\+A\+C\+Val}}
+\index{convert\+Volts\+To\+D\+A\+C\+Val@{convert\+Volts\+To\+D\+A\+C\+Val}!lab2and3.\+c@{lab2and3.\+c}}
+\subsubsection[{\texorpdfstring{convert\+Volts\+To\+D\+A\+C\+Val(float volts)}{convertVoltsToDACVal(float volts)}}]{\setlength{\rightskip}{0pt plus 5cm}int convert\+Volts\+To\+D\+A\+C\+Val (
+\begin{DoxyParamCaption}
+\item[{float}]{volts}
+\end{DoxyParamCaption}
+)}\hypertarget{lab2and3_8c_a7cb1fda465b1c9252f9a9950d55056eb}{}\label{lab2and3_8c_a7cb1fda465b1c9252f9a9950d55056eb}
+
+
+converts a voltage value to a D\+AC value 
+
+
+\begin{DoxyParams}{Parameters}
+{\em volts} & to convert to D\+AC -\/7.\+2 to 7.\+2 volts\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+D\+AC value 0-\/4095 
+\end{DoxyReturn}
+\index{lab2and3.\+c@{lab2and3.\+c}!draw\+Triangle\+With\+Buttons@{draw\+Triangle\+With\+Buttons}}
+\index{draw\+Triangle\+With\+Buttons@{draw\+Triangle\+With\+Buttons}!lab2and3.\+c@{lab2and3.\+c}}
+\subsubsection[{\texorpdfstring{draw\+Triangle\+With\+Buttons()}{drawTriangleWithButtons()}}]{\setlength{\rightskip}{0pt plus 5cm}void draw\+Triangle\+With\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{lab2and3_8c_a993c1c9b0ca552bfb30e0733a6d1f72a}{}\label{lab2and3_8c_a993c1c9b0ca552bfb30e0733a6d1f72a}
+
+
+state machine for drawing triangles. 
+
+button 4 draws a prescripted triangle button 5 just moves to a pose button 6 records a motion button 7 plays back the motion \begin{DoxyNote}{Note}
+This does not run the P\+ID control, just sets setpoint 
+\end{DoxyNote}
+\index{lab2and3.\+c@{lab2and3.\+c}!get\+Gs@{get\+Gs}}
+\index{get\+Gs@{get\+Gs}!lab2and3.\+c@{lab2and3.\+c}}
+\subsubsection[{\texorpdfstring{get\+Gs(int axis)}{getGs(int axis)}}]{\setlength{\rightskip}{0pt plus 5cm}float get\+Gs (
+\begin{DoxyParamCaption}
+\item[{int}]{axis}
+\end{DoxyParamCaption}
+)}\hypertarget{lab2and3_8c_aa4490a12eff09b6cac2aeeecd24d23ca}{}\label{lab2and3_8c_aa4490a12eff09b6cac2aeeecd24d23ca}
+
+
+runs get\+Accel and converts to G\textquotesingle{}s 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & 0-\/2 for x,y,z axis to get g\textquotesingle{}s on\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/3.\+0 to 3.\+0 g\textquotesingle{}s of force 
+\end{DoxyReturn}
+\index{lab2and3.\+c@{lab2and3.\+c}!print\+Joint\+Angle@{print\+Joint\+Angle}}
+\index{print\+Joint\+Angle@{print\+Joint\+Angle}!lab2and3.\+c@{lab2and3.\+c}}
+\subsubsection[{\texorpdfstring{print\+Joint\+Angle(int joint)}{printJointAngle(int joint)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Joint\+Angle (
+\begin{DoxyParamCaption}
+\item[{int}]{joint}
+\end{DoxyParamCaption}
+)}\hypertarget{lab2and3_8c_a6b675f984d018637e27207198700d67a}{}\label{lab2and3_8c_a6b675f984d018637e27207198700d67a}
+
+
+prints adcval,pot mV, and joint angle of the passed joint number 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint} & 1 or 2 of the joint to print data for \\
+\hline
+\end{DoxyParams}
+\index{lab2and3.\+c@{lab2and3.\+c}!print\+Log\+Line\+Joint2@{print\+Log\+Line\+Joint2}}
+\index{print\+Log\+Line\+Joint2@{print\+Log\+Line\+Joint2}!lab2and3.\+c@{lab2and3.\+c}}
+\subsubsection[{\texorpdfstring{print\+Log\+Line\+Joint2(int set\+Point)}{printLogLineJoint2(int setPoint)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Log\+Line\+Joint2 (
+\begin{DoxyParamCaption}
+\item[{int}]{set\+Point}
+\end{DoxyParamCaption}
+)}\hypertarget{lab2and3_8c_a26e0485a681535871194aa660f249566}{}\label{lab2and3_8c_a26e0485a681535871194aa660f249566}
+
+
+prints time, setpoint, joint\+Angle, P\+ID output, and motor current 
+
+
+\begin{DoxyParams}{Parameters}
+{\em set\+Point} & the current command to the controller \\
+\hline
+\end{DoxyParams}
