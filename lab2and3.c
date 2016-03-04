@@ -1,6 +1,6 @@
 /** @brief Graveyard for old Lab 2 and 3 functions
  *
- * @file lab2and3.h
+ * @file lab2and3.c
  *
  *
  * @author cpbove@wpi.edu
